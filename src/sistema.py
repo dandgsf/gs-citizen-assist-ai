@@ -26,13 +26,8 @@ LARGURA = 78
 
 # ---------------------------------------------------------------- saída
 class Tela:
-    """Cuida da impressão: quebra de linha, ícones e modo simples (sem emojis)."""
+    """Cuida da impressão: quebra de linha e marcadores textuais."""
 
-    ICONES = {
-        "titulo": "⚖️ ", "direito": "✅", "fala": "🗣️ ", "passos": "👣", "prazo": "⏱️ ",
-        "reclamar": "📢", "fonte": "📚", "limite": "🔎", "aviso": "⚠️ ", "rel": "🔗",
-        "erro": "❌", "info": "ℹ️ ", "privado": "🔒",
-    }
     TEXTOS = {
         "titulo": "==", "direito": "»", "fala": "»", "passos": "»", "prazo": "»",
         "reclamar": "»", "fonte": "»", "limite": "(!)", "aviso": "(!)", "rel": "»", "erro": "(!)",
@@ -43,7 +38,7 @@ class Tela:
         self.simples = simples
 
     def i(self, chave):
-        return (self.TEXTOS if self.simples else self.ICONES)[chave]
+        return self.TEXTOS[chave]
 
     def p(self, texto="", recuo=0):
         if not texto:
@@ -274,7 +269,7 @@ def argumentos():
     ap.add_argument("--base", default=BASE_PADRAO, help="caminho do JSON da base (padrão: data/base.json)")
     ap.add_argument("--sinonimos", default=SINONIMOS_PADRAO, help="caminho do JSON de sinônimos")
     ap.add_argument("--estrategia", choices=ESTRATEGIAS, default="hibrida", help="estratégia de busca")
-    ap.add_argument("--simples", action="store_true", help="modo simples, sem emojis (terminais antigos)")
+    ap.add_argument("--simples", action="store_true", help="usa separadores simples para compatibilidade com terminais antigos")
     ap.add_argument("--explicar", action="store_true", help="mostra as notas da busca em cada resposta")
     ap.add_argument("--pergunta", help="responde uma única pergunta e encerra (modo não interativo)")
     return ap.parse_args()

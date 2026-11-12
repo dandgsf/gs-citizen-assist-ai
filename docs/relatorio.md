@@ -1,6 +1,13 @@
 # Citizen Assist AI
 ### Relatório técnico — Global Solution 2026.2 (CitizenTech · Citizen Assist AI)
-**Grupo 9** · Danilo Gustavo da Silva Fernandes (RM: preencher) · FIAP — Ciência da Computação
+**FIAP — Ciência da Computação**
+
+| Integrante | GitHub | Matrícula |
+|---|---|---|
+| Alexandre Niewelt | [@QTAlox](https://github.com/QTAlox) | RM 570614 |
+| Danilo Fernandes | [@dandgsf](https://github.com/dandgsf) | RM 570057 |
+| Renato Nascimento | [@renascience](https://github.com/renascience) | RM 570266 |
+| Renato Valle | [@renatolvalle](https://github.com/renatolvalle) | RM 572352 |
 
 ---
 
@@ -41,9 +48,9 @@ Estruturas de dados: dicionário `id → registro`; hierarquia `tema → [ids]`;
 
 ## 5. Fontes e base de conhecimento
 
-23 registros em 5 temas, todos com norma oficial, link e data de verificação (11/11/2026). Fontes principais: Código de Defesa do Consumidor (arts. 18, 26, 30, 35, 39, 42, 43, 49); Lei 10.962/2004 e Lei 13.455/2017 (preços); Decreto 7.962/2013 (comércio eletrônico); Lei 10.048/2000 (atendimento prioritário); Lei 12.933/2013 e Estatuto da Pessoa Idosa, arts. 23 e 40 (meia-entrada e transporte); Resolução Normativa ANEEL 1.000/2021 (corte de energia); Resolução Anatel 765/2023 (cancelamento); regulamento do Pix — MED (Banco Central); Resolução ANAC 400/2016, alterada pela 813/2026 (atraso de voo); Súmulas 359, 532 e 548 do STJ; orientações do Idec e dos Procons.
+23 registros em 5 temas, com referência, link e data cadastrada de verificação (11/11/2026). A base reúne referências ao Código de Defesa do Consumidor, leis, resoluções de agências, regulamento do Pix, súmulas e orientações de entidades de defesa do consumidor. O cadastro dessas referências não comprova a revisão humana do conteúdo.
 
-**Verificação de atualidade:** a pesquisa encontrou uma mudança recente. Desde 26/10/2026 (Resolução ANAC 813/2026), a companhia aérea não é mais obrigada a oferecer "facilidades de comunicação" após 1 hora de atraso. O registro DB22 já traz a regra nova. Um assistente baseado só em IA generativa treinada antes disso daria a regra antiga.
+**Atualidade:** as fontes precisam de revisão humana contra as páginas oficiais. O aviso de idade do registro ajuda a organizar essa revisão, mas não verifica alterações nas normas nem a fidelidade das orientações.
 
 A base é editável sem alterar o código. A leitura valida campos obrigatórios, formato de data, temas, ids repetidos e relacionados inexistentes, e avisa quando um registro passa de 180 dias sem verificação.
 
@@ -51,7 +58,7 @@ A base é editável sem alterar o código. A leitura valida campos obrigatórios
 
 **Busca.** Três estratégias implementadas e comparadas: (1) **palavras-chave e frases-chave**, com penalidade para palavras sem correspondência; (2) **TF-IDF com similaridade do cosseno** em Python puro, em que palavras desconhecidas recebem o peso máximo de IDF para não inflar notas; (3) **híbrida** (média). Para **múltiplas correspondências**, se o 2º colocado tiver pelo menos 85% da nota do 1º, ou se a pergunta for uma única palavra presente em vários registros, o sistema mostra até 3 opções e pergunta qual é. Os limiares foram **calibrados** no conjunto de teste, no ponto médio entre a menor nota correta e a maior nota de perguntas sem resposta.
 
-**Prompts.** Modelo A (direto, sem base) × Modelo B (ancorado no registro recuperado, regras de recusa e saída JSON), em uma **cadeia** de 3 etapas: classificar (busca) → redigir (prompt B) → validar. A validação mostra a saída da IA somente se o JSON for válido **e** `status = ok` **e** fonte e data forem idênticas às do registro. Pela Lei de De Morgan, basta uma condição falhar para descartar a IA e exibir o texto original da base. O validador tem 5 testes automáticos. Detalhes e tabela de execução em `docs/prompts.md`.
+**Prompts.** Modelo A (direto, sem base) × Modelo B (ancorado no registro recuperado, regras de recusa e saída JSON), em uma **cadeia proposta** de 3 etapas: classificar → redigir → validar. O programa não chama IA generativa. O gerador de prompts e o validador existem separadamente: o validador aceita a saída somente se o JSON for válido, `status = ok` e fonte e data coincidirem com o registro. Essas verificações não comprovam fidelidade semântica. Há 5 testes do validador; a comparação experimental dos modelos permanece sem resultados registrados. Detalhes em [Estratégias de prompt](prompts.md).
 
 **Lógica booleana.** Três situações têm checagem "isso vale para mim?" com respostas sim/não/não sei (lógica de Kleene). Regras `todas` (E) e `alguma` (OU). Quando o resultado é negativo, De Morgan identifica qual condição falhou.
 
@@ -91,9 +98,9 @@ Plano: **40 perguntas de teste** (12 diretas, 16 reformulações informais, 5 fo
 2. **Regras locais:** fila de banco, consumação mínima em algumas leis estaduais e gratuidades municipais variam por cidade e estado e não são detalhadas.
 3. **Busca por palavras:** o radical por prefixo e a lista de sinônimos não entendem sentido. Perguntas com vocabulário novo caem em "sem resposta" (validação: 73,3%).
 4. **Erro perigoso residual:** assunto parecido com outro setor (academia × telecom). *Melhoria:* checagem de "entidade" (quem é o fornecedor) antes de responder.
-5. **Atualização das fontes:** normas mudam (ex.: ANAC 2026). *Melhoria:* revisão periódica guiada pelo aviso de 180 dias.
+5. **Atualização das fontes:** as normas e orientações precisam de revisão humana. *Melhoria:* revisão periódica guiada pelo aviso de 180 dias.
 6. *Melhoria de alcance:* levar o mesmo núcleo ao **WhatsApp**, canal usado por pessoas de todas as idades.
 
 ## 10. Impacto social
 
-Cada situação da base é um problema frequente e de baixo valor individual, mas de alto valor somado: é justamente o tipo de prejuízo que a pessoa "deixa pra lá" por não saber o que fazer na hora. O Citizen Assist AI reduz essa assimetria de informação (ODS 10), aproxima o cidadão dos canais oficiais de reclamação (ODS 16) e cobre serviços urbanos essenciais (ODS 11), sem coletar dados pessoais e sem custo para o usuário. A frase pronta muda o comportamento no momento decisivo: de "deixa pra lá" para "a lei diz que…".
+O Citizen Assist AI busca facilitar o acesso à informação de consumo (ODS 10), aos canais oficiais de reclamação (conexão complementar com ODS 16) e a orientações sobre serviços urbanos essenciais (ODS 11). A frase pronta pretende ajudar a pessoa a comunicar sua solicitação. Esse impacto ainda precisa ser avaliado com usuários; o formulário de usabilidade não contém resultados.

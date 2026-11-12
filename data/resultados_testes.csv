@@ -1,166 +1,166 @@
 conjunto,estrategia,id,categoria,pergunta,esperado,obtido,acerto,tempo_ms
-teste,palavras,T01,direta,O preço da prateleira é diferente do preço no caixa,DB01,DB01,acerto,0.046
-teste,palavras,T02,direta,A loja pode cobrar mais caro no cartão de crédito?,DB02,DB02,acerto,0.041
-teste,palavras,T03,direta,Comprei uma geladeira e ela veio com defeito,DB03,DB03,acerto,0.036
-teste,palavras,T04,direta,"Me arrependi de uma compra pela internet, posso devolver?",DB07,DB07,acerto,0.037
-teste,palavras,T05,direta,Sou obrigado a pagar a taxa de serviço de 10%?,DB10,DB10,acerto,0.035
-teste,palavras,T06,direta,"O bar cobra consumação mínima, pode?",DB11,DB11,acerto,0.033
-teste,palavras,T07,direta,"Caí em um golpe no Pix, como recupero o dinheiro?",DB15,DB15,acerto,0.040
-teste,palavras,T08,direta,Meu nome foi negativado no Serasa sem aviso,DB18,DB18,acerto,0.034
-teste,palavras,T09,direta,Como cancelar a internet da operadora?,DB20,DB20,acerto,0.031
+teste,palavras,T01,direta,O preço da prateleira é diferente do preço no caixa,DB01,DB01,acerto,0.058
+teste,palavras,T02,direta,A loja pode cobrar mais caro no cartão de crédito?,DB02,DB02,acerto,0.050
+teste,palavras,T03,direta,Comprei uma geladeira e ela veio com defeito,DB03,DB03,acerto,0.044
+teste,palavras,T04,direta,"Me arrependi de uma compra pela internet, posso devolver?",DB07,DB07,acerto,0.045
+teste,palavras,T05,direta,Sou obrigado a pagar a taxa de serviço de 10%?,DB10,DB10,acerto,0.042
+teste,palavras,T06,direta,"O bar cobra consumação mínima, pode?",DB11,DB11,acerto,0.032
+teste,palavras,T07,direta,"Caí em um golpe no Pix, como recupero o dinheiro?",DB15,DB15,acerto,0.039
+teste,palavras,T08,direta,Meu nome foi negativado no Serasa sem aviso,DB18,DB18,acerto,0.044
+teste,palavras,T09,direta,Como cancelar a internet da operadora?,DB20,DB20,acerto,0.036
 teste,palavras,T10,direta,"Meu voo foi cancelado, tenho direito a hotel?",DB22,DB22,acerto,0.033
 teste,palavras,T11,direta,Quem tem direito a meia-entrada no cinema?,DB14,DB14,acerto,0.031
-teste,palavras,T12,direta,Idoso tem passagem de ônibus interestadual gratuita?,DB23,DB23,acerto,0.037
+teste,palavras,T12,direta,Idoso tem passagem de ônibus interestadual gratuita?,DB23,DB23,acerto,0.039
 teste,palavras,T13,reformulacao,passaram as compras e o arroz deu mais caro do que tava na gondola,DB01,DB01,acerto,0.041
-teste,palavras,T14,reformulacao,o tênis que eu comprei rasgou e a loja falou pra eu me virar com a fábrica,DB03,DB03,acerto,0.044
-teste,palavras,T15,reformulacao,"ganhei uma blusa de presente mas ficou apertada, a loja tem que trocar?",DB04,DB04,acerto,0.041
-teste,palavras,T16,reformulacao,o vendedor disse que o celular só sai se eu levar a garantia estendida junto,DB05,DB05,acerto,0.045
-teste,palavras,T17,reformulacao,to gravida e o banco nao quis me atender na fila preferencial,DB06,DB06,acerto,0.045
-teste,palavras,T18,reformulacao,fiz um pedido no app faz 20 dias e até agora nada de chegar,DB08,AMBIGUA,erro,0.041
-teste,palavras,T19,reformulacao,chegou um cartão de crédito em casa que eu nunca pedi,DB09,DB09,acerto,0.040
-teste,palavras,T20,reformulacao,o garçom botou os dez por cento sem me perguntar,DB10,DB10,acerto,0.038
-teste,palavras,T21,reformulacao,sumiu meu cartão de consumo na balada e querem me cobrar 300 reais,DB12,DB12,acerto,0.043
-teste,palavras,T22,reformulacao,trouxeram pãozinho e manteiga na mesa sem eu pedir e cobraram,DB13,DB13,acerto,0.041
-teste,palavras,T23,reformulacao,mandei dinheiro pro golpista que se passou pelo meu filho no zap,DB15,DB15,acerto,0.040
-teste,palavras,T24,reformulacao,a empresa me cobrou duas vezes a mesma fatura e eu paguei as duas,DB16,DB16,acerto,0.041
-teste,palavras,T25,reformulacao,a assessoria de cobrança liga pros meus colegas de trabalho falando da minha dívida,DB17,DB17,acerto,0.047
+teste,palavras,T14,reformulacao,o tênis que eu comprei rasgou e a loja falou pra eu me virar com a fábrica,DB03,DB03,acerto,0.045
+teste,palavras,T15,reformulacao,"ganhei uma blusa de presente mas ficou apertada, a loja tem que trocar?",DB04,DB04,acerto,0.042
+teste,palavras,T16,reformulacao,o vendedor disse que o celular só sai se eu levar a garantia estendida junto,DB05,DB05,acerto,0.058
+teste,palavras,T17,reformulacao,to gravida e o banco nao quis me atender na fila preferencial,DB06,DB06,acerto,0.041
+teste,palavras,T18,reformulacao,fiz um pedido no app faz 20 dias e até agora nada de chegar,DB08,AMBIGUA,erro,0.060
+teste,palavras,T19,reformulacao,chegou um cartão de crédito em casa que eu nunca pedi,DB09,DB09,acerto,0.067
+teste,palavras,T20,reformulacao,o garçom botou os dez por cento sem me perguntar,DB10,DB10,acerto,0.057
+teste,palavras,T21,reformulacao,sumiu meu cartão de consumo na balada e querem me cobrar 300 reais,DB12,DB12,acerto,0.070
+teste,palavras,T22,reformulacao,trouxeram pãozinho e manteiga na mesa sem eu pedir e cobraram,DB13,DB13,acerto,0.052
+teste,palavras,T23,reformulacao,mandei dinheiro pro golpista que se passou pelo meu filho no zap,DB15,DB15,acerto,0.053
+teste,palavras,T24,reformulacao,a empresa me cobrou duas vezes a mesma fatura e eu paguei as duas,DB16,DB16,acerto,0.050
+teste,palavras,T25,reformulacao,a assessoria de cobrança liga pros meus colegas de trabalho falando da minha dívida,DB17,DB17,acerto,0.051
 teste,palavras,T26,reformulacao,a enel cortou a energia lá de casa num sábado,DB19,DB19,acerto,0.037
-teste,palavras,T27,reformulacao,não aguento mais o banco me ligando pra oferecer consignado,DB21,DB21,acerto,0.040
-teste,palavras,T28,reformulacao,"meu pai tem 63 anos e quer visitar a irmã em outro estado de ônibus, ele paga?",DB23,DB23,acerto,0.047
-teste,palavras,T29,fora_do_tema,"Fui demitido, quanto recebo de FGTS?",SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.033
-teste,palavras,T30,fora_do_tema,Como faço para pedir pensão alimentícia?,SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.032
-teste,palavras,T31,fora_do_tema,Qual a receita de bolo de cenoura?,SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.007
-teste,palavras,T32,fora_do_tema,Quem ganhou o jogo do Corinthians ontem?,SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.031
-teste,palavras,T33,fora_do_tema,O dono do apartamento não devolveu o caução do aluguel,SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.040
+teste,palavras,T27,reformulacao,não aguento mais o banco me ligando pra oferecer consignado,DB21,DB21,acerto,0.041
+teste,palavras,T28,reformulacao,"meu pai tem 63 anos e quer visitar a irmã em outro estado de ônibus, ele paga?",DB23,DB23,acerto,0.048
+teste,palavras,T29,fora_do_tema,"Fui demitido, quanto recebo de FGTS?",SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.040
+teste,palavras,T30,fora_do_tema,Como faço para pedir pensão alimentícia?,SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.064
+teste,palavras,T31,fora_do_tema,Qual a receita de bolo de cenoura?,SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.008
+teste,palavras,T32,fora_do_tema,Quem ganhou o jogo do Corinthians ontem?,SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.046
+teste,palavras,T33,fora_do_tema,O dono do apartamento não devolveu o caução do aluguel,SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.047
 teste,palavras,T34,limite_vazia,,VAZIA,VAZIA,acerto,0.001
 teste,palavras,T35,limite_vazia,     ,VAZIA,VAZIA,acerto,0.000
 teste,palavras,T36,limite_invalida,?!?! ...,INVALIDA,INVALIDA,acerto,0.002
-teste,palavras,T37,limite_ambigua,cobrança,AMBIGUA,AMBIGUA,acerto,0.026
-teste,palavras,T38,limite_ambigua,quero cancelar,AMBIGUA,AMBIGUA,acerto,0.025
-teste,palavras,T39,limite_sem_resposta,a loja não quis me dar nota fiscal,SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.035
-teste,palavras,T40,limite_sem_resposta,o mercado não aceita cheque,SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.030
-teste,tfidf,T01,direta,O preço da prateleira é diferente do preço no caixa,DB01,DB01,acerto,0.078
-teste,tfidf,T02,direta,A loja pode cobrar mais caro no cartão de crédito?,DB02,DB02,acerto,0.074
-teste,tfidf,T03,direta,Comprei uma geladeira e ela veio com defeito,DB03,DB03,acerto,0.070
-teste,tfidf,T04,direta,"Me arrependi de uma compra pela internet, posso devolver?",DB07,DB07,acerto,0.072
-teste,tfidf,T05,direta,Sou obrigado a pagar a taxa de serviço de 10%?,DB10,DB10,acerto,0.071
-teste,tfidf,T06,direta,"O bar cobra consumação mínima, pode?",DB11,DB11,acerto,0.080
-teste,tfidf,T07,direta,"Caí em um golpe no Pix, como recupero o dinheiro?",DB15,DB15,acerto,0.100
-teste,tfidf,T08,direta,Meu nome foi negativado no Serasa sem aviso,DB18,DB18,acerto,0.101
-teste,tfidf,T09,direta,Como cancelar a internet da operadora?,DB20,DB20,acerto,0.089
-teste,tfidf,T10,direta,"Meu voo foi cancelado, tenho direito a hotel?",DB22,DB22,acerto,0.085
-teste,tfidf,T11,direta,Quem tem direito a meia-entrada no cinema?,DB14,DB14,acerto,0.075
-teste,tfidf,T12,direta,Idoso tem passagem de ônibus interestadual gratuita?,DB23,DB23,acerto,0.076
-teste,tfidf,T13,reformulacao,passaram as compras e o arroz deu mais caro do que tava na gondola,DB01,DB01,acerto,0.083
-teste,tfidf,T14,reformulacao,o tênis que eu comprei rasgou e a loja falou pra eu me virar com a fábrica,DB03,DB03,acerto,0.091
-teste,tfidf,T15,reformulacao,"ganhei uma blusa de presente mas ficou apertada, a loja tem que trocar?",DB04,DB04,acerto,0.089
-teste,tfidf,T16,reformulacao,o vendedor disse que o celular só sai se eu levar a garantia estendida junto,DB05,DB05,acerto,0.095
-teste,tfidf,T17,reformulacao,to gravida e o banco nao quis me atender na fila preferencial,DB06,DB06,acerto,0.087
-teste,tfidf,T18,reformulacao,fiz um pedido no app faz 20 dias e até agora nada de chegar,DB08,DB08,acerto,0.078
-teste,tfidf,T19,reformulacao,chegou um cartão de crédito em casa que eu nunca pedi,DB09,AMBIGUA,erro,0.080
-teste,tfidf,T20,reformulacao,o garçom botou os dez por cento sem me perguntar,DB10,DB10,acerto,0.082
-teste,tfidf,T21,reformulacao,sumiu meu cartão de consumo na balada e querem me cobrar 300 reais,DB12,AMBIGUA,erro,0.092
-teste,tfidf,T22,reformulacao,trouxeram pãozinho e manteiga na mesa sem eu pedir e cobraram,DB13,DB13,acerto,0.085
-teste,tfidf,T23,reformulacao,mandei dinheiro pro golpista que se passou pelo meu filho no zap,DB15,DB15,acerto,0.082
-teste,tfidf,T24,reformulacao,a empresa me cobrou duas vezes a mesma fatura e eu paguei as duas,DB16,DB16,acerto,0.087
-teste,tfidf,T25,reformulacao,a assessoria de cobrança liga pros meus colegas de trabalho falando da minha dívida,DB17,DB17,acerto,0.095
-teste,tfidf,T26,reformulacao,a enel cortou a energia lá de casa num sábado,DB19,DB19,acerto,0.081
-teste,tfidf,T27,reformulacao,não aguento mais o banco me ligando pra oferecer consignado,DB21,DB21,acerto,0.084
-teste,tfidf,T28,reformulacao,"meu pai tem 63 anos e quer visitar a irmã em outro estado de ônibus, ele paga?",DB23,DB23,acerto,0.104
-teste,tfidf,T29,fora_do_tema,"Fui demitido, quanto recebo de FGTS?",SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.072
-teste,tfidf,T30,fora_do_tema,Como faço para pedir pensão alimentícia?,SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.065
-teste,tfidf,T31,fora_do_tema,Qual a receita de bolo de cenoura?,SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.007
-teste,tfidf,T32,fora_do_tema,Quem ganhou o jogo do Corinthians ontem?,SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.065
-teste,tfidf,T33,fora_do_tema,O dono do apartamento não devolveu o caução do aluguel,SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.084
+teste,palavras,T37,limite_ambigua,cobrança,AMBIGUA,AMBIGUA,acerto,0.031
+teste,palavras,T38,limite_ambigua,quero cancelar,AMBIGUA,AMBIGUA,acerto,0.033
+teste,palavras,T39,limite_sem_resposta,a loja não quis me dar nota fiscal,SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.045
+teste,palavras,T40,limite_sem_resposta,o mercado não aceita cheque,SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.041
+teste,tfidf,T01,direta,O preço da prateleira é diferente do preço no caixa,DB01,DB01,acerto,0.092
+teste,tfidf,T02,direta,A loja pode cobrar mais caro no cartão de crédito?,DB02,DB02,acerto,0.078
+teste,tfidf,T03,direta,Comprei uma geladeira e ela veio com defeito,DB03,DB03,acerto,0.073
+teste,tfidf,T04,direta,"Me arrependi de uma compra pela internet, posso devolver?",DB07,DB07,acerto,0.075
+teste,tfidf,T05,direta,Sou obrigado a pagar a taxa de serviço de 10%?,DB10,DB10,acerto,0.085
+teste,tfidf,T06,direta,"O bar cobra consumação mínima, pode?",DB11,DB11,acerto,0.094
+teste,tfidf,T07,direta,"Caí em um golpe no Pix, como recupero o dinheiro?",DB15,DB15,acerto,0.111
+teste,tfidf,T08,direta,Meu nome foi negativado no Serasa sem aviso,DB18,DB18,acerto,0.085
+teste,tfidf,T09,direta,Como cancelar a internet da operadora?,DB20,DB20,acerto,0.068
+teste,tfidf,T10,direta,"Meu voo foi cancelado, tenho direito a hotel?",DB22,DB22,acerto,0.070
+teste,tfidf,T11,direta,Quem tem direito a meia-entrada no cinema?,DB14,DB14,acerto,0.067
+teste,tfidf,T12,direta,Idoso tem passagem de ônibus interestadual gratuita?,DB23,DB23,acerto,0.082
+teste,tfidf,T13,reformulacao,passaram as compras e o arroz deu mais caro do que tava na gondola,DB01,DB01,acerto,0.090
+teste,tfidf,T14,reformulacao,o tênis que eu comprei rasgou e a loja falou pra eu me virar com a fábrica,DB03,DB03,acerto,0.103
+teste,tfidf,T15,reformulacao,"ganhei uma blusa de presente mas ficou apertada, a loja tem que trocar?",DB04,DB04,acerto,0.095
+teste,tfidf,T16,reformulacao,o vendedor disse que o celular só sai se eu levar a garantia estendida junto,DB05,DB05,acerto,0.114
+teste,tfidf,T17,reformulacao,to gravida e o banco nao quis me atender na fila preferencial,DB06,DB06,acerto,0.095
+teste,tfidf,T18,reformulacao,fiz um pedido no app faz 20 dias e até agora nada de chegar,DB08,DB08,acerto,0.085
+teste,tfidf,T19,reformulacao,chegou um cartão de crédito em casa que eu nunca pedi,DB09,AMBIGUA,erro,0.085
+teste,tfidf,T20,reformulacao,o garçom botou os dez por cento sem me perguntar,DB10,DB10,acerto,0.096
+teste,tfidf,T21,reformulacao,sumiu meu cartão de consumo na balada e querem me cobrar 300 reais,DB12,AMBIGUA,erro,0.099
+teste,tfidf,T22,reformulacao,trouxeram pãozinho e manteiga na mesa sem eu pedir e cobraram,DB13,DB13,acerto,0.091
+teste,tfidf,T23,reformulacao,mandei dinheiro pro golpista que se passou pelo meu filho no zap,DB15,DB15,acerto,0.107
+teste,tfidf,T24,reformulacao,a empresa me cobrou duas vezes a mesma fatura e eu paguei as duas,DB16,DB16,acerto,0.109
+teste,tfidf,T25,reformulacao,a assessoria de cobrança liga pros meus colegas de trabalho falando da minha dívida,DB17,DB17,acerto,0.103
+teste,tfidf,T26,reformulacao,a enel cortou a energia lá de casa num sábado,DB19,DB19,acerto,0.086
+teste,tfidf,T27,reformulacao,não aguento mais o banco me ligando pra oferecer consignado,DB21,DB21,acerto,0.088
+teste,tfidf,T28,reformulacao,"meu pai tem 63 anos e quer visitar a irmã em outro estado de ônibus, ele paga?",DB23,DB23,acerto,0.111
+teste,tfidf,T29,fora_do_tema,"Fui demitido, quanto recebo de FGTS?",SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.075
+teste,tfidf,T30,fora_do_tema,Como faço para pedir pensão alimentícia?,SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.170
+teste,tfidf,T31,fora_do_tema,Qual a receita de bolo de cenoura?,SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.015
+teste,tfidf,T32,fora_do_tema,Quem ganhou o jogo do Corinthians ontem?,SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.101
+teste,tfidf,T33,fora_do_tema,O dono do apartamento não devolveu o caução do aluguel,SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.113
 teste,tfidf,T34,limite_vazia,,VAZIA,VAZIA,acerto,0.000
 teste,tfidf,T35,limite_vazia,     ,VAZIA,VAZIA,acerto,0.000
-teste,tfidf,T36,limite_invalida,?!?! ...,INVALIDA,INVALIDA,acerto,0.001
-teste,tfidf,T37,limite_ambigua,cobrança,AMBIGUA,AMBIGUA,acerto,0.053
-teste,tfidf,T38,limite_ambigua,quero cancelar,AMBIGUA,AMBIGUA,acerto,0.052
-teste,tfidf,T39,limite_sem_resposta,a loja não quis me dar nota fiscal,SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.079
-teste,tfidf,T40,limite_sem_resposta,o mercado não aceita cheque,SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.068
-teste,hibrida,T01,direta,O preço da prateleira é diferente do preço no caixa,DB01,DB01,acerto,0.091
-teste,hibrida,T02,direta,A loja pode cobrar mais caro no cartão de crédito?,DB02,DB02,acerto,0.091
-teste,hibrida,T03,direta,Comprei uma geladeira e ela veio com defeito,DB03,DB03,acerto,0.085
-teste,hibrida,T04,direta,"Me arrependi de uma compra pela internet, posso devolver?",DB07,DB07,acerto,0.088
-teste,hibrida,T05,direta,Sou obrigado a pagar a taxa de serviço de 10%?,DB10,DB10,acerto,0.087
-teste,hibrida,T06,direta,"O bar cobra consumação mínima, pode?",DB11,DB11,acerto,0.085
-teste,hibrida,T07,direta,"Caí em um golpe no Pix, como recupero o dinheiro?",DB15,DB15,acerto,0.094
-teste,hibrida,T08,direta,Meu nome foi negativado no Serasa sem aviso,DB18,DB18,acerto,0.086
-teste,hibrida,T09,direta,Como cancelar a internet da operadora?,DB20,DB20,acerto,0.080
-teste,hibrida,T10,direta,"Meu voo foi cancelado, tenho direito a hotel?",DB22,DB22,acerto,0.110
-teste,hibrida,T11,direta,Quem tem direito a meia-entrada no cinema?,DB14,DB14,acerto,0.083
-teste,hibrida,T12,direta,Idoso tem passagem de ônibus interestadual gratuita?,DB23,DB23,acerto,0.094
-teste,hibrida,T13,reformulacao,passaram as compras e o arroz deu mais caro do que tava na gondola,DB01,DB01,acerto,0.103
+teste,tfidf,T36,limite_invalida,?!?! ...,INVALIDA,INVALIDA,acerto,0.002
+teste,tfidf,T37,limite_ambigua,cobrança,AMBIGUA,AMBIGUA,acerto,0.059
+teste,tfidf,T38,limite_ambigua,quero cancelar,AMBIGUA,AMBIGUA,acerto,0.055
+teste,tfidf,T39,limite_sem_resposta,a loja não quis me dar nota fiscal,SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.083
+teste,tfidf,T40,limite_sem_resposta,o mercado não aceita cheque,SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.073
+teste,hibrida,T01,direta,O preço da prateleira é diferente do preço no caixa,DB01,DB01,acerto,0.095
+teste,hibrida,T02,direta,A loja pode cobrar mais caro no cartão de crédito?,DB02,DB02,acerto,0.094
+teste,hibrida,T03,direta,Comprei uma geladeira e ela veio com defeito,DB03,DB03,acerto,0.088
+teste,hibrida,T04,direta,"Me arrependi de uma compra pela internet, posso devolver?",DB07,DB07,acerto,0.089
+teste,hibrida,T05,direta,Sou obrigado a pagar a taxa de serviço de 10%?,DB10,DB10,acerto,0.105
+teste,hibrida,T06,direta,"O bar cobra consumação mínima, pode?",DB11,DB11,acerto,0.090
+teste,hibrida,T07,direta,"Caí em um golpe no Pix, como recupero o dinheiro?",DB15,DB15,acerto,0.099
+teste,hibrida,T08,direta,Meu nome foi negativado no Serasa sem aviso,DB18,DB18,acerto,0.093
+teste,hibrida,T09,direta,Como cancelar a internet da operadora?,DB20,DB20,acerto,0.084
+teste,hibrida,T10,direta,"Meu voo foi cancelado, tenho direito a hotel?",DB22,DB22,acerto,0.083
+teste,hibrida,T11,direta,Quem tem direito a meia-entrada no cinema?,DB14,DB14,acerto,0.082
+teste,hibrida,T12,direta,Idoso tem passagem de ônibus interestadual gratuita?,DB23,DB23,acerto,0.096
+teste,hibrida,T13,reformulacao,passaram as compras e o arroz deu mais caro do que tava na gondola,DB01,DB01,acerto,0.105
 teste,hibrida,T14,reformulacao,o tênis que eu comprei rasgou e a loja falou pra eu me virar com a fábrica,DB03,DB03,acerto,0.112
-teste,hibrida,T15,reformulacao,"ganhei uma blusa de presente mas ficou apertada, a loja tem que trocar?",DB04,DB04,acerto,0.108
-teste,hibrida,T16,reformulacao,o vendedor disse que o celular só sai se eu levar a garantia estendida junto,DB05,DB05,acerto,0.115
+teste,hibrida,T15,reformulacao,"ganhei uma blusa de presente mas ficou apertada, a loja tem que trocar?",DB04,DB04,acerto,0.111
+teste,hibrida,T16,reformulacao,o vendedor disse que o celular só sai se eu levar a garantia estendida junto,DB05,DB05,acerto,0.120
 teste,hibrida,T17,reformulacao,to gravida e o banco nao quis me atender na fila preferencial,DB06,DB06,acerto,0.108
-teste,hibrida,T18,reformulacao,fiz um pedido no app faz 20 dias e até agora nada de chegar,DB08,AMBIGUA,erro,0.097
-teste,hibrida,T19,reformulacao,chegou um cartão de crédito em casa que eu nunca pedi,DB09,DB09,acerto,0.097
-teste,hibrida,T20,reformulacao,o garçom botou os dez por cento sem me perguntar,DB10,DB10,acerto,0.100
-teste,hibrida,T21,reformulacao,sumiu meu cartão de consumo na balada e querem me cobrar 300 reais,DB12,DB12,acerto,0.113
-teste,hibrida,T22,reformulacao,trouxeram pãozinho e manteiga na mesa sem eu pedir e cobraram,DB13,DB13,acerto,0.103
-teste,hibrida,T23,reformulacao,mandei dinheiro pro golpista que se passou pelo meu filho no zap,DB15,DB15,acerto,0.101
-teste,hibrida,T24,reformulacao,a empresa me cobrou duas vezes a mesma fatura e eu paguei as duas,DB16,DB16,acerto,0.109
-teste,hibrida,T25,reformulacao,a assessoria de cobrança liga pros meus colegas de trabalho falando da minha dívida,DB17,DB17,acerto,0.116
-teste,hibrida,T26,reformulacao,a enel cortou a energia lá de casa num sábado,DB19,DB19,acerto,0.099
-teste,hibrida,T27,reformulacao,não aguento mais o banco me ligando pra oferecer consignado,DB21,DB21,acerto,0.101
-teste,hibrida,T28,reformulacao,"meu pai tem 63 anos e quer visitar a irmã em outro estado de ônibus, ele paga?",DB23,DB23,acerto,0.124
-teste,hibrida,T29,fora_do_tema,"Fui demitido, quanto recebo de FGTS?",SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.090
-teste,hibrida,T30,fora_do_tema,Como faço para pedir pensão alimentícia?,SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.080
+teste,hibrida,T18,reformulacao,fiz um pedido no app faz 20 dias e até agora nada de chegar,DB08,AMBIGUA,erro,0.099
+teste,hibrida,T19,reformulacao,chegou um cartão de crédito em casa que eu nunca pedi,DB09,DB09,acerto,0.103
+teste,hibrida,T20,reformulacao,o garçom botou os dez por cento sem me perguntar,DB10,DB10,acerto,0.138
+teste,hibrida,T21,reformulacao,sumiu meu cartão de consumo na balada e querem me cobrar 300 reais,DB12,DB12,acerto,0.172
+teste,hibrida,T22,reformulacao,trouxeram pãozinho e manteiga na mesa sem eu pedir e cobraram,DB13,DB13,acerto,0.177
+teste,hibrida,T23,reformulacao,mandei dinheiro pro golpista que se passou pelo meu filho no zap,DB15,DB15,acerto,0.122
+teste,hibrida,T24,reformulacao,a empresa me cobrou duas vezes a mesma fatura e eu paguei as duas,DB16,DB16,acerto,0.111
+teste,hibrida,T25,reformulacao,a assessoria de cobrança liga pros meus colegas de trabalho falando da minha dívida,DB17,DB17,acerto,0.121
+teste,hibrida,T26,reformulacao,a enel cortou a energia lá de casa num sábado,DB19,DB19,acerto,0.103
+teste,hibrida,T27,reformulacao,não aguento mais o banco me ligando pra oferecer consignado,DB21,DB21,acerto,0.107
+teste,hibrida,T28,reformulacao,"meu pai tem 63 anos e quer visitar a irmã em outro estado de ônibus, ele paga?",DB23,DB23,acerto,0.131
+teste,hibrida,T29,fora_do_tema,"Fui demitido, quanto recebo de FGTS?",SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.093
+teste,hibrida,T30,fora_do_tema,Como faço para pedir pensão alimentícia?,SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.084
 teste,hibrida,T31,fora_do_tema,Qual a receita de bolo de cenoura?,SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.007
-teste,hibrida,T32,fora_do_tema,Quem ganhou o jogo do Corinthians ontem?,SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.079
-teste,hibrida,T33,fora_do_tema,O dono do apartamento não devolveu o caução do aluguel,SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.102
+teste,hibrida,T32,fora_do_tema,Quem ganhou o jogo do Corinthians ontem?,SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.082
+teste,hibrida,T33,fora_do_tema,O dono do apartamento não devolveu o caução do aluguel,SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.106
 teste,hibrida,T34,limite_vazia,,VAZIA,VAZIA,acerto,0.000
 teste,hibrida,T35,limite_vazia,     ,VAZIA,VAZIA,acerto,0.000
 teste,hibrida,T36,limite_invalida,?!?! ...,INVALIDA,INVALIDA,acerto,0.001
-teste,hibrida,T37,limite_ambigua,cobrança,AMBIGUA,AMBIGUA,acerto,0.066
-teste,hibrida,T38,limite_ambigua,quero cancelar,AMBIGUA,AMBIGUA,acerto,0.066
-teste,hibrida,T39,limite_sem_resposta,a loja não quis me dar nota fiscal,SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.096
-teste,hibrida,T40,limite_sem_resposta,o mercado não aceita cheque,SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.084
-validacao,palavras,V01,reformulacao,"no supermercado a etiqueta dizia 8,99 e no caixa passou 12 reais",DB01,SEM_RESPOSTA,erro,0.043
-validacao,palavras,V02,reformulacao,"a farmácia dá desconto só no dinheiro, isso é permitido?",DB02,DB02,acerto,0.037
+teste,hibrida,T37,limite_ambigua,cobrança,AMBIGUA,AMBIGUA,acerto,0.079
+teste,hibrida,T38,limite_ambigua,quero cancelar,AMBIGUA,AMBIGUA,acerto,0.069
+teste,hibrida,T39,limite_sem_resposta,a loja não quis me dar nota fiscal,SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.102
+teste,hibrida,T40,limite_sem_resposta,o mercado não aceita cheque,SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.087
+validacao,palavras,V01,reformulacao,"no supermercado a etiqueta dizia 8,99 e no caixa passou 12 reais",DB01,SEM_RESPOSTA,erro,0.044
+validacao,palavras,V02,reformulacao,"a farmácia dá desconto só no dinheiro, isso é permitido?",DB02,DB02,acerto,0.038
 validacao,palavras,V03,reformulacao,a televisão nova queimou na primeira semana,DB03,SEM_RESPOSTA,erro,0.008
 validacao,palavras,V04,reformulacao,comprei um tênis no site e quero devolver porque não gostei,DB07,DB07,acerto,0.041
-validacao,palavras,V05,reformulacao,o restaurante disse que a gorjeta é obrigatória,DB10,DB10,acerto,0.034
+validacao,palavras,V05,reformulacao,o restaurante disse que a gorjeta é obrigatória,DB10,DB10,acerto,0.035
 validacao,palavras,V06,reformulacao,na entrada da boate falaram que tem que consumir no mínimo 80 reais,DB11,DB11,acerto,0.043
-validacao,palavras,V07,reformulacao,minha avó recebeu mensagem de um falso neto pedindo pix e mandou 500 reais,DB15,SEM_RESPOSTA,erro,0.045
+validacao,palavras,V07,reformulacao,minha avó recebeu mensagem de um falso neto pedindo pix e mandou 500 reais,DB15,SEM_RESPOSTA,erro,0.046
 validacao,palavras,V08,reformulacao,quitei a dívida faz duas semanas e o meu nome ainda está no spc,DB18,DB18,acerto,0.041
-validacao,palavras,V09,reformulacao,a companhia de luz desligou a energia sem mandar nenhum aviso,DB19,DB19,acerto,0.040
-validacao,palavras,V10,reformulacao,a vivo não deixa eu cancelar meu plano de celular,DB20,DB20,acerto,0.098
-validacao,palavras,V11,reformulacao,fiquei 5 horas no aeroporto esperando e a companhia não deu nem lanche,DB22,DB22,acerto,0.059
-validacao,palavras,V12,reformulacao,"minha filha estuda na faculdade, ela paga meia no show?",DB14,DB14,acerto,0.048
-validacao,palavras,V13,fora_do_tema,como tirar a segunda via do RG?,SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.038
-validacao,palavras,V14,fora_do_tema,meu patrão não pagou minhas férias,SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.040
-validacao,palavras,V15,limite_sem_resposta,a academia não quer cancelar meu plano sem multa,SEM_RESPOSTA,DB20,erro,0.050
-validacao,tfidf,V01,reformulacao,"no supermercado a etiqueta dizia 8,99 e no caixa passou 12 reais",DB01,SEM_RESPOSTA,erro,0.133
-validacao,tfidf,V02,reformulacao,"a farmácia dá desconto só no dinheiro, isso é permitido?",DB02,SEM_RESPOSTA,erro,0.094
-validacao,tfidf,V03,reformulacao,a televisão nova queimou na primeira semana,DB03,SEM_RESPOSTA,erro,0.011
-validacao,tfidf,V04,reformulacao,comprei um tênis no site e quero devolver porque não gostei,DB07,SEM_RESPOSTA,erro,0.085
-validacao,tfidf,V05,reformulacao,o restaurante disse que a gorjeta é obrigatória,DB10,DB10,acerto,0.071
-validacao,tfidf,V06,reformulacao,na entrada da boate falaram que tem que consumir no mínimo 80 reais,DB11,DB11,acerto,0.089
-validacao,tfidf,V07,reformulacao,minha avó recebeu mensagem de um falso neto pedindo pix e mandou 500 reais,DB15,SEM_RESPOSTA,erro,0.103
-validacao,tfidf,V08,reformulacao,quitei a dívida faz duas semanas e o meu nome ainda está no spc,DB18,DB18,acerto,0.084
-validacao,tfidf,V09,reformulacao,a companhia de luz desligou a energia sem mandar nenhum aviso,DB19,DB19,acerto,0.087
-validacao,tfidf,V10,reformulacao,a vivo não deixa eu cancelar meu plano de celular,DB20,DB20,acerto,0.081
-validacao,tfidf,V11,reformulacao,fiquei 5 horas no aeroporto esperando e a companhia não deu nem lanche,DB22,DB22,acerto,0.099
-validacao,tfidf,V12,reformulacao,"minha filha estuda na faculdade, ela paga meia no show?",DB14,DB14,acerto,0.082
-validacao,tfidf,V13,fora_do_tema,como tirar a segunda via do RG?,SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.067
-validacao,tfidf,V14,fora_do_tema,meu patrão não pagou minhas férias,SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.072
-validacao,tfidf,V15,limite_sem_resposta,a academia não quer cancelar meu plano sem multa,SEM_RESPOSTA,DB20,erro,0.086
-validacao,hibrida,V01,reformulacao,"no supermercado a etiqueta dizia 8,99 e no caixa passou 12 reais",DB01,SEM_RESPOSTA,erro,0.117
-validacao,hibrida,V02,reformulacao,"a farmácia dá desconto só no dinheiro, isso é permitido?",DB02,DB02,acerto,0.091
-validacao,hibrida,V03,reformulacao,a televisão nova queimou na primeira semana,DB03,SEM_RESPOSTA,erro,0.008
-validacao,hibrida,V04,reformulacao,comprei um tênis no site e quero devolver porque não gostei,DB07,DB07,acerto,0.104
-validacao,hibrida,V05,reformulacao,o restaurante disse que a gorjeta é obrigatória,DB10,DB10,acerto,0.087
-validacao,hibrida,V06,reformulacao,na entrada da boate falaram que tem que consumir no mínimo 80 reais,DB11,DB11,acerto,0.108
-validacao,hibrida,V07,reformulacao,minha avó recebeu mensagem de um falso neto pedindo pix e mandou 500 reais,DB15,SEM_RESPOSTA,erro,0.123
-validacao,hibrida,V08,reformulacao,quitei a dívida faz duas semanas e o meu nome ainda está no spc,DB18,DB18,acerto,0.103
-validacao,hibrida,V09,reformulacao,a companhia de luz desligou a energia sem mandar nenhum aviso,DB19,DB19,acerto,0.107
-validacao,hibrida,V10,reformulacao,a vivo não deixa eu cancelar meu plano de celular,DB20,DB20,acerto,0.102
-validacao,hibrida,V11,reformulacao,fiquei 5 horas no aeroporto esperando e a companhia não deu nem lanche,DB22,DB22,acerto,0.120
-validacao,hibrida,V12,reformulacao,"minha filha estuda na faculdade, ela paga meia no show?",DB14,DB14,acerto,0.101
-validacao,hibrida,V13,fora_do_tema,como tirar a segunda via do RG?,SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.083
-validacao,hibrida,V14,fora_do_tema,meu patrão não pagou minhas férias,SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.084
-validacao,hibrida,V15,limite_sem_resposta,a academia não quer cancelar meu plano sem multa,SEM_RESPOSTA,DB20,erro,0.141
+validacao,palavras,V09,reformulacao,a companhia de luz desligou a energia sem mandar nenhum aviso,DB19,DB19,acerto,0.041
+validacao,palavras,V10,reformulacao,a vivo não deixa eu cancelar meu plano de celular,DB20,DB20,acerto,0.039
+validacao,palavras,V11,reformulacao,fiquei 5 horas no aeroporto esperando e a companhia não deu nem lanche,DB22,DB22,acerto,0.046
+validacao,palavras,V12,reformulacao,"minha filha estuda na faculdade, ela paga meia no show?",DB14,DB14,acerto,0.039
+validacao,palavras,V13,fora_do_tema,como tirar a segunda via do RG?,SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.030
+validacao,palavras,V14,fora_do_tema,meu patrão não pagou minhas férias,SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.033
+validacao,palavras,V15,limite_sem_resposta,a academia não quer cancelar meu plano sem multa,SEM_RESPOSTA,DB20,erro,0.041
+validacao,tfidf,V01,reformulacao,"no supermercado a etiqueta dizia 8,99 e no caixa passou 12 reais",DB01,SEM_RESPOSTA,erro,0.101
+validacao,tfidf,V02,reformulacao,"a farmácia dá desconto só no dinheiro, isso é permitido?",DB02,SEM_RESPOSTA,erro,0.077
+validacao,tfidf,V03,reformulacao,a televisão nova queimou na primeira semana,DB03,SEM_RESPOSTA,erro,0.008
+validacao,tfidf,V04,reformulacao,comprei um tênis no site e quero devolver porque não gostei,DB07,SEM_RESPOSTA,erro,0.087
+validacao,tfidf,V05,reformulacao,o restaurante disse que a gorjeta é obrigatória,DB10,DB10,acerto,0.075
+validacao,tfidf,V06,reformulacao,na entrada da boate falaram que tem que consumir no mínimo 80 reais,DB11,DB11,acerto,0.093
+validacao,tfidf,V07,reformulacao,minha avó recebeu mensagem de um falso neto pedindo pix e mandou 500 reais,DB15,SEM_RESPOSTA,erro,0.118
+validacao,tfidf,V08,reformulacao,quitei a dívida faz duas semanas e o meu nome ainda está no spc,DB18,DB18,acerto,0.088
+validacao,tfidf,V09,reformulacao,a companhia de luz desligou a energia sem mandar nenhum aviso,DB19,DB19,acerto,0.094
+validacao,tfidf,V10,reformulacao,a vivo não deixa eu cancelar meu plano de celular,DB20,DB20,acerto,0.084
+validacao,tfidf,V11,reformulacao,fiquei 5 horas no aeroporto esperando e a companhia não deu nem lanche,DB22,DB22,acerto,0.183
+validacao,tfidf,V12,reformulacao,"minha filha estuda na faculdade, ela paga meia no show?",DB14,DB14,acerto,0.122
+validacao,tfidf,V13,fora_do_tema,como tirar a segunda via do RG?,SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.095
+validacao,tfidf,V14,fora_do_tema,meu patrão não pagou minhas férias,SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.076
+validacao,tfidf,V15,limite_sem_resposta,a academia não quer cancelar meu plano sem multa,SEM_RESPOSTA,DB20,erro,0.089
+validacao,hibrida,V01,reformulacao,"no supermercado a etiqueta dizia 8,99 e no caixa passou 12 reais",DB01,SEM_RESPOSTA,erro,0.134
+validacao,hibrida,V02,reformulacao,"a farmácia dá desconto só no dinheiro, isso é permitido?",DB02,DB02,acerto,0.108
+validacao,hibrida,V03,reformulacao,a televisão nova queimou na primeira semana,DB03,SEM_RESPOSTA,erro,0.009
+validacao,hibrida,V04,reformulacao,comprei um tênis no site e quero devolver porque não gostei,DB07,DB07,acerto,0.130
+validacao,hibrida,V05,reformulacao,o restaurante disse que a gorjeta é obrigatória,DB10,DB10,acerto,0.135
+validacao,hibrida,V06,reformulacao,na entrada da boate falaram que tem que consumir no mínimo 80 reais,DB11,DB11,acerto,0.146
+validacao,hibrida,V07,reformulacao,minha avó recebeu mensagem de um falso neto pedindo pix e mandou 500 reais,DB15,SEM_RESPOSTA,erro,0.203
+validacao,hibrida,V08,reformulacao,quitei a dívida faz duas semanas e o meu nome ainda está no spc,DB18,DB18,acerto,0.159
+validacao,hibrida,V09,reformulacao,a companhia de luz desligou a energia sem mandar nenhum aviso,DB19,DB19,acerto,0.112
+validacao,hibrida,V10,reformulacao,a vivo não deixa eu cancelar meu plano de celular,DB20,DB20,acerto,0.105
+validacao,hibrida,V11,reformulacao,fiquei 5 horas no aeroporto esperando e a companhia não deu nem lanche,DB22,DB22,acerto,0.125
+validacao,hibrida,V12,reformulacao,"minha filha estuda na faculdade, ela paga meia no show?",DB14,DB14,acerto,0.105
+validacao,hibrida,V13,fora_do_tema,como tirar a segunda via do RG?,SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.087
+validacao,hibrida,V14,fora_do_tema,meu patrão não pagou minhas férias,SEM_RESPOSTA,SEM_RESPOSTA,acerto,0.089
+validacao,hibrida,V15,limite_sem_resposta,a academia não quer cancelar meu plano sem multa,SEM_RESPOSTA,DB20,erro,0.111
