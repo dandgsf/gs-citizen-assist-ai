@@ -226,7 +226,7 @@ def main():
         for l in linhas_h:
             perg = l["pergunta"].strip() or "(vazia)"
             md.append(f"| {l['id']} | {l['categoria']} | {perg} | {l['esperado']} | {l['obtido']} | "
-                      f"{'✅ acerto' if l['acerto'] else '❌ erro'} | {l['tempo_ms']:.3f} |")
+                      f"{'Acerto' if l['acerto'] else 'Erro'} | {l['tempo_ms']:.3f} |")
 
     erros = {e: [l for l in todos[e] if not l["acerto"]] + [l for l in val.get(e, []) if not l["acerto"]]
              for e in ESTRATEGIAS}
@@ -243,7 +243,7 @@ def main():
     md.append("| Situação | Resultado | Mensagem do sistema |")
     md.append("|---|---|---|")
     for desc, ok, msg in robustez:
-        md.append(f"| {desc} | {'✅ tratado' if ok else '❌ falhou'} | {msg} |")
+        md.append(f"| {desc} | {'Tratado' if ok else 'Falhou'} | {msg} |")
 
     with open(os.path.join(RAIZ, "docs", "resultados_testes.md"), "w", encoding="utf-8") as f:
         f.write("\n".join(md) + "\n")
