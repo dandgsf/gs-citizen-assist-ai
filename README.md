@@ -102,6 +102,7 @@ O [relatório de testes](docs/resultados_testes.md) registra resposta esperada, 
 
 ## Documentação e vídeo
 
+- [Backlog da equipe: tarefas, responsáveis e evidências](docs/BACKLOG.md). É versionado, permanece na entrega acadêmica e não deve ser incluído no `.gitignore`.
 - [Proposta, arquitetura e requisitos acadêmicos](docs/projeto.md)
 - [Relatório técnico](docs/relatorio.md)
 - [Estratégias de prompt](docs/prompts.md)
