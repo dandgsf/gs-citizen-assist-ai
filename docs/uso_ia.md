@@ -40,6 +40,6 @@ O programa entregue **não chama nenhuma IA** para responder: a resposta sai sem
 
 ## Atualização de documentação e versionamento — 12/11/2026
 
-Codex (OpenAI) foi utilizado para consultar nomes e tópicos dos repositórios FIAP do integrante, incorporar o enunciado fornecido sem alterações em `instructions.md`, ajustar o README ao estado dos arquivos, documentar a nomenclatura `gs-pode-isso` e preparar o versionamento inicial. O RM570057 foi recuperado do README do projeto FIAP anterior do mesmo integrante.
+Codex (OpenAI) foi utilizado para consultar nomes e tópicos dos repositórios FIAP do integrante, incorporar o enunciado fornecido sem alterações em `instructions.md`, ajustar o README ao estado dos arquivos, documentar a nomenclatura `gs-citizen-assist-ai` e preparar o versionamento inicial. O RM570057 foi recuperado do README do projeto FIAP anterior do mesmo integrante.
 
 Foram executados o avaliador existente (`python src/avaliar.py`) e uma consulta pela interface textual. Os indicadores foram reproduzidos, incluindo o erro conhecido V15. O código e o conteúdo jurídico da base foram preservados. Esta sessão não realizou revisão jurídica das fontes, teste com usuário, experimento com modelos de prompt nem submissão acadêmica. O histórico de ferramentas declarado nas seções anteriores foi herdado do material inicial.

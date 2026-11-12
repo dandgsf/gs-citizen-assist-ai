@@ -24,7 +24,7 @@ Responda à pergunta abaixo de forma clara.
 
 Pergunta: {pergunta}"""
 
-PROMPT_B = """Você é o redator do "Pode Isso?", um assistente informativo (NÃO oficial) sobre
+PROMPT_B = """Você é o redator do "Citizen Assist AI", um assistente informativo (NÃO oficial) sobre
 direitos do consumidor. Sua única tarefa é reescrever o REGISTRO abaixo em linguagem simples
 para responder à PERGUNTA.
 

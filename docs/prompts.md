@@ -1,8 +1,8 @@
-# Estratégias de prompt — Pode Isso?
+# Estratégias de prompt — Citizen Assist AI
 
 ## Por que o sistema funciona sem IA generativa
 
-O núcleo do Pode Isso? é **determinístico**: a resposta sai sempre de um registro da base (`data/base.json`), com a fonte e a data de verificação. Isso garante o requisito mais importante do case: **não inventar**. A IA generativa entra apenas como uma camada **opcional** para reescrever o registro em linguagem ainda mais simples. Nenhuma API paga é necessária.
+O núcleo do Citizen Assist AI é **determinístico**: a resposta sai sempre de um registro da base (`data/base.json`), com a fonte e a data de verificação. Isso garante o requisito mais importante do case: **não inventar**. A IA generativa entra apenas como uma camada **opcional** para reescrever o registro em linguagem ainda mais simples. Nenhuma API paga é necessária.
 
 A comparação abaixo responde à pergunta: *se usarmos um modelo de linguagem, qual forma de pedir dá respostas mais seguras?*
 
@@ -36,7 +36,7 @@ Pergunta: {pergunta}
 ## Modelo B — Prompt ancorado na base, com saída estruturada
 
 ```text
-Você é o redator do "Pode Isso?", um assistente informativo (NÃO oficial) sobre
+Você é o redator do "Citizen Assist AI", um assistente informativo (NÃO oficial) sobre
 direitos do consumidor. Sua única tarefa é reescrever o REGISTRO abaixo em linguagem simples
 para responder à PERGUNTA.
 

@@ -1,4 +1,4 @@
-# Pode Isso?
+# Citizen Assist AI
 ### Relatório técnico — Global Solution 2026.2 (CitizenTech · Citizen Assist AI)
 **Grupo 9** · Danilo Gustavo da Silva Fernandes (RM: preencher) · FIAP — Ciência da Computação
 
@@ -96,4 +96,4 @@ Plano: **40 perguntas de teste** (12 diretas, 16 reformulações informais, 5 fo
 
 ## 10. Impacto social
 
-Cada situação da base é um problema frequente e de baixo valor individual, mas de alto valor somado: é justamente o tipo de prejuízo que a pessoa "deixa pra lá" por não saber o que fazer na hora. O Pode Isso? reduz essa assimetria de informação (ODS 10), aproxima o cidadão dos canais oficiais de reclamação (ODS 16) e cobre serviços urbanos essenciais (ODS 11), sem coletar dados pessoais e sem custo para o usuário. A frase pronta muda o comportamento no momento decisivo: de "deixa pra lá" para "a lei diz que…".
+Cada situação da base é um problema frequente e de baixo valor individual, mas de alto valor somado: é justamente o tipo de prejuízo que a pessoa "deixa pra lá" por não saber o que fazer na hora. O Citizen Assist AI reduz essa assimetria de informação (ODS 10), aproxima o cidadão dos canais oficiais de reclamação (ODS 16) e cobre serviços urbanos essenciais (ODS 11), sem coletar dados pessoais e sem custo para o usuário. A frase pronta muda o comportamento no momento decisivo: de "deixa pra lá" para "a lei diz que…".

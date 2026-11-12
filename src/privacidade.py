@@ -1,6 +1,6 @@
 """Proteção de dados pessoais na entrada.
 
-O Pode Isso? não precisa de nenhum dado pessoal. Se a pessoa digitar
+O Citizen Assist AI não precisa de nenhum dado pessoal. Se a pessoa digitar
 CPF, telefone, e-mail ou número de cartão, o sistema avisa e mascara o dado
 antes de qualquer processamento. Nada é gravado em disco.
 """

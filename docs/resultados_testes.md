@@ -1,4 +1,4 @@
-# Resultados dos testes — Pode Isso?
+# Resultados dos testes — Citizen Assist AI
 
 Gerado automaticamente por `python src/avaliar.py` em 12/11/2026 12:51. 23 registros na base, 5 execuções por consulta (tempo = média).
 

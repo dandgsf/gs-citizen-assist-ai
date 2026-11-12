@@ -1,8 +1,15 @@
 # Histórico de versões
 
+## 0.1.1 — 12/11/2026
+
+- Nome adotado: Citizen Assist AI, conforme o case oficial das instructions.
+- Pasta e repositório definidos como `gs-citizen-assist-ai`.
+- README, interface textual, prompts, metadados da base e documentação atualizados para o nome do case; identidade própria adiada.
+- Histórico Git e tag inicial `v0.1.0` preservados.
+
 ## 0.1.0 — 12/11/2026
 
-Primeiro versionamento do protótipo Pode Isso?, identificado como `gs-pode-isso` para a Global Solution FIAP 2026.2.
+Primeiro versionamento do protótipo Citizen Assist AI, identificado como `gs-citizen-assist-ai` para a Global Solution FIAP 2026.2.
 
 - Código Python existente, base com 23 orientações e 5 temas, conjuntos de teste e documentação incorporados ao Git.
 - Enunciado fornecido incluído integralmente em `instructions.md`.

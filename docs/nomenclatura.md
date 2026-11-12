@@ -16,15 +16,15 @@ Consulta realizada em 12/11/2026 na conta GitHub `dandgsf`, incluindo os 61 repo
 
 ## Decisão aplicada
 
-- **Produto:** Pode Isso?
-- **Pasta e repositório:** `gs-pode-isso`.
+- **Nome adotado nesta etapa:** Citizen Assist AI, conforme o case oficial; identidade própria será definida posteriormente.
+- **Pasta e repositório:** `gs-citizen-assist-ai`.
 - **Identificação acadêmica:** Global Solution 2026.2, CitizenTech, case Citizen Assist AI, Grupo 9.
 - **Tópicos reaproveitados:** `fiap`, `global-solution`, `2nd-semester`.
 - **Tópicos específicos adicionados:** `citizentech`, `citizen-assist-ai`, `python`, `knowledge-base`.
 - **Branch principal:** `main`.
 - **Primeira versão:** tag anotada `v0.1.0`, correspondente ao protótipo inicial e à documentação alinhada ao enunciado.
 
-A decisão segue `gs-<nome-do-projeto>`. O semestre fica nos tópicos e no README. Usa-se `2nd-semester`, já presente em outro projeto do segundo semestre, em vez de reproduzir a grafia `2st-semester`. Os tópicos específicos e a versão inicial são decisões deste projeto; não são exigências da FIAP nem um padrão de versionamento comprovado nos projetos anteriores.
+A decisão segue `gs-<nome-do-projeto>`, usando o nome do case oficial Citizen Assist AI nesta etapa. O semestre fica nos tópicos e no README. Usa-se `2nd-semester`, já presente em outro projeto do segundo semestre, em vez de reproduzir a grafia `2st-semester`. Os tópicos específicos e a versão inicial são decisões deste projeto; não são exigências da FIAP nem um padrão de versionamento comprovado nos projetos anteriores.
 
 ## Como reproduzir a consulta
 

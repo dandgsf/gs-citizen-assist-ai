@@ -10,11 +10,11 @@
 
 <br>
 
-# Pode Isso? — você pergunta, a lei responde
+# Citizen Assist AI
 
 **Global Solution 2026.2 · CitizenTech · case Citizen Assist AI**
 
-**Repositório:** [`dandgsf/gs-pode-isso`](https://github.com/dandgsf/gs-pode-isso) · **Versão inicial:** `v0.1.0` (protótipo em desenvolvimento).
+**Repositório:** [`dandgsf/gs-citizen-assist-ai`](https://github.com/dandgsf/gs-citizen-assist-ai) · **Versão atual:** `v0.1.1` (protótipo em desenvolvimento).
 
 **Tópicos:** `fiap`, `global-solution`, `2nd-semester`, `citizentech`, `citizen-assist-ai`, `python`, `knowledge-base`.
 
@@ -47,7 +47,7 @@ Todo dia alguém paga mais caro no caixa do que estava na prateleira, aceita os 
 
 ### A solução
 
-O **Pode Isso?** é um assistente textual em Python. A pessoa descreve a situação do jeito dela ("passaram as compras e o arroz deu mais caro do que tava na gôndola") e recebe, em segundos:
+O **Citizen Assist AI** é um assistente textual em Python. A pessoa descreve a situação do jeito dela ("passaram as compras e o arroz deu mais caro do que tava na gôndola") e recebe, em segundos:
 
 1. **o direito**, em linguagem simples;
 2. **uma frase pronta para mostrar na tela ou falar** ao atendente, já citando a lei. Esse é o diferencial: a informação vira ação na hora;
@@ -176,8 +176,8 @@ Resultados reproduzidos em 12/11/2026, com Python 3.12.10:
 **Pré-requisito:** Python 3.10 ou superior. **Nenhuma biblioteca externa** (só a biblioteca padrão).
 
 ```bash
-git clone https://github.com/dandgsf/gs-pode-isso.git
-cd gs-pode-isso
+git clone https://github.com/dandgsf/gs-citizen-assist-ai.git
+cd gs-citizen-assist-ai
 python src/sistema.py
 ```
 
@@ -241,7 +241,7 @@ Dentro do programa: escreva a dúvida ou use `1` (temas), `2` (como funciona e a
 ## 📁 Estrutura de pastas
 
 ```
-gs-pode-isso/
+gs-citizen-assist-ai/
 ├── README.md
 ├── instructions.md           # enunciado fornecido, preservado integralmente
 ├── CHANGELOG.md              # histórico de versões
@@ -284,6 +284,8 @@ Enviar pela [página oficial da atividade](https://on.fiap.com.br/mod/assign/vie
 
 ### Pendências para concluir a entrega
 
+- [ ] Tornar o repositório público antes da submissão, após autorização do integrante.
+
 - [ ] Realizar e registrar o teste de usabilidade com pelo menos 1 usuário.
 - [ ] Executar o experimento de comparação dos prompts e preencher a tabela.
 - [ ] Concluir a revisão humana das 23 fontes e das orientações.
@@ -306,7 +308,7 @@ Enviar pela [página oficial da atividade](https://on.fiap.com.br/mod/assign/vie
 
 ## ✅ Conclusões
 
-O Pode Isso? mostra que um assistente cidadão útil não precisa de API paga nem de IA generativa no núcleo. Precisa de **informação verificada, bem organizada e entregue no momento em que a pessoa precisa agir**. A frase pronta transforma o direito em ação na fila do caixa. A fonte com data de verificação dá confiança. O "não sei" honesto evita causar dano.
+O Citizen Assist AI mostra que um assistente cidadão útil não precisa de API paga nem de IA generativa no núcleo. Precisa de **informação verificada, bem organizada e entregue no momento em que a pessoa precisa agir**. A frase pronta transforma o direito em ação na fila do caixa. A fonte com data de verificação dá confiança. O "não sei" honesto evita causar dano.
 
 Os testes mostram alta precisão nas situações cobertas e uma queda esperada em perguntas inéditas, quase sempre para o lado seguro. Próximos passos:
 1. ampliar a base e o vocabulário com perguntas reais coletadas no teste de usabilidade;

@@ -179,7 +179,7 @@ def main():
     topo = max(chave(e) for e in ESTRATEGIAS)
     melhores = [e for e in ESTRATEGIAS if chave(e) == topo]
     md = []
-    md.append("# Resultados dos testes — Pode Isso?\n")
+    md.append("# Resultados dos testes — Citizen Assist AI\n")
     md.append(f"Gerado automaticamente por `python src/avaliar.py` em {datetime.now():%d/%m/%Y %H:%M}. "
               f"{len(base.registros)} registros na base, {REPETICOES} execuções por consulta (tempo = média).\n")
     md.append("- **Conjunto de teste** (`data/perguntas_teste.json`, "

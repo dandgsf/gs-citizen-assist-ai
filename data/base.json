@@ -1,9 +1,9 @@
 {
   "meta": {
-    "nome": "Pode Isso?",
+    "nome": "Citizen Assist AI",
     "versao": "1.0",
     "descricao": "Base de orientações sobre direitos do consumidor no dia a dia. Cada registro aponta a norma oficial e a data em que foi verificado. Edite este arquivo para corrigir ou acrescentar situações; o programa não precisa ser alterado.",
-    "aviso_padrao": "Orientação informativa e gratuita. O Pode Isso? NÃO é canal oficial do governo e não substitui Procon, Defensoria Pública ou advogado. Leis mudam: confira a fonte indicada.",
+    "aviso_padrao": "Orientação informativa e gratuita. O Citizen Assist AI NÃO é canal oficial do governo e não substitui Procon, Defensoria Pública ou advogado. Leis mudam: confira a fonte indicada.",
     "fora_do_escopo": "Por enquanto eu só cubro situações de consumo do dia a dia (compras, lojas, bares, bancos e Pix, contas de luz e telefone, viagens). Para questões de trabalho, família, previdência, saúde ou crimes, procure a Defensoria Pública do seu estado ou um advogado. Em emergência, ligue 190.",
     "validade_dias": 180,
     "termos_fora_do_escopo": [

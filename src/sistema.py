@@ -1,4 +1,4 @@
-"""Pode Isso? — assistente de direitos do consumidor no dia a dia.
+"""Citizen Assist AI — assistente de direitos do consumidor no dia a dia.
 
 Execução:   python src/sistema.py
 Opções:     python src/sistema.py --help
@@ -270,7 +270,7 @@ def responder(t: Tela, base: Base, buscador: Buscador, consulta: str, estrategia
 
 # ---------------------------------------------------------------- programa
 def argumentos():
-    ap = argparse.ArgumentParser(description="Pode Isso? — direitos do consumidor no dia a dia.")
+    ap = argparse.ArgumentParser(description="Citizen Assist AI — direitos do consumidor no dia a dia.")
     ap.add_argument("--base", default=BASE_PADRAO, help="caminho do JSON da base (padrão: data/base.json)")
     ap.add_argument("--sinonimos", default=SINONIMOS_PADRAO, help="caminho do JSON de sinônimos")
     ap.add_argument("--estrategia", choices=ESTRATEGIAS, default="hibrida", help="estratégia de busca")
@@ -308,7 +308,7 @@ def main():
             raise KeyboardInterrupt
 
     t.linha()
-    t.p(f"{t.i('titulo')} PODE ISSO? — você pergunta, a lei responde")
+    t.p(f"{t.i('titulo')} CITIZEN ASSIST AI")
     t.linha()
     t.p(f"{t.i('aviso')} Não sou canal oficial do governo. Respondo com base em leis e normas "
         "públicas, sempre com a fonte. Não digite dados pessoais.")
