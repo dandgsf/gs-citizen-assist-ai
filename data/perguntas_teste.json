@@ -1,0 +1,48 @@
+{
+  "_comentario": "Plano de testes. 'esperado' é o identificador do registro correto ou um rótulo especial: AMBIGUA, SEM_RESPOSTA (inclui fora do tema), VAZIA, INVALIDA. Rode: python src/avaliar.py",
+  "casos": [
+    {"id": "T01", "categoria": "direta", "pergunta": "O preço da prateleira é diferente do preço no caixa", "esperado": "DB01"},
+    {"id": "T02", "categoria": "direta", "pergunta": "A loja pode cobrar mais caro no cartão de crédito?", "esperado": "DB02"},
+    {"id": "T03", "categoria": "direta", "pergunta": "Comprei uma geladeira e ela veio com defeito", "esperado": "DB03"},
+    {"id": "T04", "categoria": "direta", "pergunta": "Me arrependi de uma compra pela internet, posso devolver?", "esperado": "DB07"},
+    {"id": "T05", "categoria": "direta", "pergunta": "Sou obrigado a pagar a taxa de serviço de 10%?", "esperado": "DB10"},
+    {"id": "T06", "categoria": "direta", "pergunta": "O bar cobra consumação mínima, pode?", "esperado": "DB11"},
+    {"id": "T07", "categoria": "direta", "pergunta": "Caí em um golpe no Pix, como recupero o dinheiro?", "esperado": "DB15"},
+    {"id": "T08", "categoria": "direta", "pergunta": "Meu nome foi negativado no Serasa sem aviso", "esperado": "DB18"},
+    {"id": "T09", "categoria": "direta", "pergunta": "Como cancelar a internet da operadora?", "esperado": "DB20"},
+    {"id": "T10", "categoria": "direta", "pergunta": "Meu voo foi cancelado, tenho direito a hotel?", "esperado": "DB22"},
+    {"id": "T11", "categoria": "direta", "pergunta": "Quem tem direito a meia-entrada no cinema?", "esperado": "DB14"},
+    {"id": "T12", "categoria": "direta", "pergunta": "Idoso tem passagem de ônibus interestadual gratuita?", "esperado": "DB23"},
+
+    {"id": "T13", "categoria": "reformulacao", "pergunta": "passaram as compras e o arroz deu mais caro do que tava na gondola", "esperado": "DB01"},
+    {"id": "T14", "categoria": "reformulacao", "pergunta": "o tênis que eu comprei rasgou e a loja falou pra eu me virar com a fábrica", "esperado": "DB03"},
+    {"id": "T15", "categoria": "reformulacao", "pergunta": "ganhei uma blusa de presente mas ficou apertada, a loja tem que trocar?", "esperado": "DB04"},
+    {"id": "T16", "categoria": "reformulacao", "pergunta": "o vendedor disse que o celular só sai se eu levar a garantia estendida junto", "esperado": "DB05"},
+    {"id": "T17", "categoria": "reformulacao", "pergunta": "to gravida e o banco nao quis me atender na fila preferencial", "esperado": "DB06"},
+    {"id": "T18", "categoria": "reformulacao", "pergunta": "fiz um pedido no app faz 20 dias e até agora nada de chegar", "esperado": "DB08"},
+    {"id": "T19", "categoria": "reformulacao", "pergunta": "chegou um cartão de crédito em casa que eu nunca pedi", "esperado": "DB09"},
+    {"id": "T20", "categoria": "reformulacao", "pergunta": "o garçom botou os dez por cento sem me perguntar", "esperado": "DB10"},
+    {"id": "T21", "categoria": "reformulacao", "pergunta": "sumiu meu cartão de consumo na balada e querem me cobrar 300 reais", "esperado": "DB12"},
+    {"id": "T22", "categoria": "reformulacao", "pergunta": "trouxeram pãozinho e manteiga na mesa sem eu pedir e cobraram", "esperado": "DB13"},
+    {"id": "T23", "categoria": "reformulacao", "pergunta": "mandei dinheiro pro golpista que se passou pelo meu filho no zap", "esperado": "DB15"},
+    {"id": "T24", "categoria": "reformulacao", "pergunta": "a empresa me cobrou duas vezes a mesma fatura e eu paguei as duas", "esperado": "DB16"},
+    {"id": "T25", "categoria": "reformulacao", "pergunta": "a assessoria de cobrança liga pros meus colegas de trabalho falando da minha dívida", "esperado": "DB17"},
+    {"id": "T26", "categoria": "reformulacao", "pergunta": "a enel cortou a energia lá de casa num sábado", "esperado": "DB19"},
+    {"id": "T27", "categoria": "reformulacao", "pergunta": "não aguento mais o banco me ligando pra oferecer consignado", "esperado": "DB21"},
+    {"id": "T28", "categoria": "reformulacao", "pergunta": "meu pai tem 63 anos e quer visitar a irmã em outro estado de ônibus, ele paga?", "esperado": "DB23"},
+
+    {"id": "T29", "categoria": "fora_do_tema", "pergunta": "Fui demitido, quanto recebo de FGTS?", "esperado": "SEM_RESPOSTA"},
+    {"id": "T30", "categoria": "fora_do_tema", "pergunta": "Como faço para pedir pensão alimentícia?", "esperado": "SEM_RESPOSTA"},
+    {"id": "T31", "categoria": "fora_do_tema", "pergunta": "Qual a receita de bolo de cenoura?", "esperado": "SEM_RESPOSTA"},
+    {"id": "T32", "categoria": "fora_do_tema", "pergunta": "Quem ganhou o jogo do Corinthians ontem?", "esperado": "SEM_RESPOSTA"},
+    {"id": "T33", "categoria": "fora_do_tema", "pergunta": "O dono do apartamento não devolveu o caução do aluguel", "esperado": "SEM_RESPOSTA"},
+
+    {"id": "T34", "categoria": "limite_vazia", "pergunta": "", "esperado": "VAZIA"},
+    {"id": "T35", "categoria": "limite_vazia", "pergunta": "     ", "esperado": "VAZIA"},
+    {"id": "T36", "categoria": "limite_invalida", "pergunta": "?!?! ...", "esperado": "INVALIDA"},
+    {"id": "T37", "categoria": "limite_ambigua", "pergunta": "cobrança", "esperado": "AMBIGUA"},
+    {"id": "T38", "categoria": "limite_ambigua", "pergunta": "quero cancelar", "esperado": "AMBIGUA"},
+    {"id": "T39", "categoria": "limite_sem_resposta", "pergunta": "a loja não quis me dar nota fiscal", "esperado": "SEM_RESPOSTA"},
+    {"id": "T40", "categoria": "limite_sem_resposta", "pergunta": "o mercado não aceita cheque", "esperado": "SEM_RESPOSTA"}
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "_comentario": "Conjunto de VALIDAÇÃO: escrito depois da calibração e NÃO usado para ajustar sinônimos, palavras-chave ou limiares. Mede o desempenho em perguntas novas. Rode: python src/avaliar.py",
+  "casos": [
+    {"id": "V01", "categoria": "reformulacao", "pergunta": "no supermercado a etiqueta dizia 8,99 e no caixa passou 12 reais", "esperado": "DB01"},
+    {"id": "V02", "categoria": "reformulacao", "pergunta": "a farmácia dá desconto só no dinheiro, isso é permitido?", "esperado": "DB02"},
+    {"id": "V03", "categoria": "reformulacao", "pergunta": "a televisão nova queimou na primeira semana", "esperado": "DB03"},
+    {"id": "V04", "categoria": "reformulacao", "pergunta": "comprei um tênis no site e quero devolver porque não gostei", "esperado": "DB07"},
+    {"id": "V05", "categoria": "reformulacao", "pergunta": "o restaurante disse que a gorjeta é obrigatória", "esperado": "DB10"},
+    {"id": "V06", "categoria": "reformulacao", "pergunta": "na entrada da boate falaram que tem que consumir no mínimo 80 reais", "esperado": "DB11"},
+    {"id": "V07", "categoria": "reformulacao", "pergunta": "minha avó recebeu mensagem de um falso neto pedindo pix e mandou 500 reais", "esperado": "DB15"},
+    {"id": "V08", "categoria": "reformulacao", "pergunta": "quitei a dívida faz duas semanas e o meu nome ainda está no spc", "esperado": "DB18"},
+    {"id": "V09", "categoria": "reformulacao", "pergunta": "a companhia de luz desligou a energia sem mandar nenhum aviso", "esperado": "DB19"},
+    {"id": "V10", "categoria": "reformulacao", "pergunta": "a vivo não deixa eu cancelar meu plano de celular", "esperado": "DB20"},
+    {"id": "V11", "categoria": "reformulacao", "pergunta": "fiquei 5 horas no aeroporto esperando e a companhia não deu nem lanche", "esperado": "DB22"},
+    {"id": "V12", "categoria": "reformulacao", "pergunta": "minha filha estuda na faculdade, ela paga meia no show?", "esperado": "DB14"},
+    {"id": "V13", "categoria": "fora_do_tema", "pergunta": "como tirar a segunda via do RG?", "esperado": "SEM_RESPOSTA"},
+    {"id": "V14", "categoria": "fora_do_tema", "pergunta": "meu patrão não pagou minhas férias", "esperado": "SEM_RESPOSTA"},
+    {"id": "V15", "categoria": "limite_sem_resposta", "pergunta": "a academia não quer cancelar meu plano sem multa", "esperado": "SEM_RESPOSTA"}
+  ]
+}

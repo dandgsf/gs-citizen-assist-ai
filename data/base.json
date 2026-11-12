@@ -1,0 +1,1094 @@
+{
+  "meta": {
+    "nome": "Pode Isso?",
+    "versao": "1.0",
+    "descricao": "Base de orientações sobre direitos do consumidor no dia a dia. Cada registro aponta a norma oficial e a data em que foi verificado. Edite este arquivo para corrigir ou acrescentar situações; o programa não precisa ser alterado.",
+    "aviso_padrao": "Orientação informativa e gratuita. O Pode Isso? NÃO é canal oficial do governo e não substitui Procon, Defensoria Pública ou advogado. Leis mudam: confira a fonte indicada.",
+    "fora_do_escopo": "Por enquanto eu só cubro situações de consumo do dia a dia (compras, lojas, bares, bancos e Pix, contas de luz e telefone, viagens). Para questões de trabalho, família, previdência, saúde ou crimes, procure a Defensoria Pública do seu estado ou um advogado. Em emergência, ligue 190.",
+    "validade_dias": 180,
+    "termos_fora_do_escopo": [
+      "demissao",
+      "demitido",
+      "demitida",
+      "salario",
+      "ferias",
+      "fgts",
+      "rescisao",
+      "trabalhista",
+      "patrao",
+      "divorcio",
+      "pensao",
+      "guarda",
+      "heranca",
+      "inventario",
+      "aposentadoria",
+      "inss",
+      "auxilio",
+      "imposto",
+      "irpf",
+      "detran",
+      "cnh",
+      "transito",
+      "crime",
+      "roubo",
+      "furto",
+      "agressao",
+      "aluguel",
+      "inquilino",
+      "condominio",
+      "vizinho",
+      "remedio",
+      "medico",
+      "hospital",
+      "sus"
+    ]
+  },
+  "temas": [
+    "Mercado e lojas",
+    "Compras pela internet",
+    "Bares, restaurantes e lazer",
+    "Bancos, contas e telefone",
+    "Viagens e transporte"
+  ],
+  "registros": [
+    {
+      "identificador": "DB01",
+      "tema": "Mercado e lojas",
+      "titulo": "Preço diferente na prateleira e no caixa",
+      "pergunta_ou_palavras_chave": {
+        "perguntas_exemplo": [
+          "O preço no caixa saiu mais caro que o da prateleira",
+          "A etiqueta mostrava um valor e passaram outro",
+          "Qual preço vale quando tem dois preços diferentes?"
+        ],
+        "palavras_chave": [
+          "preço diferente",
+          "prateleira",
+          "etiqueta",
+          "gôndola",
+          "caixa mais caro",
+          "dois preços",
+          "cartaz"
+        ]
+      },
+      "orientacao_resumida": "Se o MESMO produto aparece com dois preços na loja (prateleira, etiqueta, cartaz ou leitor de preço) e no caixa sai mais caro, você paga o MENOR. Atenção: não vale para etiqueta de outro produto colocada no lugar errado, nem para erro grosseiro e evidente (por exemplo, uma TV anunciada por R$ 10).",
+      "frase_pronta": "A Lei 10.962/2004, art. 5º, diz que, havendo divergência de preço para o mesmo produto, o consumidor paga o menor. Peço que registre pelo preço da prateleira.",
+      "passos": [
+        "Antes de pagar, tire uma foto da etiqueta ou do cartaz.",
+        "Mostre ao operador de caixa e, se ele recusar, chame o gerente.",
+        "Se já pagou, guarde o cupom fiscal e a foto e peça a diferença de volta."
+      ],
+      "prazo": null,
+      "onde_reclamar": "Gerência da loja → Procon da sua cidade → consumidor.gov.br (se a empresa participar).",
+      "referencia": {
+        "norma": "Lei nº 10.962/2004, art. 5º",
+        "url": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2004/lei/l10.962.htm"
+      },
+      "data_de_verificacao": "2026-11-11",
+      "limitacoes": "Vale para o mesmo produto. Se a loja provar que a etiqueta era de outro item, a regra não se aplica.",
+      "relacionados": [
+        "DB02",
+        "DB05",
+        "DB16"
+      ]
+    },
+    {
+      "identificador": "DB02",
+      "tema": "Mercado e lojas",
+      "titulo": "Preço diferente no cartão, no Pix ou no dinheiro",
+      "pergunta_ou_palavras_chave": {
+        "perguntas_exemplo": [
+          "A loja pode cobrar mais caro no cartão?",
+          "Deram desconto só para quem paga no Pix, pode isso?",
+          "Cobraram mais porque paguei no crédito"
+        ],
+        "palavras_chave": [
+          "cartão",
+          "crédito",
+          "débito",
+          "pix",
+          "dinheiro",
+          "forma de pagamento",
+          "desconto à vista",
+          "mais caro no cartão"
+        ]
+      },
+      "orientacao_resumida": "PODE. Desde a Lei 13.455/2017 a loja pode cobrar preços diferentes conforme a forma ou o prazo de pagamento. MAS ela é obrigada a informar esse desconto em local visível, antes da compra. Se a diferença só apareceu na hora de pagar, sem aviso, você pode reclamar.",
+      "frase_pronta": "A Lei 10.962/2004, art. 5º-A, exige que descontos por forma de pagamento sejam informados em local visível. Onde está essa informação na loja?",
+      "passos": [
+        "Procure o aviso de preços por forma de pagamento (cartaz, etiqueta ou cardápio).",
+        "Se não houver aviso, peça para pagar o preço anunciado.",
+        "Fotografe a falta de aviso e guarde o comprovante, se for reclamar."
+      ],
+      "prazo": null,
+      "onde_reclamar": "Gerência da loja → Procon da sua cidade.",
+      "referencia": {
+        "norma": "Lei nº 13.455/2017 e Lei nº 10.962/2004, art. 5º-A",
+        "url": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2017/lei/l13455.htm"
+      },
+      "data_de_verificacao": "2026-11-11",
+      "limitacoes": "A diferenciação em si é permitida; o problema é a falta de informação clara e prévia.",
+      "relacionados": [
+        "DB01",
+        "DB05",
+        "DB04"
+      ]
+    },
+    {
+      "identificador": "DB03",
+      "tema": "Mercado e lojas",
+      "titulo": "Produto com defeito",
+      "pergunta_ou_palavras_chave": {
+        "perguntas_exemplo": [
+          "Comprei um produto e ele veio com defeito",
+          "O celular parou de funcionar com 20 dias de uso",
+          "A loja manda eu procurar o fabricante, está certo?"
+        ],
+        "palavras_chave": [
+          "defeito",
+          "quebrado",
+          "estragado",
+          "parou de funcionar",
+          "não funciona",
+          "assistência técnica",
+          "garantia",
+          "conserto",
+          "vício",
+          "fabricante"
+        ]
+      },
+      "orientacao_resumida": "Loja e fabricante respondem JUNTOS pelo defeito (a loja não pode só mandar você ao fabricante). Reclame em até 30 dias (produto não durável, como alimento) ou 90 dias (durável, como eletrônico), contados da entrega — se o defeito estava escondido, conta de quando ele apareceu. O fornecedor tem até 30 dias para consertar; se não resolver, VOCÊ escolhe: troca por outro, dinheiro de volta corrigido ou abatimento no preço.",
+      "frase_pronta": "Pelo art. 18 do Código de Defesa do Consumidor, loja e fabricante respondem pelo defeito. Se não for resolvido em 30 dias, posso escolher troca, devolução do dinheiro ou abatimento.",
+      "passos": [
+        "Reclame por escrito (e-mail, chat ou protocolo) e anote o número.",
+        "Guarde a nota fiscal e fotos ou vídeos do defeito.",
+        "Conte 30 dias a partir da entrega na assistência; passado o prazo sem solução, exija uma das três opções."
+      ],
+      "prazo": "Para reclamar: 30 dias (não durável) ou 90 dias (durável). Para o conserto: até 30 dias.",
+      "onde_reclamar": "Loja ou fabricante → consumidor.gov.br → Procon → Juizado Especial Cível (causas de até 20 salários mínimos dispensam advogado).",
+      "referencia": {
+        "norma": "Código de Defesa do Consumidor (Lei nº 8.078/1990), arts. 18 e 26",
+        "url": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm"
+      },
+      "data_de_verificacao": "2026-11-11",
+      "limitacoes": "Para produto essencial ou quando o conserto puder comprometer o produto, a lei permite pedir a troca ou o dinheiro de volta sem esperar os 30 dias (art. 18, §3º). Mau uso comprovado afasta a responsabilidade.",
+      "relacionados": [
+        "DB04",
+        "DB07",
+        "DB08"
+      ]
+    },
+    {
+      "identificador": "DB04",
+      "tema": "Mercado e lojas",
+      "titulo": "Troca porque não gostou ou não serviu (loja física)",
+      "pergunta_ou_palavras_chave": {
+        "perguntas_exemplo": [
+          "A loja é obrigada a trocar se a roupa não serviu?",
+          "Comprei um presente e a pessoa não gostou, posso trocar?",
+          "A loja não quer trocar o tamanho"
+        ],
+        "palavras_chave": [
+          "trocar",
+          "troca",
+          "tamanho",
+          "não serviu",
+          "não gostou",
+          "presente",
+          "cor",
+          "loja física",
+          "política de troca"
+        ]
+      },
+      "orientacao_resumida": "Em compra feita DENTRO da loja, a lei NÃO obriga a troca por gosto, cor ou tamanho quando o produto não tem defeito. A troca só passa a ser obrigatória se a loja prometeu (etiqueta, cartaz, nota fiscal ou o vendedor) — aí a promessa vale como oferta e tem de ser cumprida. Compra pela internet ou telefone é diferente: existe o direito de arrependimento de 7 dias.",
+      "frase_pronta": "A loja divulgou uma política de troca. Pelo art. 30 do Código de Defesa do Consumidor, a oferta feita obriga o fornecedor. Peço que cumpram as condições anunciadas.",
+      "passos": [
+        "Pergunte a política de troca ANTES de comprar e peça que anotem na nota ou na etiqueta.",
+        "Guarde a nota e a etiqueta do produto.",
+        "Se a loja prometeu e não cumpre, mostre a prova da promessa."
+      ],
+      "prazo": "O que a loja tiver prometido.",
+      "onde_reclamar": "Gerência da loja → Procon.",
+      "referencia": {
+        "norma": "Código de Defesa do Consumidor, arts. 30 e 49",
+        "url": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm"
+      },
+      "data_de_verificacao": "2026-11-11",
+      "limitacoes": "Se o produto tiver defeito, a situação é outra (veja 'Produto com defeito').",
+      "relacionados": [
+        "DB03",
+        "DB07",
+        "DB02"
+      ]
+    },
+    {
+      "identificador": "DB05",
+      "tema": "Mercado e lojas",
+      "titulo": "Venda casada e limite de quantidade",
+      "pergunta_ou_palavras_chave": {
+        "perguntas_exemplo": [
+          "Só vendem o celular se eu levar o seguro junto",
+          "O banco disse que só libera o empréstimo se eu fizer um seguro",
+          "A loja limitou quantas unidades eu posso comprar"
+        ],
+        "palavras_chave": [
+          "venda casada",
+          "obrigado a comprar junto",
+          "só vende se",
+          "seguro junto",
+          "levar junto",
+          "limite de quantidade",
+          "condicionar"
+        ]
+      },
+      "orientacao_resumida": "A empresa NÃO pode condicionar a venda de um produto ou serviço à compra de outro (exemplos: só vende o celular se levar o seguro; só libera o empréstimo se contratar um título de capitalização). Também não pode impor limite de quantidade sem justa causa.",
+      "frase_pronta": "Isso é venda casada, prática proibida pelo art. 39, inciso I, do Código de Defesa do Consumidor. Quero contratar apenas o que pedi.",
+      "passos": [
+        "Recuse o produto extra e peça para comprar só o que quer.",
+        "Se insistirem, peça a recusa por escrito ou grave a conversa (você pode gravar conversas das quais participa).",
+        "Se já contratou o item forçado, peça o cancelamento e a devolução do valor."
+      ],
+      "prazo": null,
+      "onde_reclamar": "Gerência → Procon → consumidor.gov.br. Se for banco: também o Banco Central.",
+      "referencia": {
+        "norma": "Código de Defesa do Consumidor, art. 39, inciso I",
+        "url": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm"
+      },
+      "data_de_verificacao": "2026-11-11",
+      "limitacoes": "Promoções do tipo 'leve 3, pague 2' são permitidas desde que você também possa comprar a unidade avulsa.",
+      "relacionados": [
+        "DB11",
+        "DB01",
+        "DB16"
+      ]
+    },
+    {
+      "identificador": "DB06",
+      "tema": "Mercado e lojas",
+      "titulo": "Fila e atendimento prioritário",
+      "pergunta_ou_palavras_chave": {
+        "perguntas_exemplo": [
+          "Quem tem direito a fila preferencial?",
+          "Estou grávida e não quiseram me atender na prioridade",
+          "Autista tem direito a atendimento prioritário?"
+        ],
+        "palavras_chave": [
+          "fila",
+          "preferencial",
+          "prioridade",
+          "prioritário",
+          "gestante",
+          "grávida",
+          "criança de colo",
+          "autista",
+          "deficiência",
+          "doador de sangue",
+          "lactante"
+        ]
+      },
+      "orientacao_resumida": "Têm atendimento prioritário: pessoas com deficiência, pessoas com transtorno do espectro autista, pessoas idosas (60 anos ou mais), gestantes, lactantes, pessoas com criança de colo, pessoas obesas, pessoas com mobilidade reduzida e doadores de sangue (estes depois dos demais, com comprovante de doação válido por 120 dias). A lei federal vale para órgãos públicos, empresas concessionárias de serviço público e bancos.",
+      "frase_pronta": "A Lei 10.048/2000 garante atendimento prioritário a [seu grupo] em órgãos públicos, concessionárias e bancos. Peço o atendimento preferencial.",
+      "passos": [
+        "Peça o atendimento preferencial ao funcionário ou ao gerente.",
+        "Se negarem, anote nome, data e horário.",
+        "Registre a reclamação no local e no Procon."
+      ],
+      "prazo": null,
+      "onde_reclamar": "Gerência ou ouvidoria → Procon. Em banco: também o Banco Central.",
+      "referencia": {
+        "norma": "Lei nº 10.048/2000, arts. 1º e 2º (redação da Lei nº 14.626/2023)",
+        "url": "https://www.planalto.gov.br/ccivil_03/leis/l10048.htm"
+      },
+      "data_de_verificacao": "2026-11-11",
+      "limitacoes": "Em comércio comum (supermercado, farmácia), a obrigação de fila preferencial depende de lei estadual ou municipal. Tempo máximo de espera em fila de banco também é definido por lei municipal.",
+      "relacionados": [
+        "DB23",
+        "DB14",
+        "DB19"
+      ]
+    },
+    {
+      "identificador": "DB07",
+      "tema": "Compras pela internet",
+      "titulo": "Me arrependi de uma compra pela internet (7 dias)",
+      "pergunta_ou_palavras_chave": {
+        "perguntas_exemplo": [
+          "Comprei pela internet e me arrependi, posso devolver?",
+          "Quero desistir de uma compra feita pelo aplicativo",
+          "A loja online não quer aceitar a devolução",
+          "Quero cancelar uma compra que fiz pelo site"
+        ],
+        "palavras_chave": [
+          "arrependimento",
+          "arrependi",
+          "desistir",
+          "devolver",
+          "devolução",
+          "compra online",
+          "internet",
+          "site",
+          "aplicativo",
+          "7 dias",
+          "sete dias",
+          "cancelar compra"
+        ]
+      },
+      "orientacao_resumida": "Comprou FORA da loja física (site, aplicativo, telefone, catálogo ou vendedor em casa)? Você pode desistir em até 7 dias, contados do recebimento do produto ou da assinatura do contrato, SEM precisar explicar o motivo. Tudo o que pagou deve ser devolvido imediatamente e corrigido. Se pagou no cartão, a loja deve avisar a operadora para não cobrar ou estornar.",
+      "frase_pronta": "Exerço meu direito de arrependimento, previsto no art. 49 do Código de Defesa do Consumidor, dentro do prazo de 7 dias. Solicito o cancelamento e a devolução integral dos valores pagos.",
+      "passos": [
+        "Avise a loja POR ESCRITO (e-mail, chat ou formulário do site) dentro dos 7 dias e guarde o comprovante.",
+        "Peça as instruções de devolução do produto; a loja deve informar como devolver.",
+        "Se pagou no cartão, a loja deve pedir à operadora o cancelamento ou estorno (Decreto 7.962/2013, art. 5º)."
+      ],
+      "prazo": "7 dias corridos a partir do recebimento (ou da assinatura do contrato).",
+      "onde_reclamar": "SAC da loja → consumidor.gov.br → Procon.",
+      "referencia": {
+        "norma": "Código de Defesa do Consumidor, art. 49; Decreto nº 7.962/2013, art. 5º",
+        "url": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm"
+      },
+      "data_de_verificacao": "2026-11-11",
+      "limitacoes": "Passagem aérea tem regra própria da ANAC (desistência sem custo em até 24 horas, se comprada com 7 dias ou mais de antecedência do voo). Compra dentro da loja física não tem direito de arrependimento.",
+      "condicoes": {
+        "regra": "todas",
+        "itens": [
+          {
+            "id": "fora_da_loja",
+            "pergunta": "A compra foi feita fora da loja física (internet, aplicativo, telefone, catálogo ou em casa)?"
+          },
+          {
+            "id": "dentro_prazo",
+            "pergunta": "Faz 7 dias ou menos que você recebeu o produto (ou assinou o contrato)?"
+          }
+        ],
+        "se_sim": "Pelas suas respostas, o direito de arrependimento se aplica ao seu caso.",
+        "se_nao": "Pelas suas respostas, o direito de arrependimento provavelmente NÃO se aplica."
+      },
+      "relacionados": [
+        "DB08",
+        "DB09",
+        "DB04",
+        "DB03"
+      ]
+    },
+    {
+      "identificador": "DB08",
+      "tema": "Compras pela internet",
+      "titulo": "Entrega atrasada ou que nunca chegou",
+      "pergunta_ou_palavras_chave": {
+        "perguntas_exemplo": [
+          "Minha encomenda está atrasada",
+          "Comprei on-line e o produto nunca chegou",
+          "Passou o prazo de entrega e a loja só enrola"
+        ],
+        "palavras_chave": [
+          "entrega",
+          "atrasada",
+          "não chegou",
+          "nunca chegou",
+          "encomenda",
+          "prazo de entrega",
+          "pedido atrasado",
+          "rastreio",
+          "pedido",
+          "cancelar pedido"
+        ]
+      },
+      "orientacao_resumida": "Se a loja não cumpriu o prazo de entrega que ofereceu, VOCÊ escolhe: (1) exigir a entrega, (2) aceitar outro produto equivalente ou (3) cancelar a compra com devolução do valor pago, corrigido, além de eventuais perdas e danos.",
+      "frase_pronta": "Conforme o art. 35 do Código de Defesa do Consumidor, como o prazo de entrega ofertado não foi cumprido, escolho [receber o produto / cancelar a compra com devolução integral].",
+      "passos": [
+        "Tire print da página com o prazo prometido e do rastreio.",
+        "Envie sua escolha à loja por escrito e anote o protocolo.",
+        "Se pagou no cartão e a loja não resolve, peça contestação da compra ao emissor do cartão."
+      ],
+      "prazo": null,
+      "onde_reclamar": "SAC da loja → consumidor.gov.br → Procon.",
+      "referencia": {
+        "norma": "Código de Defesa do Consumidor, art. 35",
+        "url": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm"
+      },
+      "data_de_verificacao": "2026-11-11",
+      "limitacoes": "Em marketplaces, a plataforma e o vendedor costumam responder juntos; reclame nos dois.",
+      "relacionados": [
+        "DB07",
+        "DB09",
+        "DB16"
+      ]
+    },
+    {
+      "identificador": "DB09",
+      "tema": "Compras pela internet",
+      "titulo": "Recebi produto ou serviço que não pedi",
+      "pergunta_ou_palavras_chave": {
+        "perguntas_exemplo": [
+          "Chegou um produto que eu não comprei e agora querem cobrar",
+          "O banco mandou um cartão de crédito sem eu pedir",
+          "Apareceu um serviço na minha conta que eu não contratei"
+        ],
+        "palavras_chave": [
+          "não pedi",
+          "não solicitei",
+          "não contratei",
+          "sem pedir",
+          "amostra grátis",
+          "cartão sem pedir",
+          "serviço não contratado"
+        ]
+      },
+      "orientacao_resumida": "Produto entregue ou serviço prestado sem você ter pedido equivale a AMOSTRA GRÁTIS: você não tem obrigação de pagar. O envio de cartão de crédito sem pedido também é prática abusiva (Súmula 532 do STJ).",
+      "frase_pronta": "Não solicitei este produto/serviço. Pelo art. 39, inciso III e parágrafo único, do Código de Defesa do Consumidor, ele equivale a amostra grátis, sem obrigação de pagamento.",
+      "passos": [
+        "Não reconheça a compra só para encerrar o atendimento.",
+        "Conteste a cobrança por escrito e anote o protocolo.",
+        "Se já pagou, peça a devolução (veja 'Cobrança indevida que já paguei')."
+      ],
+      "prazo": null,
+      "onde_reclamar": "SAC da empresa → consumidor.gov.br → Procon.",
+      "referencia": {
+        "norma": "Código de Defesa do Consumidor, art. 39, III e parágrafo único; Súmula 532 do STJ",
+        "url": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm"
+      },
+      "data_de_verificacao": "2026-11-11",
+      "limitacoes": "Se você pediu e esqueceu (assinatura renovada automaticamente, por exemplo), a regra não se aplica; confira seus e-mails e contratos.",
+      "relacionados": [
+        "DB16",
+        "DB08",
+        "DB20"
+      ]
+    },
+    {
+      "identificador": "DB10",
+      "tema": "Bares, restaurantes e lazer",
+      "titulo": "Taxa de serviço de 10%",
+      "pergunta_ou_palavras_chave": {
+        "perguntas_exemplo": [
+          "Sou obrigado a pagar os 10% do garçom?",
+          "O restaurante colocou a taxa de serviço na conta sem perguntar",
+          "Posso pedir para tirar a gorjeta da conta?"
+        ],
+        "palavras_chave": [
+          "10%",
+          "dez por cento",
+          "taxa de serviço",
+          "gorjeta",
+          "garçom",
+          "serviço na conta"
+        ]
+      },
+      "orientacao_resumida": "A taxa de serviço (os 10% do garçom) é uma gorjeta e NÃO é obrigatória. O estabelecimento deve informar com clareza, no cardápio ou na conta, que ela é opcional. Você pode pedir para retirá-la. O que você consumiu (comida e bebida) continua obrigatório.",
+      "frase_pronta": "A taxa de serviço é opcional. Peço, por favor, que retirem os 10% da conta.",
+      "passos": [
+        "Confira a conta antes de pagar.",
+        "Peça com educação a retirada da taxa.",
+        "Se insistirem, pague apenas o consumo e registre reclamação."
+      ],
+      "prazo": null,
+      "onde_reclamar": "Gerência → Procon.",
+      "referencia": {
+        "norma": "Lei nº 13.419/2017 (gorjeta); Código de Defesa do Consumidor, art. 6º, III (informação clara); orientação do Idec e dos Procons",
+        "url": "https://idec.org.br/em-acao/em-foco/taxa-de-consumacao-minima-em-bares-e-abusiva"
+      },
+      "data_de_verificacao": "2026-11-11",
+      "limitacoes": "A gorjeta é um reconhecimento ao trabalho da equipe; não pagá-la é um direito, mas a decisão é sua.",
+      "relacionados": [
+        "DB11",
+        "DB12",
+        "DB13"
+      ]
+    },
+    {
+      "identificador": "DB11",
+      "tema": "Bares, restaurantes e lazer",
+      "titulo": "Consumação mínima",
+      "pergunta_ou_palavras_chave": {
+        "perguntas_exemplo": [
+          "O bar exige consumação mínima, pode?",
+          "Na balada disseram que eu tenho que gastar no mínimo 100 reais",
+          "Quiosque da praia cobra valor mínimo para usar a mesa"
+        ],
+        "palavras_chave": [
+          "consumação mínima",
+          "consumo mínimo",
+          "gastar no mínimo",
+          "valor mínimo",
+          "balada",
+          "boate",
+          "quiosque",
+          "casa noturna"
+        ]
+      },
+      "orientacao_resumida": "Exigir que você gaste um valor mínimo para entrar ou permanecer no local é considerado prática ABUSIVA pelos Procons e pelo Idec, porque condiciona o serviço a uma quantidade de consumo. O local pode cobrar ingresso (entrada), desde que informe antes, e aquilo que você de fato consumir.",
+      "frase_pronta": "Consumação mínima é prática abusiva (art. 39, inciso I, do Código de Defesa do Consumidor). Vou pagar apenas o que consumi.",
+      "passos": [
+        "Fotografe o cardápio, placa ou aviso de consumação mínima.",
+        "Peça a retirada do valor mínimo da conta e pague só o consumo.",
+        "Guarde a nota detalhada e registre reclamação."
+      ],
+      "prazo": null,
+      "onde_reclamar": "Gerência → Procon.",
+      "referencia": {
+        "norma": "Código de Defesa do Consumidor, art. 39, inciso I; orientação do Idec",
+        "url": "https://idec.org.br/em-acao/em-foco/taxa-de-consumacao-minima-em-bares-e-abusiva"
+      },
+      "data_de_verificacao": "2026-11-11",
+      "limitacoes": "Algumas leis estaduais permitem consumação como alternativa ao ingresso, se o cliente puder escolher pagar a entrada.",
+      "relacionados": [
+        "DB10",
+        "DB12",
+        "DB05"
+      ]
+    },
+    {
+      "identificador": "DB12",
+      "tema": "Bares, restaurantes e lazer",
+      "titulo": "Perdi a comanda",
+      "pergunta_ou_palavras_chave": {
+        "perguntas_exemplo": [
+          "Perdi a comanda e querem cobrar 300 reais",
+          "O bar cobra multa se eu perder o cartão de consumo",
+          "Sumiu minha comanda, o que eu pago?"
+        ],
+        "palavras_chave": [
+          "comanda",
+          "perdi a comanda",
+          "multa comanda",
+          "cartão de consumo",
+          "perda de comanda"
+        ]
+      },
+      "orientacao_resumida": "Controlar o consumo é responsabilidade do ESTABELECIMENTO. Procons consideram abusiva a multa por perda de comanda em valor fixo ou alto, sem relação com o que você consumiu. O local deve apurar seu consumo (sistema, garçom, câmeras) e cobrar só isso.",
+      "frase_pronta": "O controle do consumo é responsabilidade do estabelecimento. Multa por perda de comanda é considerada prática abusiva (art. 39, V, do Código de Defesa do Consumidor). Pago o que consumi.",
+      "passos": [
+        "Informe o que você consumiu e peça a conferência no sistema.",
+        "Recuse a multa arbitrária e pague o consumo apurado.",
+        "Se impedirem sua saída, ligue 190: reter alguém por dívida é ilegal."
+      ],
+      "prazo": null,
+      "onde_reclamar": "Gerência → Procon.",
+      "referencia": {
+        "norma": "Código de Defesa do Consumidor, art. 39, V; orientação do Procon-SP e do Idec",
+        "url": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm"
+      },
+      "data_de_verificacao": "2026-11-11",
+      "limitacoes": "Há entendimento de que uma taxa pequena, informada com antecedência, poderia ser cobrada se ficar provado descuido do cliente; valores altos ou arbitrários são abusivos.",
+      "relacionados": [
+        "DB10",
+        "DB11",
+        "DB13"
+      ]
+    },
+    {
+      "identificador": "DB13",
+      "tema": "Bares, restaurantes e lazer",
+      "titulo": "Couvert que eu não pedi",
+      "pergunta_ou_palavras_chave": {
+        "perguntas_exemplo": [
+          "Trouxeram pão e patê sem eu pedir e cobraram",
+          "Tenho que pagar o couvert?",
+          "Cobraram couvert artístico sem avisar"
+        ],
+        "palavras_chave": [
+          "couvert",
+          "couvert artístico",
+          "pãozinho",
+          "petisco",
+          "entrada sem pedir",
+          "música ao vivo"
+        ]
+      },
+      "orientacao_resumida": "Couvert (pães, patês, petiscos) servido SEM você pedir equivale a amostra grátis: não precisa pagar. Couvert ARTÍSTICO (música ao vivo) só pode ser cobrado se informado antes, de forma clara (na entrada, no cardápio ou na mesa).",
+      "frase_pronta": "Não pedi o couvert. Pelo art. 39, III e parágrafo único, do Código de Defesa do Consumidor, o que é servido sem solicitação não precisa ser pago.",
+      "passos": [
+        "Recuse o couvert quando chegar à mesa, se não quiser.",
+        "Confira a conta e peça a retirada do que não pediu.",
+        "Para couvert artístico, verifique se havia aviso prévio."
+      ],
+      "prazo": null,
+      "onde_reclamar": "Gerência → Procon.",
+      "referencia": {
+        "norma": "Código de Defesa do Consumidor, art. 39, III e parágrafo único; art. 6º, III",
+        "url": "https://idec.org.br/consultas/dicas-e-direitos/cuidado-com-as-cobrancas-indevidas-e-pegadinhas-em-restaurantes"
+      },
+      "data_de_verificacao": "2026-11-11",
+      "limitacoes": "Se você aceitou e consumiu depois de ser informado do preço, o couvert pode ser cobrado.",
+      "relacionados": [
+        "DB10",
+        "DB09",
+        "DB11"
+      ]
+    },
+    {
+      "identificador": "DB14",
+      "tema": "Bares, restaurantes e lazer",
+      "titulo": "Meia-entrada em cinema, shows e eventos",
+      "pergunta_ou_palavras_chave": {
+        "perguntas_exemplo": [
+          "Quem tem direito a meia-entrada?",
+          "O cinema não aceitou minha carteirinha de estudante",
+          "Idoso paga meia no show?"
+        ],
+        "palavras_chave": [
+          "meia-entrada",
+          "meia entrada",
+          "ingresso",
+          "cinema",
+          "show",
+          "teatro",
+          "carteirinha",
+          "estudante",
+          "id jovem",
+          "jogo de futebol"
+        ]
+      },
+      "orientacao_resumida": "Têm direito a meia-entrada em cinema, teatro, shows e eventos esportivos: estudantes (com Carteira de Identificação Estudantil), pessoas com 60 anos ou mais, pessoas com deficiência (e acompanhante, quando necessário) e jovens de 15 a 29 anos de baixa renda inscritos no CadÚnico (ID Jovem). Para estudantes, pessoas com deficiência e jovens de baixa renda, o evento deve garantir meia-entrada em pelo menos 40% dos ingressos.",
+      "frase_pronta": "Tenho direito à meia-entrada pela Lei 12.933/2013 (ou pelo art. 23 do Estatuto da Pessoa Idosa). Aqui está meu documento.",
+      "passos": [
+        "Leve o documento que comprova o direito (CIE, documento com foto, cartão do BPC/INSS ou ID Jovem).",
+        "Se recusarem, peça para ver quantos ingressos de meia ainda estão disponíveis (o local deve informar).",
+        "Registre a recusa e reclame."
+      ],
+      "prazo": null,
+      "onde_reclamar": "Bilheteria ou organizador → Procon.",
+      "referencia": {
+        "norma": "Lei nº 12.933/2013; Estatuto da Pessoa Idosa (Lei nº 10.741/2003), art. 23",
+        "url": "https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2013/lei/l12933.htm"
+      },
+      "data_de_verificacao": "2026-11-11",
+      "limitacoes": "Estudantes de cursos livres (idiomas, informática, preparatórios) não têm direito. Eventos exclusivamente gastronômicos não são obrigados.",
+      "condicoes": {
+        "regra": "alguma",
+        "itens": [
+          {
+            "id": "estudante",
+            "pergunta": "Você é estudante com Carteira de Identificação Estudantil (CIE) válida?"
+          },
+          {
+            "id": "idoso",
+            "pergunta": "Você tem 60 anos ou mais?"
+          },
+          {
+            "id": "pcd",
+            "pergunta": "Você é pessoa com deficiência (ou acompanhante necessário)?"
+          },
+          {
+            "id": "jovem_baixa_renda",
+            "pergunta": "Você tem de 15 a 29 anos e está inscrito no CadÚnico (ID Jovem)?"
+          }
+        ],
+        "se_sim": "Pelas suas respostas, você se enquadra em pelo menos um grupo com direito à meia-entrada.",
+        "se_nao": "Pelas suas respostas, você não se enquadra nos grupos da lei federal."
+      },
+      "relacionados": [
+        "DB23",
+        "DB06",
+        "DB10"
+      ]
+    },
+    {
+      "identificador": "DB15",
+      "tema": "Bancos, contas e telefone",
+      "titulo": "Caí em um golpe no Pix",
+      "pergunta_ou_palavras_chave": {
+        "perguntas_exemplo": [
+          "Fiz um Pix para um golpista, consigo o dinheiro de volta?",
+          "Caí no golpe do falso parente no WhatsApp e mandei um Pix",
+          "Como contestar um Pix de golpe?"
+        ],
+        "palavras_chave": [
+          "golpe",
+          "pix",
+          "golpista",
+          "fraude",
+          "med",
+          "devolução pix",
+          "contestar pix",
+          "falso parente",
+          "enganado",
+          "whatsapp"
+        ]
+      },
+      "orientacao_resumida": "Se você fez um Pix por golpe, fraude ou sob coação, peça a devolução pelo Mecanismo Especial de Devolução (MED), na área Pix do aplicativo do SEU banco (opção de contestar a transação). O prazo é de até 80 dias da transferência, mas quanto ANTES, maior a chance de ainda haver dinheiro para bloquear. A devolução não é garantida: depende de haver saldo na conta de destino.",
+      "frase_pronta": "Fui vítima de golpe e quero abrir uma contestação pelo Mecanismo Especial de Devolução (MED) do Pix, conforme o regulamento do Banco Central.",
+      "passos": [
+        "Abra a área Pix do aplicativo do seu banco e use a opção de contestar a transação. Faça isso o quanto antes.",
+        "Registre boletim de ocorrência (muitos estados permitem pela delegacia on-line).",
+        "Guarde prints da conversa, o comprovante do Pix e o protocolo do banco.",
+        "Se o banco não atender, registre reclamação no Banco Central (ele não resolve casos individuais, mas fiscaliza o banco)."
+      ],
+      "prazo": "Até 80 dias da data do Pix. Os bancos têm até 7 dias para analisar.",
+      "onde_reclamar": "Seu banco (app e ouvidoria) → Banco Central (Registrar reclamação) → Procon.",
+      "referencia": {
+        "norma": "Regulamento do Pix – Mecanismo Especial de Devolução (MED), Banco Central do Brasil",
+        "url": "https://www.bcb.gov.br/estabilidadefinanceira/pix"
+      },
+      "data_de_verificacao": "2026-11-11",
+      "limitacoes": "Pix enviado por engano para a pessoa errada (erro seu, sem golpe) não entra no MED: nesse caso, peça a devolução ao recebedor e, se necessário, procure o Juizado Especial.",
+      "relacionados": [
+        "DB16",
+        "DB17",
+        "DB21"
+      ]
+    },
+    {
+      "identificador": "DB16",
+      "tema": "Bancos, contas e telefone",
+      "titulo": "Cobrança indevida que já paguei",
+      "pergunta_ou_palavras_chave": {
+        "perguntas_exemplo": [
+          "Paguei uma cobrança errada, posso pedir o dinheiro de volta em dobro?",
+          "Me cobraram duas vezes a mesma conta",
+          "Descobri uma tarifa que eu pagava sem dever"
+        ],
+        "palavras_chave": [
+          "cobrança indevida",
+          "cobraram errado",
+          "cobrado duas vezes",
+          "em dobro",
+          "devolução em dobro",
+          "paguei a mais",
+          "tarifa indevida",
+          "valor errado"
+        ]
+      },
+      "orientacao_resumida": "Se você PAGOU uma cobrança indevida, tem direito a receber de volta o DOBRO do que pagou a mais, com correção e juros — salvo se a empresa provar um engano justificável.",
+      "frase_pronta": "Paguei valor cobrado indevidamente. Pelo art. 42, parágrafo único, do Código de Defesa do Consumidor, solicito a devolução em dobro do que paguei em excesso.",
+      "passos": [
+        "Reúna faturas e comprovantes que mostram a cobrança errada.",
+        "Peça a devolução por escrito e anote o protocolo.",
+        "Se não resolverem, leve ao consumidor.gov.br, Procon ou Juizado Especial."
+      ],
+      "prazo": null,
+      "onde_reclamar": "SAC → ouvidoria da empresa → consumidor.gov.br → Procon → Juizado Especial Cível.",
+      "referencia": {
+        "norma": "Código de Defesa do Consumidor, art. 42, parágrafo único",
+        "url": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm"
+      },
+      "data_de_verificacao": "2026-11-11",
+      "limitacoes": "A devolução em dobro trata de valor já pago. Se ainda não pagou, conteste antes. O que é 'engano justificável' é decidido caso a caso.",
+      "relacionados": [
+        "DB17",
+        "DB18",
+        "DB09"
+      ]
+    },
+    {
+      "identificador": "DB17",
+      "tema": "Bancos, contas e telefone",
+      "titulo": "Cobrador me constrangendo",
+      "pergunta_ou_palavras_chave": {
+        "perguntas_exemplo": [
+          "O cobrador liga no meu trabalho e fala da minha dívida",
+          "Estão me ameaçando por causa de uma dívida",
+          "Me cobram toda hora, inclusive de madrugada"
+        ],
+        "palavras_chave": [
+          "cobrador",
+          "cobrança abusiva",
+          "ameaça",
+          "constrangimento",
+          "dívida",
+          "ligam toda hora",
+          "expor",
+          "trabalho",
+          "assessoria de cobrança"
+        ]
+      },
+      "orientacao_resumida": "Quem cobra uma dívida NÃO pode expor você ao ridículo, ameaçar, constranger ou interferir no seu trabalho, descanso ou lazer. Ligações em horário abusivo, cobrança na frente de colegas ou vizinhos e ameaças são proibidas — e podem até ser crime (art. 71 do CDC).",
+      "frase_pronta": "Pelo art. 42 do Código de Defesa do Consumidor, na cobrança de dívidas não posso ser exposto ao ridículo nem submetido a constrangimento ou ameaça. Peço que a cobrança seja feita somente por escrito.",
+      "passos": [
+        "Anote datas, horários e números das ligações; guarde mensagens e áudios.",
+        "Peça por escrito que a cobrança seja feita somente por escrito.",
+        "Se houver ameaça, registre boletim de ocorrência."
+      ],
+      "prazo": null,
+      "onde_reclamar": "Ouvidoria da empresa credora → consumidor.gov.br → Procon. Em caso de ameaça: polícia.",
+      "referencia": {
+        "norma": "Código de Defesa do Consumidor, arts. 42 (caput) e 71",
+        "url": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm"
+      },
+      "data_de_verificacao": "2026-11-11",
+      "limitacoes": "A dívida continua existindo: a regra protege a forma da cobrança, não cancela o débito.",
+      "relacionados": [
+        "DB16",
+        "DB18",
+        "DB21"
+      ]
+    },
+    {
+      "identificador": "DB18",
+      "tema": "Bancos, contas e telefone",
+      "titulo": "Nome negativado (SPC/Serasa)",
+      "pergunta_ou_palavras_chave": {
+        "perguntas_exemplo": [
+          "Meu nome foi para o Serasa sem nenhum aviso",
+          "Já paguei a dívida e meu nome continua sujo",
+          "Em quanto tempo tiram meu nome do SPC depois que eu pago?"
+        ],
+        "palavras_chave": [
+          "negativado",
+          "nome sujo",
+          "serasa",
+          "spc",
+          "cadastro de inadimplentes",
+          "limpar nome",
+          "aviso de negativação"
+        ]
+      },
+      "orientacao_resumida": "Antes de incluírem seu nome em cadastro de inadimplentes (como SPC e Serasa), você deve ser AVISADO POR ESCRITO — quem envia o aviso é o órgão que mantém o cadastro (Súmula 359 do STJ). Depois que você paga a dívida inteira, o credor tem 5 dias úteis para pedir a retirada do seu nome (Súmula 548 do STJ).",
+      "frase_pronta": "Pelo art. 43, §2º, do Código de Defesa do Consumidor, eu deveria ter sido comunicado por escrito antes da negativação. E, como paguei, peço a exclusão do meu nome em até 5 dias úteis (Súmula 548 do STJ).",
+      "passos": [
+        "Consulte seu CPF nos sites oficiais do SPC e da Serasa para ver quem negativou.",
+        "Guarde o comprovante de pagamento da dívida.",
+        "Peça a exclusão por escrito ao credor e ao cadastro."
+      ],
+      "prazo": "5 dias úteis após o pagamento integral para o credor pedir a retirada.",
+      "onde_reclamar": "Credor → órgão do cadastro (SPC/Serasa) → consumidor.gov.br → Procon → Juizado Especial.",
+      "referencia": {
+        "norma": "Código de Defesa do Consumidor, art. 43, §2º; Súmulas 359 e 548 do STJ",
+        "url": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm"
+      },
+      "data_de_verificacao": "2026-11-11",
+      "limitacoes": "Se a dívida existe e não foi paga, a negativação com aviso prévio é permitida.",
+      "relacionados": [
+        "DB16",
+        "DB17",
+        "DB15"
+      ]
+    },
+    {
+      "identificador": "DB19",
+      "tema": "Bancos, contas e telefone",
+      "titulo": "Cortaram minha luz",
+      "pergunta_ou_palavras_chave": {
+        "perguntas_exemplo": [
+          "Cortaram minha luz numa sexta-feira, pode?",
+          "A companhia de energia pode cortar a luz sem aviso?",
+          "Paguei a conta atrasada, em quanto tempo religam a energia?"
+        ],
+        "palavras_chave": [
+          "luz",
+          "energia",
+          "corte de luz",
+          "cortaram a luz",
+          "conta de luz",
+          "religação",
+          "distribuidora",
+          "aneel"
+        ]
+      },
+      "orientacao_resumida": "Por conta atrasada, a distribuidora só pode cortar a energia depois de AVISAR com antecedência (pelo menos 15 dias, no caso de falta de pagamento). O corte só pode acontecer em dia útil, das 8h às 18h — NUNCA na sexta-feira, sábado, domingo, feriado ou véspera de feriado. Se o corte foi indevido, a religação deve ser feita em até 4 horas, sem custo para você.",
+      "frase_pronta": "A Resolução Normativa ANEEL 1.000/2021 proíbe o corte por falta de pagamento às sextas-feiras, fins de semana, feriados e vésperas de feriado, e exige aviso prévio. Peço a religação imediata.",
+      "passos": [
+        "Anote data e hora do corte e, se possível, fotografe o aviso (ou a falta dele).",
+        "Ligue para a distribuidora, peça a religação e anote o protocolo.",
+        "Se não resolverem, reclame na ouvidoria da distribuidora e depois na ANEEL (telefone 167)."
+      ],
+      "prazo": "Religação após corte indevido: até 4 horas.",
+      "onde_reclamar": "Distribuidora → ouvidoria → ANEEL (167) → Procon.",
+      "referencia": {
+        "norma": "Resolução Normativa ANEEL nº 1.000/2021",
+        "url": "https://www2.aneel.gov.br/cedoc/ren20211000.html"
+      },
+      "data_de_verificacao": "2026-11-11",
+      "limitacoes": "Em situações de risco técnico ou de segurança, a distribuidora pode desligar sem seguir esses prazos. Água e gás seguem regras de outras agências e da sua cidade.",
+      "relacionados": [
+        "DB20",
+        "DB16",
+        "DB06"
+      ]
+    },
+    {
+      "identificador": "DB20",
+      "tema": "Bancos, contas e telefone",
+      "titulo": "Cancelar internet, celular ou TV por assinatura",
+      "pergunta_ou_palavras_chave": {
+        "perguntas_exemplo": [
+          "A operadora não me deixa cancelar a internet",
+          "Como cancelar o plano de celular sem falar com atendente?",
+          "Quero cancelar a TV por assinatura e ficam me oferecendo desconto"
+        ],
+        "palavras_chave": [
+          "cancelar",
+          "cancelamento",
+          "operadora",
+          "internet",
+          "plano",
+          "celular",
+          "tv por assinatura",
+          "fidelidade",
+          "multa de fidelidade",
+          "anatel"
+        ]
+      },
+      "orientacao_resumida": "Você pode cancelar telefone, internet ou TV por assinatura SEM precisar falar com atendente, por canal automático (site, aplicativo ou opção no menu telefônico). A operadora não pode dificultar o cancelamento. Se você aceitou fidelidade em troca de benefício, pode haver multa proporcional ao tempo que falta — confira o contrato.",
+      "frase_pronta": "Quero cancelar o serviço agora. O Regulamento Geral de Direitos do Consumidor de Telecomunicações (Resolução Anatel 765/2023) garante o cancelamento, inclusive sem intervenção de atendente. Peço o número de protocolo.",
+      "passos": [
+        "Use a opção de cancelamento no app, no site ou no menu do telefone.",
+        "Anote o protocolo e a data do pedido.",
+        "Se continuar sendo cobrado, conteste e peça a devolução."
+      ],
+      "prazo": null,
+      "onde_reclamar": "Operadora (com protocolo) → Anatel (telefone 1331 ou site) → Procon.",
+      "referencia": {
+        "norma": "Resolução Anatel nº 765/2023 (Regulamento Geral de Direitos do Consumidor de Serviços de Telecomunicações)",
+        "url": "https://informacoes.anatel.gov.br/legislacao/resolucoes/2023/1900-resolucao-765"
+      },
+      "data_de_verificacao": "2026-11-11",
+      "limitacoes": "A multa de fidelidade é permitida quando você recebeu benefício em troca e ela deve ser proporcional ao tempo restante.",
+      "relacionados": [
+        "DB21",
+        "DB09",
+        "DB16"
+      ]
+    },
+    {
+      "identificador": "DB21",
+      "tema": "Bancos, contas e telefone",
+      "titulo": "Ligações de telemarketing",
+      "pergunta_ou_palavras_chave": {
+        "perguntas_exemplo": [
+          "Como parar de receber ligação de telemarketing?",
+          "Banco liga todo dia oferecendo empréstimo consignado",
+          "Recebo muitas ligações de operadora oferecendo plano"
+        ],
+        "palavras_chave": [
+          "telemarketing",
+          "ligação",
+          "ligações",
+          "não me perturbe",
+          "bloquear ligação",
+          "oferta por telefone",
+          "consignado",
+          "0303",
+          "spam"
+        ]
+      },
+      "orientacao_resumida": "Cadastre seu número no 'Não Me Perturbe' (site naomeperturbe.com.br, aplicativo ou pelo Procon). Ele bloqueia ofertas de telefonia, internet, TV por assinatura e crédito consignado em até 30 dias. Ligações de telemarketing ativo devem usar o prefixo 0303, o que ajuda a reconhecer e recusar.",
+      "frase_pronta": "Meu número está cadastrado no Não Me Perturbe. Peço que retirem meu telefone da lista de ofertas e não liguem mais.",
+      "passos": [
+        "Cadastre seu número em naomeperturbe.com.br (ou no Procon).",
+        "Aguarde até 30 dias para o bloqueio valer.",
+        "Se continuarem ligando depois disso, anote data, hora e empresa e reclame na Anatel."
+      ],
+      "prazo": "Bloqueio em até 30 dias após o cadastro.",
+      "onde_reclamar": "Anatel (1331) → Procon.",
+      "referencia": {
+        "norma": "Plataforma Não Me Perturbe (adesão obrigatória determinada pela Anatel)",
+        "url": "https://www.naomeperturbe.com.br"
+      },
+      "data_de_verificacao": "2026-11-11",
+      "limitacoes": "Não bloqueia ligações de cobrança, de prevenção a fraude, de pesquisa nem de golpistas.",
+      "relacionados": [
+        "DB20",
+        "DB17",
+        "DB15"
+      ]
+    },
+    {
+      "identificador": "DB22",
+      "tema": "Viagens e transporte",
+      "titulo": "Voo atrasado ou cancelado",
+      "pergunta_ou_palavras_chave": {
+        "perguntas_exemplo": [
+          "Meu voo atrasou 3 horas, a companhia tem que me dar comida?",
+          "O voo foi cancelado, tenho direito a hotel?",
+          "Atrasou mais de 4 horas, posso pedir reembolso?"
+        ],
+        "palavras_chave": [
+          "voo",
+          "avião",
+          "atraso",
+          "atrasou",
+          "cancelado",
+          "companhia aérea",
+          "aeroporto",
+          "reacomodação",
+          "anac",
+          "hotel"
+        ]
+      },
+      "orientacao_resumida": "Com voo atrasado, cancelado ou interrompido, a companhia deve dar assistência enquanto você espera: ALIMENTAÇÃO a partir de 2 horas e HOSPEDAGEM com transporte a partir de 4 horas, quando houver necessidade de pernoite. Com atraso acima de 4 horas ou cancelamento, você escolhe entre reacomodação em outro voo, reembolso integral ou seguir viagem por outro meio de transporte. Atenção: desde 26/10/2026 não existe mais a obrigação de 'facilidades de comunicação' após 1 hora (Resolução ANAC 813/2026).",
+      "frase_pronta": "Com base na Resolução ANAC 400/2016, atualizada pela Resolução 813/2026, solicito a assistência material devida pelo tempo de espera e, se o atraso passar de 4 horas, a opção de reacomodação ou reembolso.",
+      "passos": [
+        "Peça no balcão uma declaração por escrito do atraso ou cancelamento.",
+        "Guarde cartão de embarque, recibos de gastos e prints dos avisos.",
+        "Reclame na companhia e, sem solução, no consumidor.gov.br."
+      ],
+      "prazo": "Alimentação: a partir de 2 h de espera. Hospedagem: a partir de 4 h, se houver pernoite.",
+      "onde_reclamar": "Companhia aérea → consumidor.gov.br → ANAC (163) → Juizado Especial.",
+      "referencia": {
+        "norma": "Resolução ANAC nº 400/2016, com alterações da Resolução nº 813/2026",
+        "url": "https://www.anac.gov.br/assuntos/legislacao/legislacao-1/resolucoes/2016/resolucao-no-400-13-12-2016"
+      },
+      "data_de_verificacao": "2026-11-11",
+      "limitacoes": "A assistência material da ANAC é garantida em território nacional. Indenização por danos é outro assunto, decidido caso a caso. Regras de informação do art. 20 mudam a partir de 25/11/2026 (Resolução 819/2026).",
+      "relacionados": [
+        "DB23",
+        "DB07",
+        "DB16"
+      ]
+    },
+    {
+      "identificador": "DB23",
+      "tema": "Viagens e transporte",
+      "titulo": "Pessoa idosa: passagem de ônibus interestadual gratuita",
+      "pergunta_ou_palavras_chave": {
+        "perguntas_exemplo": [
+          "Idoso tem passagem de ônibus de graça para outro estado?",
+          "Minha mãe tem 62 anos, ela paga passagem interestadual?",
+          "As vagas gratuitas do idoso acabaram, e agora?"
+        ],
+        "palavras_chave": [
+          "idoso",
+          "idosa",
+          "60 anos",
+          "passagem",
+          "ônibus",
+          "interestadual",
+          "gratuita",
+          "rodoviária",
+          "carteira da pessoa idosa",
+          "viagem"
+        ]
+      },
+      "orientacao_resumida": "Pessoas com 60 anos ou mais e renda individual de até 2 salários mínimos têm direito, em ônibus INTERESTADUAL do serviço convencional, a 2 vagas gratuitas por veículo. Quando elas acabarem, têm desconto de pelo menos 50% na passagem. É preciso apresentar documento com foto e comprovante de renda (ou a Carteira da Pessoa Idosa).",
+      "frase_pronta": "Pelo art. 40 do Estatuto da Pessoa Idosa (Lei 10.741/2003), solicito uma das vagas gratuitas ou, se esgotadas, o desconto mínimo de 50%.",
+      "passos": [
+        "Leve documento com foto e comprovante de renda (ou a Carteira da Pessoa Idosa).",
+        "Peça o bilhete no guichê da empresa.",
+        "Se negarem, peça a recusa por escrito e reclame na ANTT (telefone 166)."
+      ],
+      "prazo": null,
+      "onde_reclamar": "Empresa de ônibus → ANTT (166) → Procon.",
+      "referencia": {
+        "norma": "Estatuto da Pessoa Idosa (Lei nº 10.741/2003), art. 40",
+        "url": "https://www.planalto.gov.br/ccivil_03/leis/2003/l10.741.htm"
+      },
+      "data_de_verificacao": "2026-11-11",
+      "limitacoes": "Não vale para os serviços executivo, semileito e leito. Ônibus municipal e intermunicipal seguem regras locais (em regra, gratuidade a partir de 65 anos no transporte urbano).",
+      "condicoes": {
+        "regra": "todas",
+        "itens": [
+          {
+            "id": "idade",
+            "pergunta": "A pessoa que vai viajar tem 60 anos ou mais?"
+          },
+          {
+            "id": "renda",
+            "pergunta": "A renda individual dela é de até 2 salários mínimos?"
+          },
+          {
+            "id": "interestadual",
+            "pergunta": "A viagem é de ônibus entre estados, no serviço convencional?"
+          }
+        ],
+        "se_sim": "Pelas respostas, a pessoa tem direito à vaga gratuita (ou ao desconto de 50% se as vagas acabaram).",
+        "se_nao": "Pelas respostas, a gratuidade federal provavelmente NÃO se aplica."
+      },
+      "relacionados": [
+        "DB14",
+        "DB06",
+        "DB22"
+      ]
+    }
+  ]
+}
