@@ -44,7 +44,7 @@ As responsabilidades abaixo são propostas e dependem de aceite dos integrantes.
 
 **Critério de conclusão:** todos os registros têm revisão rastreável; orientações sem respaldo foram corrigidas ou retiradas da resposta disponível. Datas cadastradas não são usadas como prova isolada de revisão.
 
-**Evidência:** revisão integral registrada na Seção 5 de [relatorio.md](relatorio.md) e datas atualizadas em [base.json](../data/base.json) (16/11/2026).
+**Evidência:** revisão integral registrada na Seção 5 de [relatorio.md](relatorio.md), ressalva dos arts. 83 e 84 da Resolução Anatel nº 765/2023 incorporada em `DB20` e datas alinhadas para `2026-11-16` nos 23 registros de [base.json](../data/base.json).
 
 ### BUS-01 — Corrigir associação entre academia e telecomunicações
 
@@ -56,7 +56,7 @@ As responsabilidades abaixo são propostas e dependem de aceite dos integrantes.
 
 **Critério de conclusão:** a pergunta sobre academia não recebe a orientação de telecomunicações; consultas legítimas de telecomunicações continuam atendidas e regressões são resolvidas ou explicitamente documentadas.
 
-**Evidência:** validação de contexto setorial (`CONTEXTO_SETOR`) em [busca.py](../src/busca.py), casos de regressão `T41`–`T44` em [perguntas_teste.json](../data/perguntas_teste.json), novas perguntas inéditas `V16`–`V18` em [perguntas_validacao.json](../data/perguntas_validacao.json) e resultados atualizados em [resultados_testes.md](resultados_testes.md) (híbrida: 43/44 no teste, 14/18 na validação, 0 erros perigosos).
+**Evidência:** filtragem de contexto setorial (`CONTEXTO_SETOR` e `_sinais_consulta`) antes das decisões de ambiguidade e resposta em [busca.py](../src/busca.py), casos de regressão `T41`–`T47` em [perguntas_teste.json](../data/perguntas_teste.json), separação entre regressão conhecida `V15` e 18 perguntas inéditas reservadas em [perguntas_validacao.json](../data/perguntas_validacao.json) e resultados atualizados em [resultados_testes.md](resultados_testes.md).
 
 **Nota de avaliação:** V15 já é conhecido e orienta esta correção. Não apresentar o desempenho posterior nesse mesmo caso como validação inédita; reservar novas perguntas que não tenham orientado os ajustes.
 

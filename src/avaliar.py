@@ -4,9 +4,9 @@ Uso:  python src/avaliar.py
 Gera: docs/resultados_testes.md  e  data/resultados_testes.csv
 
 Para cada pergunta registra: resposta esperada, resposta obtida, acerto/erro e tempo.
-Indicadores: taxa de acerto (geral e por categoria) e tempo médio de consulta.
+Indicadores: taxa de acerto (geral, por categoria e validação inédita) e tempo médio.
 Também testa a robustez da leitura da base (arquivo ausente, vazio, JSON quebrado,
-registro inválido).
+registro inválido) e o validador estrutural da saída de IA.
 """
 import csv
 import json
@@ -44,17 +44,22 @@ def rodar(buscador, casos, estrategia):
             res = buscador.buscar(c["pergunta"], estrategia)
             tempos.append(res.tempo_ms)
         o = obtido(res)
+        acerto = o == c["esperado"]
+        ids_proibidos = set(c.get("nao_deve_conter", []))
+        ids_exibidos = set(res.ids) if res.tipo in ("RESPOSTA", "AMBIGUA") else set()
+        if ids_proibidos and (ids_proibidos & ids_exibidos):
+            acerto = False
         linhas.append({
             "id": c["id"], "categoria": c["categoria"], "pergunta": c["pergunta"],
             "esperado": c["esperado"], "obtido": o, "detalhe": res.tipo,
-            "acerto": o == c["esperado"], "tempo_ms": statistics.mean(tempos),
+            "ids_candidatos": list(ids_exibidos), "acerto": acerto, "tempo_ms": statistics.mean(tempos),
         })
     return linhas
 
 
 def gravidade(l):
     """Erro SEGURO: o sistema se absteve ou pediu esclarecimento (não induz a pessoa a erro).
-    Erro PERIGOSO: o sistema deu uma orientação errada com confiança."""
+    Erro PERIGOSO: o sistema deu uma orientação errada com confiança ou ofereceu opção incompatível."""
     if l["acerto"]:
         return ""
     if l["obtido"] in ("SEM_RESPOSTA", "AMBIGUA", "VAZIA", "INVALIDA"):
@@ -68,8 +73,8 @@ def resumo(linhas):
     return {
         "acertos": acertos, "total": total, "taxa": acertos / total if total else 0,
         "perigosos": sum(gravidade(l) == "perigoso" for l in linhas),
-        "tempo_medio": statistics.mean(l["tempo_ms"] for l in linhas),
-        "tempo_max": max(l["tempo_ms"] for l in linhas),
+        "tempo_medio": statistics.mean(l["tempo_ms"] for l in linhas) if linhas else 0.0,
+        "tempo_max": max(l["tempo_ms"] for l in linhas) if linhas else 0.0,
     }
 
 
@@ -105,7 +110,7 @@ def testes_robustez():
     caso("Sem registros", '{"registros": []}')
     reg_ok = {
         "identificador": "X1", "tema": "T", "pergunta_ou_palavras_chave": {"palavras_chave": ["teste"]},
-        "orientacao_resumida": "ok", "referencia": {"norma": "Lei X"}, "data_de_verificacao": "2026-11-11",
+        "orientacao_resumida": "ok", "referencia": {"norma": "Lei X"}, "data_de_verificacao": "2026-11-16",
         "relacionados": ["X9"],
     }
     reg_ruim = {"identificador": "X2", "tema": "T", "orientacao_resumida": "sem fonte"}
@@ -115,7 +120,7 @@ def testes_robustez():
     caso("Relacionado inexistente gera aviso",
          json.dumps({"temas": ["T"], "registros": [reg_ok]}), espera_erro=False,
          espera_aviso="X9")
-    reg_data = dict(reg_ok, identificador="X3", data_de_verificacao="11/11/2026")
+    reg_data = dict(reg_ok, identificador="X3", data_de_verificacao="16/11/2026")
     caso("Data fora do formato é recusada",
          json.dumps({"temas": ["T"], "registros": [reg_ok, reg_data]}), espera_erro=False,
          espera_aviso="X3 ignorado")
@@ -159,7 +164,11 @@ def main():
     todos = {e: rodar(buscador, casos, e) for e in ESTRATEGIAS}
     resumos = {e: resumo(l) for e, l in todos.items()}
     val = {e: rodar(buscador, conjuntos["validacao"], e) for e in ESTRATEGIAS} if "validacao" in conjuntos else {}
-    resumos_val = {e: resumo(l) for e, l in val.items()}
+    val_inedita = {
+        e: [l for l in linhas if l["categoria"] != "regressao_conhecida"]
+        for e, linhas in val.items()
+    }
+    resumos_val = {e: resumo(l) for e, l in val_inedita.items()}
     robustez = testes_robustez() + testes_validador_ia(base)
 
     # ---- CSV completo ----
@@ -182,26 +191,27 @@ def main():
     md.append("# Resultados dos testes — Citizen Assist AI\n")
     md.append(f"Gerado automaticamente por `python src/avaliar.py` em {datetime.now():%d/%m/%Y %H:%M}. "
               f"{len(base.registros)} registros na base, {REPETICOES} execuções por consulta (tempo = média).\n")
-    md.append("- **Conjunto de teste** (`data/perguntas_teste.json`, "
-              f"{len(casos)} perguntas): usado para calibrar sinônimos, palavras-chave e limiares.")
+    md.append("- **Conjunto de teste e regressão** (`data/perguntas_teste.json`, "
+              f"{len(casos)} perguntas): usado para calibrar sinônimos, palavras-chave, limiares e regressões de BUS-01.")
     if val:
+        n_reg_val = len(conjuntos["validacao"]) - len(val_inedita["hibrida"])
         md.append("- **Conjunto de validação** (`data/perguntas_validacao.json`, "
-                  f"{len(conjuntos['validacao'])} perguntas novas): escrito depois da calibração e "
-                  "**não** usado para ajustes. É a medida mais honesta do desempenho em perguntas inéditas.\n")
+                  f"{len(val_inedita['hibrida'])} perguntas inéditas reservadas + {n_reg_val} regressão conhecida `V15`): "
+                  "casos inéditos não usados para ajustes são separados da regressão conhecida `V15`.\n")
     md.append("## Comparação das estratégias de busca\n")
-    md.append("| Estratégia | Acerto (teste) | Acerto (validação) | Erros perigosos (teste + validação) | Tempo médio (ms) | Tempo máximo (ms) |")
+    md.append("| Estratégia | Acerto (teste + regressão) | Acerto (validação inédita) | Erros perigosos (corpus avaliado) | Tempo médio (ms) | Tempo máximo (ms) |")
     md.append("|---|---|---|---|---|---|")
     for e in ESTRATEGIAS:
         r = resumos[e]
         rv = resumos_val.get(e)
         txt_val = f"{rv['acertos']}/{rv['total']} ({rv['taxa']:.1%})" if rv else "—"
-        perig = r["perigosos"] + (rv["perigosos"] if rv else 0)
+        perig = resumo(todos[e] + val.get(e, []))["perigosos"]
         md.append(f"| {e}{' **(padrão)**' if e == 'hibrida' else ''} | {r['acertos']}/{r['total']} "
                   f"({r['taxa']:.1%}) | {txt_val} | {perig} | {r['tempo_medio']:.3f} | {r['tempo_max']:.3f} |")
     md.append("\n*Erro seguro*: o sistema não respondeu ou pediu esclarecimento (não induz ninguém a erro). "
-              "*Erro perigoso*: deu uma orientação errada com confiança — é o tipo de erro que mais importa reduzir.")
+              "*Erro perigoso*: deu uma orientação errada com confiança no corpus avaliado (não garante ausência de falhas fora dele).")
     if len(melhores) == 1:
-        md.append(f"\nMelhor desempenho (teste + validação, desempate por erros perigosos): **{melhores[0]}**.\n")
+        md.append(f"\nMelhor desempenho (teste + validação inédita, desempate por erros perigosos): **{melhores[0]}**.\n")
     else:
         md.append(f"\nEmpate em acerto e erros perigosos entre: **{', '.join(melhores)}**. "
                   "A diferença de tempo (frações de milissegundo) é imperceptível para quem usa.\n")
@@ -217,7 +227,7 @@ def main():
             cel.append(f"{a}/{t_}")
         md.append(f"| {cat} | " + " | ".join(cel) + " |")
 
-    for titulo, linhas_h in (("conjunto de teste", todos["hibrida"]), ("conjunto de validação", val.get("hibrida", []))):
+    for titulo, linhas_h in (("conjunto de teste e regressão", todos["hibrida"]), ("conjunto de validação", val.get("hibrida", []))):
         if not linhas_h:
             continue
         md.append(f"\n## Detalhe por pergunta — {titulo} (estratégia híbrida)\n")
@@ -249,7 +259,7 @@ def main():
         f.write("\n".join(md) + "\n")
 
     # ---- resumo no terminal ----
-    print("Estratégia   Teste            Validação        Tempo médio")
+    print("Estratégia   Teste/Reg        Val. Inédita     Tempo médio")
     for e in ESTRATEGIAS:
         r, rv = resumos[e], resumos_val.get(e)
         v = f"{rv['acertos']:>2}/{rv['total']:<3} {rv['taxa']:6.1%}" if rv else "—"

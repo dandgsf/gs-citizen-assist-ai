@@ -24,7 +24,7 @@ import time
 from collections import Counter
 from dataclasses import dataclass, field
 
-from texto import termos, normalizar, tokens
+from texto import termos, normalizar, tokens, radical
 
 ESTRATEGIAS = ("palavras", "tfidf", "hibrida")
 
@@ -37,11 +37,12 @@ PESO_SOBRA = 0.35
 
 # Registros regulados por setor específico (evita associar termos genéricos como
 # "cancelar plano" ou "multa" a regras exclusivas de telecomunicações/Anatel).
+# Os radicais seguem o mesmo truncamento (6 letras) do pipeline em texto.py.
 CONTEXTO_SETOR = {
     "DB20": {
         "obrigatorios_qualquer": {
             "intern", "celula", "tv", "operad", "anatel", "vivo", "claro", "tim", "oi",
-            "sky", "fibra", "banda", "wifi", "chip", "telefo", "assinat",
+            "sky", "fibra", "banda", "wifi", "chip", "telefo",
         },
         "incompativeis": {
             "academ", "escola", "curso", "faculd", "clube", "saude", "conven",
@@ -121,14 +122,29 @@ class Buscador:
         doc = self.vetores[rid]
         return sum((v / norma) * doc.get(t, 0.0) for t, v in vet.items())
 
-    def _setor_compativel(self, rid: str, q: set) -> bool:
+    def _sinais_consulta(self, consulta: str) -> set:
+        """Extrai radicais normalizados de todos os tokens e sinônimos (antes de stopwords),
+        permitindo reconhecer marcas/entidades curtas como 'oi' sem afetar saudações."""
+        sinais = set()
+        for t in tokens(consulta):
+            t_sin = self.sin.get(t, t)
+            if len(t) >= 2 or t.isdigit():
+                sinais.add(radical(t))
+            if len(t_sin) >= 2 or t_sin.isdigit():
+                sinais.add(radical(t_sin))
+        return sinais
+
+    def _setor_compativel(self, rid: str, sinais: set) -> bool:
         regra = CONTEXTO_SETOR.get(rid)
         if not regra:
             return True
-        if q & regra.get("incompativeis", set()):
+        tem_setor = bool(sinais & regra.get("obrigatorios_qualquer", set()))
+        tem_incompativel = bool(sinais & regra.get("incompativeis", set()))
+        # Menção incidental (ex.: "internet da Vivo que uso na faculdade") não veta
+        # quando há identificação explícita do setor/prestadora.
+        if tem_incompativel and not tem_setor:
             return False
-        obrigatorios = regra.get("obrigatorios_qualquer")
-        if obrigatorios and not (q & obrigatorios):
+        if regra.get("obrigatorios_qualquer") and not tem_setor:
             return False
         return True
 
@@ -168,26 +184,49 @@ class Buscador:
             return Resultado("FORA_DO_TEMA", termos_consulta=q_lista)
 
         ranking = self.notas(consulta, estrategia)
-        (n1, id1), (n2, id2) = ranking[0], ranking[1]
+        (n1, id1) = ranking[0]
         limiar = LIMIAR[estrategia]
+        sinais = self._sinais_consulta(consulta)
 
         if palavras & self.fora_escopo and n1 < limiar * 2:
             return Resultado("FORA_DO_TEMA", [id1], [n1], termos_consulta=q_lista)
         if n1 < limiar:
             return Resultado("SEM_RESPOSTA", [id1], [n1], termos_consulta=q_lista)
+
         # Pergunta de UMA palavra que aparece em vários registros ("cancelar", "cobrança"):
-        # é vaga demais para escolher sozinho -> pergunta qual situação é.
+        # preserva esclarecimento genérico, mas exclui registros explicitamente incompatíveis.
         unicos = set(q_lista)
         if len(unicos) == 1:
             termo = next(iter(unicos))
             if self.df.get(termo, 0) >= 2:
-                cand = [(n, r) for n, r in ranking if termo in self.docs[r]][:3]
-                return Resultado("AMBIGUA", [r for _, r in cand], [n for n, _ in cand],
-                                 termos_consulta=q_lista)
-        if n2 >= limiar and n2 >= RAZAO_AMBIGUIDADE * n1:
-            candidatos = [(n, r) for n, r in ranking[:3] if n >= limiar and n >= RAZAO_AMBIGUIDADE * n1]
+                cand = [
+                    (n, r) for n, r in ranking
+                    if termo in self.docs[r]
+                    and not (sinais & CONTEXTO_SETOR.get(r, {}).get("incompativeis", set()))
+                ][:3]
+                if len(cand) >= 2:
+                    return Resultado("AMBIGUA", [r for _, r in cand], [n for n, _ in cand],
+                                     termos_consulta=q_lista)
+                if len(cand) == 1:
+                    return Resultado("RESPOSTA", [cand[0][1]], [cand[0][0]],
+                                     termos_consulta=q_lista)
+                return Resultado("SEM_RESPOSTA", [id1], [n1], termos_consulta=q_lista)
+
+        # Filtra candidatos setorialmente incompatíveis ANTES de avaliar ambiguidade ou resposta,
+        # impedindo que DB20 apareça nas opções [a]/[b]/[c] para consultas de academia.
+        compativeis = [(n, r) for n, r in ranking if self._setor_compativel(r, sinais)]
+        if not compativeis or compativeis[0][0] < limiar:
+            return Resultado("SEM_RESPOSTA", [id1], [n1], termos_consulta=q_lista)
+
+        n1_c, id1_c = compativeis[0]
+        n2_c, id2_c = (compativeis[1] if len(compativeis) > 1 else (0.0, None))
+        if n2_c >= limiar and n2_c >= RAZAO_AMBIGUIDADE * n1_c:
+            candidatos = [
+                (n, r) for n, r in compativeis[:3]
+                if n >= limiar and n >= RAZAO_AMBIGUIDADE * n1_c
+            ]
             return Resultado("AMBIGUA", [r for _, r in candidatos], [n for n, _ in candidatos],
                              termos_consulta=q_lista)
-        if not self._setor_compativel(id1, unicos):
-            return Resultado("SEM_RESPOSTA", [id1], [n1], termos_consulta=q_lista)
-        return Resultado("RESPOSTA", [id1, id2], [n1, n2], termos_consulta=q_lista)
+        ids_resp = [id1_c, id2_c] if id2_c is not None else [id1_c]
+        notas_resp = [n1_c, n2_c] if id2_c is not None else [n1_c]
+        return Resultado("RESPOSTA", ids_resp, notas_resp, termos_consulta=q_lista)

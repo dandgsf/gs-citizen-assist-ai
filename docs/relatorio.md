@@ -1,5 +1,7 @@
 # Citizen Assist AI
+
 ### Relatório técnico — Global Solution 2026.2 (CitizenTech · Citizen Assist AI)
+
 **FIAP — Ciência da Computação**
 
 | Integrante | GitHub | Matrícula |
@@ -8,8 +10,6 @@
 | Danilo Fernandes | [@dandgsf](https://github.com/dandgsf) | RM 570057 |
 | Renato Nascimento | [@renascience](https://github.com/renascience) | RM 570266 |
 | Renato Valle | [@renatolvalle](https://github.com/renatolvalle) | RM 572352 |
-
----
 
 ## 1. Problema
 
@@ -25,7 +25,7 @@ Assistente em Python, interface textual, executado com `python src/sistema.py`. 
 
 ## 4. Arquitetura
 
-```
+```text
  entrada (texto livre ou menu)
         │
         ▼
@@ -35,7 +35,7 @@ Assistente em Python, interface textual, executado com `python src/sistema.py`. 
  texto.py ──────── normaliza · sinônimos · stopwords · radical
         │
         ▼
- busca.py ──────── palavras-chave | TF-IDF | híbrida  →  regra de decisão + contexto setorial
+ busca.py ──────── palavras-chave | TF-IDF | híbrida  →  contexto setorial + regra de decisão
         │            (RESPOSTA, AMBIGUA, SEM_RESPOSTA, FORA_DO_TEMA, VAZIA, INVALIDA)
         ▼
  sistema.py ────── exibe resposta + fonte + aviso; navegação no grafo (r1, r2…);
@@ -75,14 +75,14 @@ A base é editável sem alterar o código (`data/base.json` e `data/sinonimos.js
 | DB17 | Bancos, contas e telefone | CDC, arts. 42 (caput) e 71 | 16/11/2026 | Confirmado: proibição de exposição ao ridículo, ameaça ou constrangimento na cobrança. |
 | DB18 | Bancos, contas e telefone | CDC, art. 43, §2º; Súmulas 359 e 548 STJ | 16/11/2026 | Confirmado: comunicação prévia pelo órgão mantenedor e baixa em 5 dias úteis após quitação. |
 | DB19 | Bancos, contas e telefone | Resolução Normativa ANEEL nº 1.000/2021 | 16/11/2026 | Confirmado: aviso prévio de 15 dias, horário útil (seg-qui) e religação em até 4h se indevido. |
-| DB20 | Bancos, contas e telefone | Resolução Anatel nº 765/2023 (RGC) | 16/11/2026 | Confirmado: cancelamento automatizado sem atendente e proporcionalidade da multa. |
+| DB20 | Bancos, contas e telefone | Resolução Anatel nº 765/2023 (RGC), arts. 83 e 84 | 16/11/2026 | Corrigido e confirmado: incluída distinção entre efeito imediato com atendente (art. 83) e prazo de até 2 dias úteis no canal automático sem atendente, com cobrança pelos serviços usufruídos nesse período (art. 84, §1º). |
 | DB21 | Bancos, contas e telefone | Plataforma Não Me Perturbe / Prefixo 0303 (Anatel) | 16/11/2026 | Confirmado: bloqueio em até 30 dias para telecom e consignado; ressalva para cobranças/fraudes. |
 | DB22 | Viagens e transporte | Resolução ANAC nº 400/2016 (alt. Res. 813/2026 e 819/2026) | 16/11/2026 | Confirmado: assistência material (2h alimentação, 4h hospedagem) e atualização da Res. 813/2026. |
 | DB23 | Viagens e transporte | Estatuto da Pessoa Idosa (Lei nº 10.741/2003), art. 40 | 16/11/2026 | Confirmado: 60+ anos, renda até 2 SM, 2 vagas gratuitas ou 50% de desconto no convencional. |
 
 ## 6. Estratégias de busca e de prompt
 
-**Busca.** Três estratégias implementadas e comparadas: (1) **palavras-chave e frases-chave**, com penalidade para palavras sem correspondência; (2) **TF-IDF com similaridade do cosseno** em Python puro, em que palavras desconhecidas recebem o peso máximo de IDF para não inflar notas; (3) **híbrida** (média). Para **múltiplas correspondências**, se o 2º colocado tiver pelo menos 85% da nota do 1º, ou se a pergunta for uma única palavra presente em vários registros, o sistema mostra até 3 opções e pergunta qual é. Os limiares foram **calibrados** no conjunto de teste, no ponto médio entre a menor nota correta e a maior nota de perguntas sem resposta. Adicionalmente, registros regulados por setor específico (como `DB20`, telecomunicações/Anatel) passam por **checagem de contexto setorial** (`CONTEXTO_SETOR` em `src/busca.py`) para evitar respostas indevidas quando termos genéricos ("cancelar", "plano", "multa") aparecem em outro setor (como academias ou escolas).
+**Busca.** Três estratégias implementadas e comparadas: (1) **palavras-chave e frases-chave**, com penalidade para palavras sem correspondência; (2) **TF-IDF com similaridade do cosseno** em Python puro, em que palavras desconhecidas recebem o peso máximo de IDF para não inflar notas; (3) **híbrida** (média). Para **múltiplas correspondências**, se o 2º colocado tiver pelo menos 85% da nota do 1º, ou se a pergunta for uma única palavra presente em vários registros, o sistema mostra até 3 opções e pergunta qual é. Os limiares foram **calibrados** no conjunto de teste, no ponto médio entre a menor nota correta e a maior nota de perguntas sem resposta. Adicionalmente, registros regulados por setor específico (como `DB20`, telecomunicações/Anatel) passam por **checagem de contexto setorial** (`CONTEXTO_SETOR` e `_sinais_consulta` em `src/busca.py`) aplicada **antes** das decisões de ambiguidade e resposta, reconhecendo operadoras mesmo quando coincidem com stopwords (como `"oi"`) e preservando consultas legítimas com menção incidental a outros contextos (como `"faculdade"` quando a prestadora é explícita).
 
 **Prompts.** Modelo A (direto, sem base) × Modelo B (ancorado no registro recuperado, regras de recusa e saída JSON), em uma **cadeia proposta** de 3 etapas: classificar → redigir → validar. O programa não chama IA generativa. O gerador de prompts e o validador existem separadamente: o validador aceita a saída somente se o JSON for válido, `status = ok` e fonte e data coincidirem com o registro. Essas verificações não comprovam fidelidade semântica. Há 5 testes do validador; a comparação experimental dos modelos permanece sem resultados registrados. Detalhes em [Estratégias de prompt](prompts.md).
 
@@ -90,17 +90,17 @@ A base é editável sem alterar o código (`data/base.json` e `data/sinonimos.js
 
 ## 7. Resultados dos testes
 
-Plano: **44 perguntas de teste** (12 diretas, 16 reformulações informais, 5 fora do tema, 7 situações-limite e 4 casos de regressão setorial) e **18 perguntas de validação** inéditas (15 originais + 3 novas perguntas escritas após a correção de `BUS-01` e não usadas para ajustes). Cada consulta registra esperado, obtido, acerto/erro e tempo (média de 5 execuções). Detalhes completos em `docs/resultados_testes.md`.
+Plano: **47 perguntas de teste e regressão** (12 diretas, 16 reformulações informais, 5 fora do tema, 7 situações-limite e 7 casos de regressão setorial/ambiguidade) e **19 perguntas no arquivo de validação** (`data/perguntas_validacao.json`), separando explicitamente a **regressão conhecida `V15`** (1 caso que orientou a correção de `BUS-01`) das **18 perguntas de validação inédita** (14 originais + 4 novas perguntas reservadas após os ajustes). Cada consulta registra esperado, obtido, acerto/erro e tempo (média de 5 execuções). Detalhes completos em `docs/resultados_testes.md`.
 
-| Estratégia | Acerto teste | Acerto validação | Erros perigosos | Tempo médio |
-|---|---|---|---|---|
-| Palavras-chave | 97,7% (43/44) | 77,8% (14/18) | 0 | 0,069 ms |
-| TF-IDF | 95,5% (42/44) | 66,7% (12/18) | 1 | 0,147 ms |
-| Híbrida (padrão) | 97,7% (43/44) | 77,8% (14/18) | 0 | 0,155 ms |
+| Estratégia | Acerto (teste + regressão) | Acerto (validação inédita) | Regressão `V15` | Erros perigosos (corpus avaliado) | Tempo médio |
+|---|---|---|---|---|---|
+| Palavras-chave | 97,9% (46/47) | 77,8% (14/18) | 1/1 | 0 | < 0,1 ms |
+| TF-IDF | 95,7% (45/47) | 66,7% (12/18) | 1/1 | 1 | < 0,2 ms |
+| Híbrida (padrão) | 97,9% (46/47) | 77,8% (14/18) | 1/1 | 0 | < 0,2 ms |
 
-**Indicadores:** taxa de acerto, tempo médio de consulta e **taxa de erro perigoso** (orientação errada dada com confiança). Na estratégia híbrida, todos os 5 erros restantes (1 no teste e 4 na validação) foram *seguros*: o sistema não respondeu ou pediu esclarecimento. Também passaram os **12 testes de robustez**: arquivo ausente, vazio, JSON quebrado, sem registros, registro incompleto, relacionado inexistente, data inválida e 5 cenários do validador de IA.
+**Indicadores:** taxa de acerto, tempo médio de consulta e **taxa de erro perigoso** (orientação errada dada com confiança no corpus avaliado; não garante ausência de falhas fora dele). Na estratégia híbrida, todos os 5 erros restantes (1 no teste e 4 na validação inédita) foram *seguros*: o sistema não respondeu ou pediu esclarecimento. Também passaram os **12 testes de robustez**: arquivo ausente, vazio, JSON quebrado, sem registros, registro incompleto, relacionado inexistente, data inválida e 5 cenários do validador de IA.
 
-**Análise.** A diferença entre teste (97,7%) e validação (77,8%) reflete o comportamento esperado de um sistema lexical diante de vocabulário inédito ("queimou", "falso neto", "8,99"). Com a implementação da checagem de contexto setorial (`BUS-01`), o erro perigoso anteriormente observado em `V15` ("a academia não quer cancelar meu plano sem multa") foi eliminado, zerando os erros perigosos na estratégia padrão (`hibrida`). Nos 4 casos de regressão adicionados ao teste (`T41`–`T44`), o sistema recusou corretamente academia e escola de idiomas (`SEM_RESPOSTA`) e atendeu corretamente cancelamentos de TV por assinatura e fibra óptica (`DB20`). Nas 3 perguntas inéditas da validação (`V16`–`V18`), recusou corretamente clube social e estúdio de pilates (`SEM_RESPOSTA`) e apresentou um erro seguro em `V17` ("quero encerrar meu contrato de banda larga residencial"), preservando a integridade do conjunto de validação sem calibragem retroativa.
+**Análise.** A diferença entre teste/regressão (97,9%) e validação inédita (77,8%) reflete o comportamento esperado de um sistema lexical diante de vocabulário inédito ("queimou", "falso neto", "8,99"). Com a implementação da checagem de contexto setorial antes das decisões de ambiguidade e resposta (`BUS-01`), o erro na regressão conhecida `V15` foi corrigido e os 7 cenários de regressão (`T41`–`T47`) passaram integralmente: consultas de academia não recebem nem oferecem `DB20` nas opções de ambiguidade, enquanto consultas legítimas de telecomunicações (incluindo `"Oi"` e menção incidental a `"faculdade"` com operadora explícita) retornam `DB20`. Nas perguntas inéditas reservadas, o único erro em `V17` ("quero encerrar meu contrato de banda larga residencial") foi *seguro* (`SEM_RESPOSTA`), mantendo a integridade da validação sem calibragem retroativa.
 
 ## 8. Teste de usabilidade
 
@@ -122,8 +122,8 @@ Plano: **44 perguntas de teste** (12 diretas, 16 reformulações informais, 5 fo
 
 1. **Cobertura limitada:** 23 situações de consumo. Não cobre trabalho, família, saúde, previdência ou crimes; nesses casos, indica a Defensoria Pública.
 2. **Regras locais:** fila de banco, consumação mínima em algumas leis estaduais e gratuidades municipais variam por cidade e estado e não são detalhadas.
-3. **Busca por palavras:** o radical por prefixo e a lista de sinônimos não entendem sentido. Perguntas com vocabulário novo caem em "sem resposta" (validação: 77,8%).
-4. **Checagem setorial explícita:** a validação de contexto setorial (`CONTEXTO_SETOR`) eliminou a confusão entre academia e telecomunicações, mas depende de termos explícitos do setor regulado; sinônimos não mapeados (como "encerrar" no lugar de "cancelar" em `V17`) levam o sistema a abster-se de forma segura (`SEM_RESPOSTA`). *Melhoria:* expandir o mapeamento de sinônimos e entidades setoriais.
+3. **Busca por palavras:** o radical por prefixo e a lista de sinônimos não entendem sentido. Perguntas com vocabulário novo caem em "sem resposta" (validação inédita: 77,8%).
+4. **Checagem setorial explícita:** a validação de contexto setorial (`CONTEXTO_SETOR`) eliminou a confusão entre academia e telecomunicações no corpus avaliado, mas depende de termos explícitos do setor regulado; sinônimos não mapeados (como "encerrar" no lugar de "cancelar" em `V17`) levam o sistema a abster-se de forma segura (`SEM_RESPOSTA`). *Melhoria:* expandir o mapeamento de sinônimos e entidades setoriais.
 5. **Atualização das fontes:** as normas e orientações foram revisadas em 16/11/2026, mas exigem revisão humana periódica. *Melhoria:* revisão contínua guiada pelo aviso automático de 180 dias.
 6. *Melhoria de alcance:* levar o mesmo núcleo ao **WhatsApp**, canal usado por pessoas de todas as idades.
 

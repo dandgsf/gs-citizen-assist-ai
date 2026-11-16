@@ -919,21 +919,21 @@
           "anatel"
         ]
       },
-      "orientacao_resumida": "Você pode cancelar telefone, internet ou TV por assinatura SEM precisar falar com atendente, por canal automático (site, aplicativo ou opção no menu telefônico). A operadora não pode dificultar o cancelamento. Se você aceitou fidelidade em troca de benefício, pode haver multa proporcional ao tempo que falta — confira o contrato.",
-      "frase_pronta": "Quero cancelar o serviço agora. O Regulamento Geral de Direitos do Consumidor de Telecomunicações (Resolução Anatel 765/2023) garante o cancelamento, inclusive sem intervenção de atendente. Peço o número de protocolo.",
+      "orientacao_resumida": "Você pode cancelar telefone, internet ou TV por assinatura SEM precisar falar com atendente, por canal automático (site, aplicativo ou opção no menu telefônico), ou COM intervenção de atendente. No pedido com atendente, o cancelamento tem efeito imediato; no canal automático (sem atendente), o efeito ocorre em até 2 dias úteis após o pedido, e você paga pelos serviços usufruídos durante esse processamento. Se você aceitou fidelidade em troca de benefício, pode haver multa proporcional ao tempo que falta.",
+      "frase_pronta": "Quero cancelar o serviço agora. O Regulamento Geral de Direitos do Consumidor de Telecomunicações (Resolução Anatel 765/2023, arts. 83 e 84) garante o cancelamento, inclusive sem intervenção de atendente. Peço o número de protocolo.",
       "passos": [
-        "Use a opção de cancelamento no app, no site ou no menu do telefone.",
-        "Anote o protocolo e a data do pedido.",
-        "Se continuar sendo cobrado, conteste e peça a devolução."
+        "Use a opção de cancelamento no app, no site ou no menu do telefone (ou solicite ao atendente).",
+        "Anote o protocolo, a data e a hora do pedido (no canal automático, o cancelamento efetiva-se em até 2 dias úteis).",
+        "Se houver cobrança referente a período posterior ao prazo legal de efetivação, conteste e peça a devolução."
       ],
-      "prazo": null,
+      "prazo": "Com atendente: efeito imediato (art. 83). Sem atendente (canal automático): até 2 dias úteis (art. 84).",
       "onde_reclamar": "Operadora (com protocolo) → Anatel (telefone 1331 ou site) → Procon.",
       "referencia": {
-        "norma": "Resolução Anatel nº 765/2023 (Regulamento Geral de Direitos do Consumidor de Serviços de Telecomunicações)",
+        "norma": "Resolução Anatel nº 765/2023 (Regulamento Geral de Direitos do Consumidor de Serviços de Telecomunicações), arts. 83 e 84",
         "url": "https://informacoes.anatel.gov.br/legislacao/resolucoes/2023/1900-resolucao-765"
       },
-      "data_de_verificacao": "2026-11-11",
-      "limitacoes": "A multa de fidelidade é permitida quando você recebeu benefício em troca e ela deve ser proporcional ao tempo restante.",
+      "data_de_verificacao": "2026-11-16",
+      "limitacoes": "No cancelamento sem atendente, você responde pelos serviços usufruídos durante o prazo de processamento de até 2 dias úteis (art. 84, §1º). A multa de fidelidade é permitida quando você recebeu benefício em troca e deve ser proporcional ao tempo restante.",
       "relacionados": [
         "DB21",
         "DB09",
