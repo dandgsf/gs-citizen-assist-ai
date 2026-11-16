@@ -35,7 +35,7 @@ Assistente em Python, interface textual, executado com `python src/sistema.py`. 
  texto.py ──────── normaliza · sinônimos · stopwords · radical
         │
         ▼
- busca.py ──────── palavras-chave | TF-IDF | híbrida  →  regra de decisão
+ busca.py ──────── palavras-chave | TF-IDF | híbrida  →  regra de decisão + contexto setorial
         │            (RESPOSTA, AMBIGUA, SEM_RESPOSTA, FORA_DO_TEMA, VAZIA, INVALIDA)
         ▼
  sistema.py ────── exibe resposta + fonte + aviso; navegação no grafo (r1, r2…);
@@ -48,15 +48,41 @@ Estruturas de dados: dicionário `id → registro`; hierarquia `tema → [ids]`;
 
 ## 5. Fontes e base de conhecimento
 
-23 registros em 5 temas, com referência, link e data cadastrada de verificação (11/11/2026). A base reúne referências ao Código de Defesa do Consumidor, leis, resoluções de agências, regulamento do Pix, súmulas e orientações de entidades de defesa do consumidor. O cadastro dessas referências não comprova a revisão humana do conteúdo.
+23 registros em 5 temas, com referência, link e revisão humana concluída em 16/11/2026 contra as normas oficiais. A base reúne referências ao Código de Defesa do Consumidor, leis federais, resoluções de agências reguladoras (ANEEL, Anatel, ANAC), regulamento do Pix (BCB), súmulas do STJ e orientações do Idec e dos Procons.
 
-**Atualidade:** as fontes precisam de revisão humana contra as páginas oficiais. O aviso de idade do registro ajuda a organizar essa revisão, mas não verifica alterações nas normas nem a fidelidade das orientações.
+A base é editável sem alterar o código (`data/base.json` e `data/sinonimos.json`). A leitura valida campos obrigatórios, formato de data (`AAAA-MM-DD`), temas, identificadores repetidos e relacionados inexistentes, e avisa quando um registro passa de 180 dias sem verificação.
 
-A base é editável sem alterar o código. A leitura valida campos obrigatórios, formato de data, temas, ids repetidos e relacionados inexistentes, e avisa quando um registro passa de 180 dias sem verificação.
+### Registro de revisão humana das fontes (BAS-01 — 16/11/2026)
+
+| ID | Tema | Norma oficial consultada | Data | Conclusão da revisão |
+|---|---|---|---|---|
+| DB01 | Mercado e lojas | Lei nº 10.962/2004, art. 5º | 16/11/2026 | Confirmado: prevalece o menor preço para o mesmo produto, ressalvado erro grosseiro. |
+| DB02 | Mercado e lojas | Lei nº 13.455/2017; Lei nº 10.962/2004, art. 5º-A | 16/11/2026 | Confirmado: diferenciação por meio/prazo permitida mediante aviso prévio e visível. |
+| DB03 | Mercado e lojas | CDC (Lei nº 8.078/1990), arts. 18 e 26 | 16/11/2026 | Confirmado: responsabilidade solidária, prazos de 30/90 dias e 30 dias para reparo. |
+| DB04 | Mercado e lojas | CDC, arts. 30 e 49 | 16/11/2026 | Confirmado: troca em loja física sem defeito só obriga se ofertada; 7 dias vale fora da loja. |
+| DB05 | Mercado e lojas | CDC, art. 39, inciso I | 16/11/2026 | Confirmado: vedação à venda casada e limite quantitativo sem justa causa. |
+| DB06 | Mercado e lojas | Lei nº 10.048/2000, arts. 1º e 2º (Lei nº 14.626/2023) | 16/11/2026 | Confirmado: inclui TEA e doadores de sangue (120 dias); ressalva sobre leis locais em comércio. |
+| DB07 | Compras pela internet | CDC, art. 49; Decreto nº 7.962/2013, art. 5º | 16/11/2026 | Confirmado: direito de arrependimento em 7 dias corridos e estorno no cartão. |
+| DB08 | Compras pela internet | CDC, art. 35 | 16/11/2026 | Confirmado: alternativas ao consumidor em caso de descumprimento da oferta/prazo. |
+| DB09 | Compras pela internet | CDC, art. 39, III e parágrafo único; Súmula 532 STJ | 16/11/2026 | Confirmado: equiparação a amostra grátis e vedação ao envio de cartão sem solicitação. |
+| DB10 | Bares, restaurantes e lazer | Lei nº 13.419/2017; CDC, art. 6º, III | 16/11/2026 | Confirmado: gorjeta/taxa de serviço opcional com dever de informação clara. |
+| DB11 | Bares, restaurantes e lazer | CDC, art. 39, I; orientação Idec/Procons | 16/11/2026 | Confirmado com ressalva: prática considerada abusiva; sinalizada variação em leis estaduais. |
+| DB12 | Bares, restaurantes e lazer | CDC, art. 39, V; orientação Procon-SP/Idec | 16/11/2026 | Confirmado: ônus do controle de consumo é do fornecedor; multa arbitrária é abusiva. |
+| DB13 | Bares, restaurantes e lazer | CDC, art. 39, III e parágrafo único; art. 6º, III | 16/11/2026 | Confirmado: couvert não pedido é amostra grátis; couvert artístico exige aviso prévio. |
+| DB14 | Bares, restaurantes e lazer | Lei nº 12.933/2013; Lei nº 10.741/2003, art. 23 | 16/11/2026 | Confirmado: beneficiários, cota de 40% e exclusão de cursos livres. |
+| DB15 | Bancos, contas e telefone | Regulamento do Pix – MED (Banco Central) | 16/11/2026 | Confirmado: prazo de até 80 dias para contestação por fraude/golpe e análise em 7 dias. |
+| DB16 | Bancos, contas e telefone | CDC, art. 42, parágrafo único | 16/11/2026 | Confirmado: repetição do indébito em dobro sobre valor pago, salvo engano justificável. |
+| DB17 | Bancos, contas e telefone | CDC, arts. 42 (caput) e 71 | 16/11/2026 | Confirmado: proibição de exposição ao ridículo, ameaça ou constrangimento na cobrança. |
+| DB18 | Bancos, contas e telefone | CDC, art. 43, §2º; Súmulas 359 e 548 STJ | 16/11/2026 | Confirmado: comunicação prévia pelo órgão mantenedor e baixa em 5 dias úteis após quitação. |
+| DB19 | Bancos, contas e telefone | Resolução Normativa ANEEL nº 1.000/2021 | 16/11/2026 | Confirmado: aviso prévio de 15 dias, horário útil (seg-qui) e religação em até 4h se indevido. |
+| DB20 | Bancos, contas e telefone | Resolução Anatel nº 765/2023 (RGC) | 16/11/2026 | Confirmado: cancelamento automatizado sem atendente e proporcionalidade da multa. |
+| DB21 | Bancos, contas e telefone | Plataforma Não Me Perturbe / Prefixo 0303 (Anatel) | 16/11/2026 | Confirmado: bloqueio em até 30 dias para telecom e consignado; ressalva para cobranças/fraudes. |
+| DB22 | Viagens e transporte | Resolução ANAC nº 400/2016 (alt. Res. 813/2026 e 819/2026) | 16/11/2026 | Confirmado: assistência material (2h alimentação, 4h hospedagem) e atualização da Res. 813/2026. |
+| DB23 | Viagens e transporte | Estatuto da Pessoa Idosa (Lei nº 10.741/2003), art. 40 | 16/11/2026 | Confirmado: 60+ anos, renda até 2 SM, 2 vagas gratuitas ou 50% de desconto no convencional. |
 
 ## 6. Estratégias de busca e de prompt
 
-**Busca.** Três estratégias implementadas e comparadas: (1) **palavras-chave e frases-chave**, com penalidade para palavras sem correspondência; (2) **TF-IDF com similaridade do cosseno** em Python puro, em que palavras desconhecidas recebem o peso máximo de IDF para não inflar notas; (3) **híbrida** (média). Para **múltiplas correspondências**, se o 2º colocado tiver pelo menos 85% da nota do 1º, ou se a pergunta for uma única palavra presente em vários registros, o sistema mostra até 3 opções e pergunta qual é. Os limiares foram **calibrados** no conjunto de teste, no ponto médio entre a menor nota correta e a maior nota de perguntas sem resposta.
+**Busca.** Três estratégias implementadas e comparadas: (1) **palavras-chave e frases-chave**, com penalidade para palavras sem correspondência; (2) **TF-IDF com similaridade do cosseno** em Python puro, em que palavras desconhecidas recebem o peso máximo de IDF para não inflar notas; (3) **híbrida** (média). Para **múltiplas correspondências**, se o 2º colocado tiver pelo menos 85% da nota do 1º, ou se a pergunta for uma única palavra presente em vários registros, o sistema mostra até 3 opções e pergunta qual é. Os limiares foram **calibrados** no conjunto de teste, no ponto médio entre a menor nota correta e a maior nota de perguntas sem resposta. Adicionalmente, registros regulados por setor específico (como `DB20`, telecomunicações/Anatel) passam por **checagem de contexto setorial** (`CONTEXTO_SETOR` em `src/busca.py`) para evitar respostas indevidas quando termos genéricos ("cancelar", "plano", "multa") aparecem em outro setor (como academias ou escolas).
 
 **Prompts.** Modelo A (direto, sem base) × Modelo B (ancorado no registro recuperado, regras de recusa e saída JSON), em uma **cadeia proposta** de 3 etapas: classificar → redigir → validar. O programa não chama IA generativa. O gerador de prompts e o validador existem separadamente: o validador aceita a saída somente se o JSON for válido, `status = ok` e fonte e data coincidirem com o registro. Essas verificações não comprovam fidelidade semântica. Há 5 testes do validador; a comparação experimental dos modelos permanece sem resultados registrados. Detalhes em [Estratégias de prompt](prompts.md).
 
@@ -64,17 +90,17 @@ A base é editável sem alterar o código. A leitura valida campos obrigatórios
 
 ## 7. Resultados dos testes
 
-Plano: **40 perguntas de teste** (12 diretas, 16 reformulações informais, 5 fora do tema, 7 situações-limite: vazia, inválida, ambígua, sem resposta confiável) e **15 perguntas de validação** inéditas, escritas após a calibração e não usadas para ajustes. Cada consulta registra esperado, obtido, acerto/erro e tempo (média de 5 execuções). Detalhes completos em `docs/resultados_testes.md`.
+Plano: **44 perguntas de teste** (12 diretas, 16 reformulações informais, 5 fora do tema, 7 situações-limite e 4 casos de regressão setorial) e **18 perguntas de validação** inéditas (15 originais + 3 novas perguntas escritas após a correção de `BUS-01` e não usadas para ajustes). Cada consulta registra esperado, obtido, acerto/erro e tempo (média de 5 execuções). Detalhes completos em `docs/resultados_testes.md`.
 
 | Estratégia | Acerto teste | Acerto validação | Erros perigosos | Tempo médio |
 |---|---|---|---|---|
-| Palavras-chave | 97,5% | 73,3% | 1 | < 0,1 ms |
-| TF-IDF | 95,0% | 60,0% | 1 | < 0,1 ms |
-| Híbrida (padrão) | 97,5% | 73,3% | 1 | < 0,2 ms |
+| Palavras-chave | 97,7% (43/44) | 77,8% (14/18) | 0 | 0,069 ms |
+| TF-IDF | 95,5% (42/44) | 66,7% (12/18) | 1 | 0,147 ms |
+| Híbrida (padrão) | 97,7% (43/44) | 77,8% (14/18) | 0 | 0,155 ms |
 
-**Indicadores:** taxa de acerto, tempo médio de consulta e **taxa de erro perigoso** (orientação errada dada com confiança). Na híbrida, 4 dos 5 erros foram *seguros*: o sistema não respondeu ou pediu esclarecimento. Também passaram os **12 testes de robustez**: arquivo ausente, vazio, JSON inválido, sem registros, registro incompleto, relacionado inexistente, data inválida e 5 cenários do validador de IA.
+**Indicadores:** taxa de acerto, tempo médio de consulta e **taxa de erro perigoso** (orientação errada dada com confiança). Na estratégia híbrida, todos os 5 erros restantes (1 no teste e 4 na validação) foram *seguros*: o sistema não respondeu ou pediu esclarecimento. Também passaram os **12 testes de robustez**: arquivo ausente, vazio, JSON quebrado, sem registros, registro incompleto, relacionado inexistente, data inválida e 5 cenários do validador de IA.
 
-**Análise.** A diferença entre teste (97,5%) e validação (73,3%) indica que o vocabulário ficou ajustado às perguntas usadas na calibração. É o comportamento esperado de um sistema baseado em palavras, e por isso ele foi medido separadamente. Os erros de validação vêm de palavras que a base não conhece ("queimou", "falso neto", "8,99"). O único erro perigoso foi "a academia não quer cancelar meu plano", respondido com a regra de telecomunicações.
+**Análise.** A diferença entre teste (97,7%) e validação (77,8%) reflete o comportamento esperado de um sistema lexical diante de vocabulário inédito ("queimou", "falso neto", "8,99"). Com a implementação da checagem de contexto setorial (`BUS-01`), o erro perigoso anteriormente observado em `V15` ("a academia não quer cancelar meu plano sem multa") foi eliminado, zerando os erros perigosos na estratégia padrão (`hibrida`). Nos 4 casos de regressão adicionados ao teste (`T41`–`T44`), o sistema recusou corretamente academia e escola de idiomas (`SEM_RESPOSTA`) e atendeu corretamente cancelamentos de TV por assinatura e fibra óptica (`DB20`). Nas 3 perguntas inéditas da validação (`V16`–`V18`), recusou corretamente clube social e estúdio de pilates (`SEM_RESPOSTA`) e apresentou um erro seguro em `V17` ("quero encerrar meu contrato de banda larga residencial"), preservando a integridade do conjunto de validação sem calibragem retroativa.
 
 ## 8. Teste de usabilidade
 
@@ -96,9 +122,9 @@ Plano: **40 perguntas de teste** (12 diretas, 16 reformulações informais, 5 fo
 
 1. **Cobertura limitada:** 23 situações de consumo. Não cobre trabalho, família, saúde, previdência ou crimes; nesses casos, indica a Defensoria Pública.
 2. **Regras locais:** fila de banco, consumação mínima em algumas leis estaduais e gratuidades municipais variam por cidade e estado e não são detalhadas.
-3. **Busca por palavras:** o radical por prefixo e a lista de sinônimos não entendem sentido. Perguntas com vocabulário novo caem em "sem resposta" (validação: 73,3%).
-4. **Erro perigoso residual:** assunto parecido com outro setor (academia × telecom). *Melhoria:* checagem de "entidade" (quem é o fornecedor) antes de responder.
-5. **Atualização das fontes:** as normas e orientações precisam de revisão humana. *Melhoria:* revisão periódica guiada pelo aviso de 180 dias.
+3. **Busca por palavras:** o radical por prefixo e a lista de sinônimos não entendem sentido. Perguntas com vocabulário novo caem em "sem resposta" (validação: 77,8%).
+4. **Checagem setorial explícita:** a validação de contexto setorial (`CONTEXTO_SETOR`) eliminou a confusão entre academia e telecomunicações, mas depende de termos explícitos do setor regulado; sinônimos não mapeados (como "encerrar" no lugar de "cancelar" em `V17`) levam o sistema a abster-se de forma segura (`SEM_RESPOSTA`). *Melhoria:* expandir o mapeamento de sinônimos e entidades setoriais.
+5. **Atualização das fontes:** as normas e orientações foram revisadas em 16/11/2026, mas exigem revisão humana periódica. *Melhoria:* revisão contínua guiada pelo aviso automático de 180 dias.
 6. *Melhoria de alcance:* levar o mesmo núcleo ao **WhatsApp**, canal usado por pessoas de todas as idades.
 
 ## 10. Impacto social

@@ -43,6 +43,11 @@
     {"id": "T37", "categoria": "limite_ambigua", "pergunta": "cobrança", "esperado": "AMBIGUA"},
     {"id": "T38", "categoria": "limite_ambigua", "pergunta": "quero cancelar", "esperado": "AMBIGUA"},
     {"id": "T39", "categoria": "limite_sem_resposta", "pergunta": "a loja não quis me dar nota fiscal", "esperado": "SEM_RESPOSTA"},
-    {"id": "T40", "categoria": "limite_sem_resposta", "pergunta": "o mercado não aceita cheque", "esperado": "SEM_RESPOSTA"}
+    {"id": "T40", "categoria": "limite_sem_resposta", "pergunta": "o mercado não aceita cheque", "esperado": "SEM_RESPOSTA"},
+
+    {"id": "T41", "categoria": "regressao_setor", "pergunta": "a academia quer cobrar multa para cancelar minha matrícula", "esperado": "SEM_RESPOSTA"},
+    {"id": "T42", "categoria": "regressao_setor", "pergunta": "quero cancelar minha tv por assinatura da claro", "esperado": "DB20"},
+    {"id": "T43", "categoria": "regressao_setor", "pergunta": "como cancelar plano de fibra óptica da tim sem falar com atendente", "esperado": "DB20"},
+    {"id": "T44", "categoria": "regressao_setor", "pergunta": "a escola de idiomas quer cobrar multa abusiva para cancelar o curso", "esperado": "SEM_RESPOSTA"}
   ]
 }

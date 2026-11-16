@@ -16,6 +16,7 @@ Regra de decisão (o que fazer com as notas)
 - nenhuma palavra conhecida pela base   -> FORA_DO_TEMA
 - melhor nota abaixo do limiar          -> SEM_RESPOSTA  (não inventa: avisa)
 - 2º colocado muito perto do 1º         -> AMBIGUA       (mostra as opções e pergunta)
+- setor/fornecedor incompatível         -> SEM_RESPOSTA  (evita erro perigoso entre setores)
 - caso contrário                        -> RESPOSTA
 """
 import math
@@ -33,6 +34,21 @@ LIMIAR = {"palavras": 0.40, "tfidf": 0.20, "hibrida": 0.31}
 RAZAO_AMBIGUIDADE = 0.85
 # Penalidade por palavra da pergunta que não casou com nada do registro.
 PESO_SOBRA = 0.35
+
+# Registros regulados por setor específico (evita associar termos genéricos como
+# "cancelar plano" ou "multa" a regras exclusivas de telecomunicações/Anatel).
+CONTEXTO_SETOR = {
+    "DB20": {
+        "obrigatorios_qualquer": {
+            "intern", "celula", "tv", "operad", "anatel", "vivo", "claro", "tim", "oi",
+            "sky", "fibra", "banda", "wifi", "chip", "telefo", "assinat",
+        },
+        "incompativeis": {
+            "academ", "escola", "curso", "faculd", "clube", "saude", "conven",
+            "ginasi", "pilate", "crossf",
+        },
+    },
+}
 
 
 @dataclass
@@ -105,6 +121,17 @@ class Buscador:
         doc = self.vetores[rid]
         return sum((v / norma) * doc.get(t, 0.0) for t, v in vet.items())
 
+    def _setor_compativel(self, rid: str, q: set) -> bool:
+        regra = CONTEXTO_SETOR.get(rid)
+        if not regra:
+            return True
+        if q & regra.get("incompativeis", set()):
+            return False
+        obrigatorios = regra.get("obrigatorios_qualquer")
+        if obrigatorios and not (q & obrigatorios):
+            return False
+        return True
+
     def notas(self, consulta: str, estrategia: str = "hibrida") -> list:
         """Lista [(nota, id)] em ordem decrescente."""
         q_lista = termos(consulta, self.sin)
@@ -161,4 +188,6 @@ class Buscador:
             candidatos = [(n, r) for n, r in ranking[:3] if n >= limiar and n >= RAZAO_AMBIGUIDADE * n1]
             return Resultado("AMBIGUA", [r for _, r in candidatos], [n for n, _ in candidatos],
                              termos_consulta=q_lista)
+        if not self._setor_compativel(id1, unicos):
+            return Resultado("SEM_RESPOSTA", [id1], [n1], termos_consulta=q_lista)
         return Resultado("RESPOSTA", [id1, id2], [n1, n2], termos_consulta=q_lista)

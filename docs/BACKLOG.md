@@ -28,7 +28,7 @@ Este é o controle oficial de tarefas da equipe. Outros documentos apresentam os
 
 As responsabilidades abaixo são propostas e dependem de aceite dos integrantes. A etapa inicial de Danilo é o ponto de partida; as pendências são distribuídas nas três frentes.
 
-- [ ] Alexandre Niewelt aceita a frente **Base e busca**.
+- [x] Alexandre Niewelt aceita a frente **Base e busca**.
 - [ ] Renato Nascimento aceita a frente **Validação e interação**.
 - [ ] Renato Valle aceita a frente **Documentação e entrega**.
 
@@ -36,27 +36,27 @@ As responsabilidades abaixo são propostas e dependem de aceite dos integrantes.
 
 ### BAS-01 — Revisar fontes e orientações
 
-**Responsável proposto:** Alexandre Niewelt · **Status:** A fazer
+**Responsável proposto:** Alexandre Niewelt · **Status:** Concluído
 
-- [ ] Conferir os 23 registros contra as fontes oficiais e registrar, por identificador, fonte consultada, data e conclusão no relatório técnico.
-- [ ] Corrigir conteúdo, referência, linguagem e data quando necessário; sinalizar o que continuar sem confirmação.
-- [ ] Alinhar a apresentação de “Verificado em” ao que foi efetivamente revisado, evitando transmitir uma verificação inexistente.
+- [x] Conferir os 23 registros contra as fontes oficiais e registrar, por identificador, fonte consultada, data e conclusão no relatório técnico.
+- [x] Corrigir conteúdo, referência, linguagem e data quando necessário; sinalizar o que continuar sem confirmação.
+- [x] Alinhar a apresentação de “Verificado em” ao que foi efetivamente revisado, evitando transmitir uma verificação inexistente.
 
 **Critério de conclusão:** todos os registros têm revisão rastreável; orientações sem respaldo foram corrigidas ou retiradas da resposta disponível. Datas cadastradas não são usadas como prova isolada de revisão.
 
-**Evidência:** a preencher — registro de revisão no relatório e PR.
+**Evidência:** revisão integral registrada na Seção 5 de [relatorio.md](relatorio.md) e datas atualizadas em [base.json](../data/base.json) (16/11/2026).
 
 ### BUS-01 — Corrigir associação entre academia e telecomunicações
 
-**Responsável proposto:** Alexandre Niewelt · **Status:** A fazer
+**Responsável proposto:** Alexandre Niewelt · **Status:** Concluído
 
-- [ ] Reproduzir V15 e identificar por que a busca seleciona DB20.
-- [ ] Corrigir a seleção e acrescentar casos de regressão para academia e cancelamento de telecomunicações.
-- [ ] Executar a avaliação completa e explicar diferenças nas classificações e nos indicadores.
+- [x] Reproduzir V15 e identificar por que a busca seleciona DB20.
+- [x] Corrigir a seleção e acrescentar casos de regressão para academia e cancelamento de telecomunicações.
+- [x] Executar a avaliação completa e explicar diferenças nas classificações e nos indicadores.
 
 **Critério de conclusão:** a pergunta sobre academia não recebe a orientação de telecomunicações; consultas legítimas de telecomunicações continuam atendidas e regressões são resolvidas ou explicitamente documentadas.
 
-**Evidência:** a preencher — PR, perguntas de regressão e resultados.
+**Evidência:** validação de contexto setorial (`CONTEXTO_SETOR`) em [busca.py](../src/busca.py), casos de regressão `T41`–`T44` em [perguntas_teste.json](../data/perguntas_teste.json), novas perguntas inéditas `V16`–`V18` em [perguntas_validacao.json](../data/perguntas_validacao.json) e resultados atualizados em [resultados_testes.md](resultados_testes.md) (híbrida: 43/44 no teste, 14/18 na validação, 0 erros perigosos).
 
 **Nota de avaliação:** V15 já é conhecido e orienta esta correção. Não apresentar o desempenho posterior nesse mesmo caso como validação inédita; reservar novas perguntas que não tenham orientado os ajustes.
 

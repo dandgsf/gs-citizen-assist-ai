@@ -15,6 +15,9 @@
     {"id": "V12", "categoria": "reformulacao", "pergunta": "minha filha estuda na faculdade, ela paga meia no show?", "esperado": "DB14"},
     {"id": "V13", "categoria": "fora_do_tema", "pergunta": "como tirar a segunda via do RG?", "esperado": "SEM_RESPOSTA"},
     {"id": "V14", "categoria": "fora_do_tema", "pergunta": "meu patrão não pagou minhas férias", "esperado": "SEM_RESPOSTA"},
-    {"id": "V15", "categoria": "limite_sem_resposta", "pergunta": "a academia não quer cancelar meu plano sem multa", "esperado": "SEM_RESPOSTA"}
+    {"id": "V15", "categoria": "limite_sem_resposta", "pergunta": "a academia não quer cancelar meu plano sem multa", "esperado": "SEM_RESPOSTA"},
+    {"id": "V16", "categoria": "limite_sem_resposta", "pergunta": "o clube social não deixa eu encerrar minha assinatura anual sem multa", "esperado": "SEM_RESPOSTA"},
+    {"id": "V17", "categoria": "reformulacao", "pergunta": "quero encerrar meu contrato de banda larga residencial", "esperado": "DB20"},
+    {"id": "V18", "categoria": "limite_sem_resposta", "pergunta": "o estúdio de pilates quer cobrar 50% de multa rescisória no cancelamento", "esperado": "SEM_RESPOSTA"}
   ]
 }
