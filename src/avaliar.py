@@ -6,7 +6,7 @@ Gera: docs/resultados_testes.md  e  data/resultados_testes.csv
 Para cada pergunta registra: resposta esperada, resposta obtida, acerto/erro e tempo.
 Indicadores: taxa de acerto (geral, por categoria e validação inédita) e tempo médio.
 Também testa a robustez da leitura da base (arquivo ausente, vazio, JSON quebrado,
-registro inválido) e o validador estrutural da saída de IA.
+registro inválido), o validador estrutural da saída de IA e a classificação de gravidade.
 """
 import csv
 import json
@@ -19,9 +19,9 @@ from datetime import datetime
 AQUI = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, AQUI)
 
-from base_conhecimento import Base, ErroBase   # noqa: E402
-from busca import Buscador, ESTRATEGIAS         # noqa: E402
-from prompts import validar_saida_ia            # noqa: E402
+from base_conhecimento import Base, ErroBase       # noqa: E402
+from busca import Buscador, Resultado, ESTRATEGIAS # noqa: E402
+from prompts import validar_saida_ia                # noqa: E402
 
 RAIZ = os.path.dirname(AQUI)
 REPETICOES = 5   # cada consulta roda 5 vezes; o tempo registrado é a média
@@ -36,6 +36,15 @@ def obtido(res):
     return res.tipo
 
 
+def ids_exibidos(res):
+    """Retorna os IDs efetivamente apresentados ou oferecidos à pessoa."""
+    if res.tipo == "RESPOSTA":
+        return res.ids[:1]
+    if res.tipo == "AMBIGUA":
+        return list(res.ids)
+    return []
+
+
 def rodar(buscador, casos, estrategia):
     linhas = []
     for c in casos:
@@ -44,24 +53,31 @@ def rodar(buscador, casos, estrategia):
             res = buscador.buscar(c["pergunta"], estrategia)
             tempos.append(res.tempo_ms)
         o = obtido(res)
-        acerto = o == c["esperado"]
+        exibidos = ids_exibidos(res)
         ids_proibidos = set(c.get("nao_deve_conter", []))
-        ids_exibidos = set(res.ids) if res.tipo in ("RESPOSTA", "AMBIGUA") else set()
-        if ids_proibidos and (ids_proibidos & ids_exibidos):
-            acerto = False
+        violacao_proibido = sorted(ids_proibidos & set(exibidos))
+        acerto = (o == c["esperado"]) and not violacao_proibido
+        motivo = ""
+        if violacao_proibido:
+            motivo = f"ofereceu/exibiu ID proibido: {', '.join(violacao_proibido)}"
+        elif not acerto:
+            motivo = f"esperado {c['esperado']}, obtido {o}"
         linhas.append({
             "id": c["id"], "categoria": c["categoria"], "pergunta": c["pergunta"],
             "esperado": c["esperado"], "obtido": o, "detalhe": res.tipo,
-            "ids_candidatos": list(ids_exibidos), "acerto": acerto, "tempo_ms": statistics.mean(tempos),
+            "ids_candidatos": exibidos, "violacao_proibido": violacao_proibido,
+            "motivo": motivo, "acerto": acerto, "tempo_ms": statistics.mean(tempos),
         })
     return linhas
 
 
 def gravidade(l):
-    """Erro SEGURO: o sistema se absteve ou pediu esclarecimento (não induz a pessoa a erro).
-    Erro PERIGOSO: o sistema deu uma orientação errada com confiança ou ofereceu opção incompatível."""
+    """Erro SEGURO: o sistema se absteve ou pediu esclarecimento sem oferecer opção proibida.
+    Erro PERIGOSO: deu orientação errada ou ofereceu candidato explicitamente incompatível."""
     if l["acerto"]:
         return ""
+    if l.get("violacao_proibido"):
+        return "perigoso"
     if l["obtido"] in ("SEM_RESPOSTA", "AMBIGUA", "VAZIA", "INVALIDA"):
         return "seguro"
     return "perigoso"
@@ -146,6 +162,35 @@ def testes_validador_ia(base):
     return saida
 
 
+def testes_gravidade_avaliador():
+    """Verificação controlada da classificação de gravidade para IDs proibidos."""
+    class BuscaControlada:
+        def __init__(self, resultado):
+            self.resultado = resultado
+
+        def buscar(self, *_args):
+            return self.resultado
+
+    c_amb = {
+        "id": "REG_AVALIADOR_AMB", "categoria": "regressao", "pergunta": "academia",
+        "esperado": "AMBIGUA", "nao_deve_conter": ["DB20"],
+    }
+    l_amb = rodar(BuscaControlada(Resultado("AMBIGUA", ["DB16", "DB20"])), [c_amb], "hibrida")[0]
+    ok_amb = (not l_amb["acerto"]) and (gravidade(l_amb) == "perigoso")
+
+    c_resp = {
+        "id": "REG_AVALIADOR_RESP", "categoria": "regressao", "pergunta": "academia",
+        "esperado": "SEM_RESPOSTA", "nao_deve_conter": ["DB20"],
+    }
+    l_resp = rodar(BuscaControlada(Resultado("RESPOSTA", ["DB20", "DB16"])), [c_resp], "hibrida")[0]
+    ok_resp = (not l_resp["acerto"]) and (gravidade(l_resp) == "perigoso")
+
+    return [
+        ("AMBIGUA com candidato proibido é erro perigoso", ok_amb, f"gravidade={gravidade(l_amb)} ({l_amb['motivo']})"),
+        ("RESPOSTA com registro exibido proibido é erro perigoso", ok_resp, f"gravidade={gravidade(l_resp)} ({l_resp['motivo']})"),
+    ]
+
+
 def main():
     try:
         sys.stdout.reconfigure(encoding="utf-8")
@@ -169,17 +214,24 @@ def main():
         for e, linhas in val.items()
     }
     resumos_val = {e: resumo(l) for e, l in val_inedita.items()}
-    robustez = testes_robustez() + testes_validador_ia(base)
+    robustez = testes_robustez() + testes_validador_ia(base) + testes_gravidade_avaliador()
 
     # ---- CSV completo ----
     with open(os.path.join(RAIZ, "data", "resultados_testes.csv"), "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
-        w.writerow(["conjunto", "estrategia", "id", "categoria", "pergunta", "esperado", "obtido", "acerto", "tempo_ms"])
+        w.writerow([
+            "conjunto", "estrategia", "id", "categoria", "pergunta",
+            "esperado", "obtido", "candidatos_exibidos", "acerto", "gravidade", "motivo", "tempo_ms",
+        ])
         for nome, dados in (("teste", todos), ("validacao", val)):
             for e, linhas in dados.items():
                 for l in linhas:
-                    w.writerow([nome, e, l["id"], l["categoria"], l["pergunta"], l["esperado"], l["obtido"],
-                                "acerto" if l["acerto"] else "erro", f"{l['tempo_ms']:.3f}"])
+                    w.writerow([
+                        nome, e, l["id"], l["categoria"], l["pergunta"],
+                        l["esperado"], l["obtido"], ";".join(l["ids_candidatos"]),
+                        "acerto" if l["acerto"] else "erro", gravidade(l), l["motivo"],
+                        f"{l['tempo_ms']:.3f}",
+                    ])
 
     # ---- relatório Markdown ----
     def chave(e):
@@ -208,8 +260,8 @@ def main():
         perig = resumo(todos[e] + val.get(e, []))["perigosos"]
         md.append(f"| {e}{' **(padrão)**' if e == 'hibrida' else ''} | {r['acertos']}/{r['total']} "
                   f"({r['taxa']:.1%}) | {txt_val} | {perig} | {r['tempo_medio']:.3f} | {r['tempo_max']:.3f} |")
-    md.append("\n*Erro seguro*: o sistema não respondeu ou pediu esclarecimento (não induz ninguém a erro). "
-              "*Erro perigoso*: deu uma orientação errada com confiança no corpus avaliado (não garante ausência de falhas fora dele).")
+    md.append("\n*Erro seguro*: o sistema não respondeu ou pediu esclarecimento sem oferecer opção incompatível. "
+              "*Erro perigoso*: deu orientação errada ou ofereceu candidato explicitamente proibido no corpus avaliado (não garante ausência de falhas fora dele).")
     if len(melhores) == 1:
         md.append(f"\nMelhor desempenho (teste + validação inédita, desempate por erros perigosos): **{melhores[0]}**.\n")
     else:
@@ -231,11 +283,12 @@ def main():
         if not linhas_h:
             continue
         md.append(f"\n## Detalhe por pergunta — {titulo} (estratégia híbrida)\n")
-        md.append("| ID | Categoria | Pergunta | Esperado | Obtido | Resultado | Tempo (ms) |")
-        md.append("|---|---|---|---|---|---|---|")
+        md.append("| ID | Categoria | Pergunta | Esperado | Obtido | Candidatos exibidos | Resultado | Tempo (ms) |")
+        md.append("|---|---|---|---|---|---|---|---|")
         for l in linhas_h:
             perg = l["pergunta"].strip() or "(vazia)"
-            md.append(f"| {l['id']} | {l['categoria']} | {perg} | {l['esperado']} | {l['obtido']} | "
+            cands = ", ".join(l["ids_candidatos"]) if l["ids_candidatos"] else "—"
+            md.append(f"| {l['id']} | {l['categoria']} | {perg} | {l['esperado']} | {l['obtido']} | {cands} | "
                       f"{'Acerto' if l['acerto'] else 'Erro'} | {l['tempo_ms']:.3f} |")
 
     erros = {e: [l for l in todos[e] if not l["acerto"]] + [l for l in val.get(e, []) if not l["acerto"]]
@@ -245,11 +298,10 @@ def main():
         if not erros[e]:
             md.append(f"- **{e}**: nenhum erro.")
         else:
-            itens = ", ".join(f"{l['id']} (esperado {l['esperado']}, obtido {l['obtido']}, erro {gravidade(l)})"
-                              for l in erros[e])
+            itens = ", ".join(f"{l['id']} ({l['motivo']}, erro {gravidade(l)})" for l in erros[e])
             md.append(f"- **{e}**: {itens}")
 
-    md.append("\n## Testes de robustez (leitura da base e validação da saída da IA)\n")
+    md.append("\n## Testes de robustez (base, saída da IA e gravidade do avaliador)\n")
     md.append("| Situação | Resultado | Mensagem do sistema |")
     md.append("|---|---|---|")
     for desc, ok, msg in robustez:
@@ -266,7 +318,7 @@ def main():
         print(f"{e:11}  {r['acertos']:>2}/{r['total']:<3} {r['taxa']:6.1%}   {v}   {r['tempo_medio']:.3f} ms")
     for e in ESTRATEGIAS:
         for l in erros[e]:
-            print(f"  [{e}] ERRO {gravidade(l).upper()} {l['id']}: esperado {l['esperado']}, obtido {l['obtido']} ({l['detalhe']}) — {l['pergunta']}")
+            print(f"  [{e}] ERRO {gravidade(l).upper()} {l['id']}: {l['motivo']} ({l['detalhe']}) — {l['pergunta']}")
     falhas_rob = [d for d, ok, _ in robustez if not ok]
     print(f"Robustez: {len(robustez) - len(falhas_rob)}/{len(robustez)} tratados" +
           (f" — falhas: {falhas_rob}" if falhas_rob else ""))
@@ -275,3 +327,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    

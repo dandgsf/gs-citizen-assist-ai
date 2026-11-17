@@ -51,6 +51,10 @@
     {"id": "T44", "categoria": "regressao_setor", "pergunta": "quero cancelar minha internet da Vivo que uso para estudar na faculdade", "esperado": "DB20"},
     {"id": "T45", "categoria": "regressao_setor", "pergunta": "quero cancelar minha tv por assinatura da claro", "esperado": "DB20"},
     {"id": "T46", "categoria": "regressao_setor", "pergunta": "como cancelar plano de fibra óptica da tim sem falar com atendente", "esperado": "DB20"},
-    {"id": "T47", "categoria": "regressao_setor", "pergunta": "a escola de idiomas quer cobrar multa abusiva para cancelar o curso", "esperado": "SEM_RESPOSTA", "nao_deve_conter": ["DB20"]}
+    {"id": "T47", "categoria": "regressao_setor", "pergunta": "a escola de idiomas quer cobrar multa abusiva para cancelar o curso", "esperado": "SEM_RESPOSTA", "nao_deve_conter": ["DB20"]},
+    {"id": "T48", "categoria": "regressao_setor", "pergunta": "oi, a academia nao quer cancelar meu plano sem multa", "esperado": "SEM_RESPOSTA", "nao_deve_conter": ["DB20"]},
+    {"id": "T49", "categoria": "regressao_setor", "pergunta": "quero cancelar meu plano da academia pela internet", "esperado": "DB07", "nao_deve_conter": ["DB20"]},
+    {"id": "T50", "categoria": "regressao_setor", "pergunta": "quero cancelar minha assinatura de curso online", "esperado": "DB07", "nao_deve_conter": ["DB20"]},
+    {"id": "T51", "categoria": "regressao_setor", "pergunta": "oi, quero cancelar minha linha da Oi", "esperado": "DB20"}
   ]
 }

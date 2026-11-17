@@ -36,7 +36,7 @@ As responsabilidades abaixo são propostas e dependem de aceite dos integrantes.
 
 ### BAS-01 — Revisar fontes e orientações
 
-**Responsável proposto:** Alexandre Niewelt · **Status:** Concluído
+**Responsável proposto:** Alexandre Niewelt · **Status:** Em andamento (aguardando revisão e integração do PR #3)
 
 - [x] Conferir os 23 registros contra as fontes oficiais e registrar, por identificador, fonte consultada, data e conclusão no relatório técnico.
 - [x] Corrigir conteúdo, referência, linguagem e data quando necessário; sinalizar o que continuar sem confirmação.
@@ -44,11 +44,11 @@ As responsabilidades abaixo são propostas e dependem de aceite dos integrantes.
 
 **Critério de conclusão:** todos os registros têm revisão rastreável; orientações sem respaldo foram corrigidas ou retiradas da resposta disponível. Datas cadastradas não são usadas como prova isolada de revisão.
 
-**Evidência:** revisão integral registrada na Seção 5 de [relatorio.md](relatorio.md), ressalva dos arts. 83 e 84 da Resolução Anatel nº 765/2023 incorporada em `DB20` e datas alinhadas para `2026-11-16` nos 23 registros de [base.json](../data/base.json).
+**Evidência:** revisão integral registrada na Seção 5 de [relatorio.md](relatorio.md), ressalva dos arts. 83 e 84 da Resolução Anatel nº 765/2023 incorporada em `DB20` e datas alinhadas para `2026-11-16` nos 23 registros de [base.json](../data/base.json) (PR #3).
 
 ### BUS-01 — Corrigir associação entre academia e telecomunicações
 
-**Responsável proposto:** Alexandre Niewelt · **Status:** Concluído
+**Responsável proposto:** Alexandre Niewelt · **Status:** Em andamento (aguardando revisão e integração do PR #3)
 
 - [x] Reproduzir V15 e identificar por que a busca seleciona DB20.
 - [x] Corrigir a seleção e acrescentar casos de regressão para academia e cancelamento de telecomunicações.
@@ -56,9 +56,9 @@ As responsabilidades abaixo são propostas e dependem de aceite dos integrantes.
 
 **Critério de conclusão:** a pergunta sobre academia não recebe a orientação de telecomunicações; consultas legítimas de telecomunicações continuam atendidas e regressões são resolvidas ou explicitamente documentadas.
 
-**Evidência:** filtragem de contexto setorial (`CONTEXTO_SETOR` e `_sinais_consulta`) antes das decisões de ambiguidade e resposta em [busca.py](../src/busca.py), casos de regressão `T41`–`T47` em [perguntas_teste.json](../data/perguntas_teste.json), separação entre regressão conhecida `V15` e 18 perguntas inéditas reservadas em [perguntas_validacao.json](../data/perguntas_validacao.json) e resultados atualizados em [resultados_testes.md](resultados_testes.md).
+**Evidência:** filtragem de contexto setorial (`_setor_compativel` e `_tem_entidade_incompativel_telecom`) distinguindo objeto/prestadora do contrato de saudação inicial (`"oi, ..."`) e canal digital (`"pela internet"`) antes das decisões de ambiguidade e resposta em [busca.py](../src/busca.py); casos de regressão `T41`–`T51` em [perguntas_teste.json](../data/perguntas_teste.json); separação entre regressão conhecida `V15` e 18 perguntas inéditas reservadas em [perguntas_validacao.json](../data/perguntas_validacao.json); classificação de candidatos proibidos como erro perigoso e verificação controlada em [avaliar.py](../src/avaliar.py); resultados atualizados em [resultados_testes.md](resultados_testes.md) (PR #3).
 
-**Nota de avaliação:** V15 já é conhecido e orienta esta correção. Não apresentar o desempenho posterior nesse mesmo caso como validação inédita; reservar novas perguntas que não tenham orientado os ajustes.
+**Nota de avaliação:** V15 e os exemplos de revisão já são conhecidos e orientam esta correção. Não apresentar o desempenho posterior nesses mesmos casos como validação inédita; reservar novas perguntas que não tenham orientado os ajustes.
 
 ## Validação e interação — Renato Nascimento
 

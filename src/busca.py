@@ -35,20 +35,20 @@ RAZAO_AMBIGUIDADE = 0.85
 # Penalidade por palavra da pergunta que não casou com nada do registro.
 PESO_SOBRA = 0.35
 
-# Registros regulados por setor específico (evita associar termos genéricos como
-# "cancelar plano" ou "multa" a regras exclusivas de telecomunicações/Anatel).
-# Os radicais seguem o mesmo truncamento (6 letras) do pipeline em texto.py.
-CONTEXTO_SETOR = {
-    "DB20": {
-        "obrigatorios_qualquer": {
-            "intern", "celula", "tv", "operad", "anatel", "vivo", "claro", "tim", "oi",
-            "sky", "fibra", "banda", "wifi", "chip", "telefo",
-        },
-        "incompativeis": {
-            "academ", "escola", "curso", "faculd", "clube", "saude", "conven",
-            "ginasi", "pilate", "crossf",
-        },
-    },
+# Contexto setorial para DB20 (Telecomunicações / Anatel):
+# distingue objeto/prestadora do contrato de saudação ("oi, ...") e canal digital ("pela internet").
+MARCAS_TELECOM = {"vivo", "claro", "tim", "sky", "anatel"}
+PREPOSICOES_MARCA_OI = {
+    "da", "de", "na", "no", "pela", "pelo", "operadora", "linha", "plano", "chip",
+    "internet", "tv", "fibra",
+}
+SERVICOS_TELECOM_DIRETOS = {
+    "celular", "telefonia", "telefone", "chip", "fibra", "banda", "wifi", "operadora", "tv",
+}
+PREPOSICOES_CANAL = {"pela", "na", "via", "por"}
+INCOMPATIVEIS_TELECOM = {
+    "academ", "escola", "curso", "faculd", "clube", "saude", "conven",
+    "ginasi", "pilate", "crossf",
 }
 
 
@@ -122,29 +122,32 @@ class Buscador:
         doc = self.vetores[rid]
         return sum((v / norma) * doc.get(t, 0.0) for t, v in vet.items())
 
-    def _sinais_consulta(self, consulta: str) -> set:
-        """Extrai radicais normalizados de todos os tokens e sinônimos (antes de stopwords),
-        permitindo reconhecer marcas/entidades curtas como 'oi' sem afetar saudações."""
-        sinais = set()
-        for t in tokens(consulta):
-            t_sin = self.sin.get(t, t)
-            if len(t) >= 2 or t.isdigit():
-                sinais.add(radical(t))
-            if len(t_sin) >= 2 or t_sin.isdigit():
-                sinais.add(radical(t_sin))
-        return sinais
+    def _tem_entidade_incompativel_telecom(self, consulta: str) -> bool:
+        radicais = {radical(t) for t in tokens(consulta) if len(t) >= 2 or t.isdigit()}
+        return bool(radicais & INCOMPATIVEIS_TELECOM)
 
-    def _setor_compativel(self, rid: str, sinais: set) -> bool:
-        regra = CONTEXTO_SETOR.get(rid)
-        if not regra:
+    def _setor_compativel(self, rid: str, consulta: str) -> bool:
+        if rid != "DB20":
             return True
-        tem_setor = bool(sinais & regra.get("obrigatorios_qualquer", set()))
-        tem_incompativel = bool(sinais & regra.get("incompativeis", set()))
-        # Menção incidental (ex.: "internet da Vivo que uso na faculdade") não veta
-        # quando há identificação explícita do setor/prestadora.
-        if tem_incompativel and not tem_setor:
+        toks = tokens(consulta)
+        tem_incompativel = self._tem_entidade_incompativel_telecom(consulta)
+
+        # 1. Prestadora explícita (ignorando "oi" quando usado como saudação inicial)
+        tem_marca = bool(set(toks) & MARCAS_TELECOM)
+        for i, t in enumerate(toks):
+            if t == "oi" and i > 0 and toks[i - 1] in PREPOSICOES_MARCA_OI:
+                tem_marca = True
+
+        # 2. Objeto/serviço explícito de telecomunicações (ignorando "pela/na/via internet" como canal)
+        tem_servico = bool(set(toks) & SERVICOS_TELECOM_DIRETOS)
+        for i, t in enumerate(toks):
+            if t == "internet" and (i == 0 or toks[i - 1] not in PREPOSICOES_CANAL):
+                tem_servico = True
+
+        tem_telecom = tem_marca or tem_servico
+        if tem_incompativel and not tem_telecom:
             return False
-        if regra.get("obrigatorios_qualquer") and not tem_setor:
+        if not tem_telecom:
             return False
         return True
 
@@ -186,7 +189,6 @@ class Buscador:
         ranking = self.notas(consulta, estrategia)
         (n1, id1) = ranking[0]
         limiar = LIMIAR[estrategia]
-        sinais = self._sinais_consulta(consulta)
 
         if palavras & self.fora_escopo and n1 < limiar * 2:
             return Resultado("FORA_DO_TEMA", [id1], [n1], termos_consulta=q_lista)
@@ -199,10 +201,10 @@ class Buscador:
         if len(unicos) == 1:
             termo = next(iter(unicos))
             if self.df.get(termo, 0) >= 2:
+                incomp_telecom = self._tem_entidade_incompativel_telecom(consulta)
                 cand = [
                     (n, r) for n, r in ranking
-                    if termo in self.docs[r]
-                    and not (sinais & CONTEXTO_SETOR.get(r, {}).get("incompativeis", set()))
+                    if termo in self.docs[r] and not (incomp_telecom and r == "DB20")
                 ][:3]
                 if len(cand) >= 2:
                     return Resultado("AMBIGUA", [r for _, r in cand], [n for n, _ in cand],
@@ -213,8 +215,8 @@ class Buscador:
                 return Resultado("SEM_RESPOSTA", [id1], [n1], termos_consulta=q_lista)
 
         # Filtra candidatos setorialmente incompatíveis ANTES de avaliar ambiguidade ou resposta,
-        # impedindo que DB20 apareça nas opções [a]/[b]/[c] para consultas de academia.
-        compativeis = [(n, r) for n, r in ranking if self._setor_compativel(r, sinais)]
+        # impedindo que DB20 apareça nas opções [a]/[b]/[c] para consultas de academia ou cursos.
+        compativeis = [(n, r) for n, r in ranking if self._setor_compativel(r, consulta)]
         if not compativeis or compativeis[0][0] < limiar:
             return Resultado("SEM_RESPOSTA", [id1], [n1], termos_consulta=q_lista)
 
@@ -230,3 +232,4 @@ class Buscador:
         ids_resp = [id1_c, id2_c] if id2_c is not None else [id1_c]
         notas_resp = [n1_c, n2_c] if id2_c is not None else [n1_c]
         return Resultado("RESPOSTA", ids_resp, notas_resp, termos_consulta=q_lista)
+    
