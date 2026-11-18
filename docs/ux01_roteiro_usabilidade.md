@@ -3,7 +3,7 @@
 **Projeto:** FIAP Global Solution 2026.2 — Citizen Assist AI  
 **Responsável:** Renato Nascimento  
 **Branch de trabalho:** `test/ux-01-usabilidade`  
-**Estado:** roteiro preparado; teste com participante **ainda não executado**  
+**Estado:** roteiro preparado; teste com participante **executado**  
 **Base deste roteiro:** `docs/BACKLOG.md` (UX-01) e seção 8 de `docs/relatorio.md`, versão do ZIP inicial disponibilizado pela equipe. Atualizar se o PR pendente modificar os fluxos.
 
 ## 1. Objetivo e escopo
@@ -34,8 +34,8 @@ O teste de usabilidade com pelo menos **uma pessoa real**, sem identificá-la, �
 | Interface (`normal` ou `--simples`) | `--simples` |
 | Participante | `P01` |
 | Perfil geral e experiência prévia com terminal, sem dados identificáveis | Experiêcia baixa |
-| Ferramenta e versão do leitor de tela (UX-01.B) | Pendente |
-| Duração total | Pendente |
+| Ferramenta e versão do leitor de tela (UX-01.B) | VoiceOver MacOS |
+| Duração total | 09:02 min |
 
 ## 3. Orientação inicial para o participante
 
@@ -87,10 +87,10 @@ Apresentar **uma tarefa por vez**. Não mostrar os identificadores DB nem a seç
 
 | Tarefa | Status (sem ajuda / com ajuda / não concluiu) | Tempo (s) | Caminho/pergunta digitada (sem dados pessoais) | Dificuldade observada | Ajuda oferecida? | Fonte/limite compreendido? |
 |---|---|---:|---|---|---|---|
-| T01 | Pendente | 01:50 | pergunta digitada | Nula | Não | Sim |
-| T02 | Pendente | 01:53 | pergunta digitada | Nula | Não | Sim |
-| T03 | Pendente | 01:47 | pergunta digitada | Terminal Poluído | Não | Sim |
-| T04 (opcional) | Pendente | 03:32 | pergunta digitada | Terminal Poluído | Não | Sim |
+| T01 | Concluído | 01:50 | pergunta digitada | Nula | Não | Sim |
+| T02 | Concluído | 01:53 | pergunta digitada | Nula | Não | Sim |
+| T03 | Concluído | 01:47 | pergunta digitada | Terminal Poluído | Não | Sim |
+| T04 (opcional) | Concluído | 03:32 | pergunta digitada | Terminal Poluído | Não | Sim |
 
 **Registros complementares:**
 - Mensagens/confusões notadas: terminal poluído dificultando leitura
@@ -121,15 +121,15 @@ Perguntar sem sugerir uma nota:
 
 | Indicador | Valor |
 |---|---|
-| Tarefas executadas | Pendente |
-| Concluídas sem ajuda | Pendente |
-| Concluídas com ajuda | Pendente |
-| Não concluídas | Pendente |
-| Taxa de conclusão sem ajuda | Pendente |
-| Taxa de conclusão total | Pendente |
-| Tempo médio | Pendente |
-| Facilidade (1–5) | Pendente |
-| Utilidade (1–5) | Pendente |
+| Tarefas executadas | 4 |
+| Concluídas sem ajuda | 4 |
+| Concluídas com ajuda | 0 |
+| Não concluídas | 0 |
+| Taxa de conclusão sem ajuda | 100% |
+| Taxa de conclusão total | 100% |
+| Tempo médio | 02:15 |
+| Facilidade (1–5) | 4 |
+| Utilidade (1–5) | 5 |
 
 ## 7. Preparação da UX-01.B — teclado e leitor de tela
 
@@ -137,11 +137,11 @@ Estes critérios serão efetivamente testados na etapa UX-01.B:
 
 | Critério | Como observar | Resultado |
 |---|---|---|
-| Teclado | Completar T01–T03 sem mouse, navegando pelo terminal | Pendente |
-| Leitura do menu | Verificar se os comandos e seus significados são anunciados | Pendente |
-| Leitura da fonte | Verificar se a referência e URL são compreensíveis quando lidas pelo leitor | Pendente |
-| Fluxo de condições | Verificar se cada pergunta e opções `s`, `n`, `?` são anunciadas | Pendente |
-| Erros e limites | Verificar se mensagens de entrada inválida/sem resposta são perceptíveis | Pendente |
+| Teclado | Completar T01–T03 sem mouse, navegando pelo terminal | Aprovado|
+| Leitura do menu | Verificar se os comandos e seus significados são anunciados | Aprovado com ressalva |
+| Leitura da fonte | Verificar se a referência e URL são compreensíveis quando lidas pelo leitor | Aprovado com ressalva |
+| Fluxo de condições | Verificar se cada pergunta e opções `s`, `n`, `?` são anunciadas | Aprovado com ressalva |
+| Erros e limites | Verificar se mensagens de entrada inválida/sem resposta são perceptíveis | Aprovado |
 
 Anotar **sistema operacional, aplicativo de terminal, ferramenta de leitor de tela e versão**. Se nenhum leitor de tela puder ser testado, declarar a limitação; não registrar como aprovado.
 
@@ -155,4 +155,4 @@ Anotar **sistema operacional, aplicativo de terminal, ferramenta de leitor de te
 - [ ] Relatar que a amostra é pequena e não permite concluir acessibilidade universal.
 - [ ] Incorporar evidências ao PR da UX-01, sem atribuir resultados ainda não medidos.
 
-**Nota:** este roteiro foi preparado com base no ZIP original de 16/11/2026. A equipe informou um PR BAS-01/BUS-01 ainda não integrado no momento do planejamento. Verificar o comportamento real da versão testada e registrar seu commit.
+**Nota:** este roteiro foi preparado 16/11/2026. A equipe informou um PR BAS-01/BUS-01 ainda não integrado no momento do planejamento. Verificar o comportamento real da versão testada e registrar seu commit.
