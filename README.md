@@ -81,13 +81,13 @@ A [documentação de prompts](docs/prompts.md) contém a comparação conceitual
 
 ## Testes e resultados
 
-O avaliador compara as três estratégias com **56 perguntas de teste e regressão** (`data/perguntas_teste.json`), **18 perguntas inéditas de validação** e **1 regressão conhecida (`V15`)** (`data/perguntas_validacao.json`), além de **14 verificações de robustez e gravidade**, incluindo entradas vazias, ambiguidade, ausência de resposta, leitura de arquivos, validação de saída estruturada e classificação de candidatos proibidos.
+O avaliador compara as três estratégias com **60 perguntas de teste e regressão** (`data/perguntas_teste.json`), **18 perguntas inéditas de validação** e **1 regressão conhecida (`V15`)** (`data/perguntas_validacao.json`), além de **14 verificações de robustez e gravidade**, incluindo entradas vazias, ambiguidade, ausência de resposta, leitura de arquivos, validação de saída estruturada e classificação de candidatos proibidos.
 
 | Estratégia | Acerto (teste + regressão) | Acerto (validação inédita) | Erros perigosos (corpus avaliado) |
 |---|---|---|---|
-| Palavras-chave | 55/56 (98,2%) | 14/18 (77,8%) | 0 |
-| TF-IDF | 54/56 (96,4%) | 12/18 (66,7%) | 1 |
-| Híbrida (padrão) | 55/56 (98,2%) | 14/18 (77,8%) | 0 |
+| Palavras-chave | 59/60 (98,3%) | 14/18 (77,8%) | 0 |
+| TF-IDF | 58/60 (96,7%) | 12/18 (66,7%) | 1 |
+| Híbrida (padrão) | 59/60 (98,3%) | 14/18 (77,8%) | 0 |
 
 Na regressão conhecida `V15`, todas as estratégias passam com recusa segura (`SEM_RESPOSTA`), sem oferecer telecomunicações para academia. A contagem de `0` erros perigosos refere-se ao corpus avaliado na estratégia indicada e não garante ausência de falhas fora dele.
 

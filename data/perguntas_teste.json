@@ -60,6 +60,10 @@
     {"id": "T53", "categoria": "regressao_setor", "pergunta": "quero cancelar minha net", "esperado": "DB20"},
     {"id": "T54", "categoria": "regressao_setor", "pergunta": "fiz a compra de um curso pela internet ontem e me arrependi, posso devolver?", "esperado": "DB07"},
     {"id": "T55", "categoria": "regressao_setor", "pergunta": "quero cancelar minha academia pelo meu celular da Vivo", "esperado": "SEM_RESPOSTA", "nao_deve_conter": ["DB07", "DB20"]},
-    {"id": "T56", "categoria": "regressao_setor", "pergunta": "quero cancelar o curso", "esperado": "SEM_RESPOSTA", "nao_deve_conter": ["DB07", "DB20", "DB22"]}
+    {"id": "T56", "categoria": "regressao_setor", "pergunta": "quero cancelar o curso", "esperado": "SEM_RESPOSTA", "nao_deve_conter": ["DB07", "DB20", "DB22"]},
+    {"id": "T57", "categoria": "regressao_setor", "pergunta": "Quero cancelar o plano da academia pelo WhatsApp da Vivo", "esperado": "SEM_RESPOSTA", "nao_deve_conter": ["DB07", "DB20"]},
+    {"id": "T58", "categoria": "regressao_setor", "pergunta": "Quero cancelar o plano da academia pelo site da Vivo", "esperado": "SEM_RESPOSTA", "nao_deve_conter": ["DB07", "DB20"]},
+    {"id": "T59", "categoria": "regressao_setor", "pergunta": "Quero cancelar meu plano de internet da Vivo pelo WhatsApp", "esperado": "DB20"},
+    {"id": "T60", "categoria": "regressao_setor", "pergunta": "Quero cancelar meu plano pelo WhatsApp da Vivo", "esperado": "SEM_RESPOSTA", "nao_deve_conter": ["DB07", "DB20"]}
   ]
 }

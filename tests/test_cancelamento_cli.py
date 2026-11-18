@@ -57,3 +57,29 @@ class CancelamentoCLI(unittest.TestCase):
                 saida = executar(estrategia, "--pergunta", "cancelar")
                 self.assertIn("qual delas é a sua?", saida)
                 self.assertNotIn("mostre na tela ou fale", saida)
+
+    def test_marca_do_canal_sem_servico(self):
+        for estrategia in ESTRATEGIAS:
+            for canal in ("via WhatsApp da Vivo", "pelo site oficial da Oi", "no app da operadora Claro"):
+                with self.subTest(estrategia=estrategia, canal=canal):
+                    saida = executar(estrategia, "--pergunta", f"Quero cancelar meu plano {canal}")
+                    self.assertIn("qual serviço você quer cancelar?", saida)
+                    self.assertNotIn("[v]", saida)
+                    self.assertNotIn(TITULOS["DB20"], saida)
+
+    def test_canal_antes_do_servico(self):
+        for estrategia in ESTRATEGIAS:
+            with self.subTest(estrategia=estrategia):
+                saida = executar(estrategia, "--pergunta", "Pelo zap da Vivo quero cancelar minha internet")
+                self.assertIn("== " + TITULOS["DB20"], saida)
+
+    def test_academia_por_canal_digital(self):
+        for estrategia in ESTRATEGIAS:
+            for canal in ("pela internet", "pelo WhatsApp da Vivo", "pelo site da Vivo"):
+                with self.subTest(estrategia=estrategia, canal=canal):
+                    pergunta = f"Quero cancelar meu plano da academia {canal}"
+                    saida = executar(estrategia, entradas=(pergunta, "v", "s", "s", "0"))
+                    antes, depois = saida.split("assinou o contrato)?", 1)
+                    self.assertNotIn(TITULOS["DB07"], antes)
+                    self.assertIn("== " + TITULOS["DB07"], depois)
+                    self.assertNotIn(TITULOS["DB20"], saida)

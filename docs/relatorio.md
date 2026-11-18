@@ -90,17 +90,17 @@ A base é editável sem alterar o código (`data/base.json` e `data/sinonimos.js
 
 ## 7. Resultados dos testes
 
-Plano: **56 perguntas de teste e regressão** (12 diretas, 16 reformulações informais, 5 fora do tema, 7 situações-limite e 16 casos de regressão setorial/ambiguidade `T41`–`T56`) e **19 perguntas no arquivo de validação** (`data/perguntas_validacao.json`), separando explicitamente a **regressão conhecida `V15`** (1 caso que orientou a correção de `BUS-01`) das **18 perguntas de validação inédita** (14 originais + 4 novas perguntas reservadas após os ajustes). Cada consulta registra esperado, obtido, candidatos exibidos, acerto/erro e tempo (média de 5 execuções). Detalhes completos em `docs/resultados_testes.md`.
+Plano: **60 perguntas de teste e regressão** (12 diretas, 16 reformulações informais, 5 fora do tema, 7 situações-limite e 20 casos de regressão setorial/ambiguidade `T41`–`T60`) e **19 perguntas no arquivo de validação** (`data/perguntas_validacao.json`), separando explicitamente a **regressão conhecida `V15`** (1 caso que orientou a correção de `BUS-01`) das **18 perguntas de validação inédita** (14 originais + 4 novas perguntas reservadas após os ajustes). Cada consulta registra esperado, obtido, candidatos exibidos, acerto/erro e tempo (média de 5 execuções). Detalhes completos em `docs/resultados_testes.md`.
 
 | Estratégia | Acerto (teste + regressão) | Acerto (validação inédita) | Regressão `V15` | Erros perigosos (corpus avaliado) | Tempo médio |
 |---|---|---|---|---|---|
-| Palavras-chave | 98,2% (55/56) | 77,8% (14/18) | 1/1 | 0 | < 0,1 ms |
-| TF-IDF | 96,4% (54/56) | 66,7% (12/18) | 1/1 | 1 | < 0,3 ms |
-| Híbrida (padrão) | 98,2% (55/56) | 77,8% (14/18) | 1/1 | 0 | < 0,3 ms |
+| Palavras-chave | 98,3% (59/60) | 77,8% (14/18) | 1/1 | 0 | < 0,1 ms |
+| TF-IDF | 96,7% (58/60) | 66,7% (12/18) | 1/1 | 1 | < 0,3 ms |
+| Híbrida (padrão) | 98,3% (59/60) | 77,8% (14/18) | 1/1 | 0 | < 0,3 ms |
 
 **Indicadores:** taxa de acerto, tempo médio de consulta e **taxa de erro perigoso** (orientação errada ou opção explicitamente proibida oferecida ao usuário no corpus avaliado; não garante ausência de falhas fora dele). Na estratégia híbrida, todos os 5 erros restantes (1 no teste e 4 na validação inédita) foram *seguros*: o sistema não respondeu ou pediu esclarecimento sem oferecer candidatos proibidos. Também passaram os **14 testes de robustez**: 7 de leitura da base (arquivo ausente, vazio, JSON quebrado, sem registros, registro incompleto, relacionado inexistente, data inválida), 5 cenários do validador de IA e 2 verificações controladas da classificação de erro perigoso em `AMBIGUA` e `RESPOSTA`.
 
-**Análise.** As três estratégias acertaram as 16 regressões setoriais (T41–T56) e V15. Na base do PR, T49 e T50 contavam como acertos ao exibir DB07 antes da confirmação. Agora a CLI pede o contexto e só apresenta a orientação após duas respostas afirmativas sobre o local e o prazo da contratação. T52 e T55 cobrem o celular usado como canal, T53 recupera a internet contratada como “net”, T54 preserva uma compra com contexto e T56 cobre o cancelamento de curso sem detalhes. Na validação inédita, os resultados por estratégia permanecem iguais aos da base do PR. Em V17, palavras-chave e híbrida se abstêm, enquanto TF-IDF exibe DB04, uma orientação incorreta para banda larga.
+**Análise.** As três estratégias acertaram as 20 regressões setoriais (T41–T60) e V15. Na base do PR, T49 e T50 contavam como acertos ao exibir DB07 antes da confirmação. Agora a CLI pede o contexto e só apresenta a orientação após duas respostas afirmativas sobre o local e o prazo da contratação. T52 e T55 cobrem o celular usado como canal, T53 recupera a internet contratada como “net”, T54 preserva uma compra com contexto e T56 cobre o cancelamento de curso sem detalhes. T57–T60 comparam a academia e a internet contratada nos canais da Vivo. Quando a pessoa informa apenas o canal, a CLI pergunta qual serviço deseja cancelar. Nas 225 combinações anteriores de pergunta e estratégia, a resposta, os candidatos exibidos, o acerto e a gravidade coincidiram com o CSV do commit `75285de`. Em V17, palavras-chave e híbrida se abstêm, enquanto TF-IDF exibe DB04, uma orientação incorreta para banda larga.
 
 ## 8. Teste de usabilidade
 

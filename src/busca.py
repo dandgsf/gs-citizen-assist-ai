@@ -38,6 +38,7 @@ PESO_SOBRA = 0.35
 # Contexto setorial para DB20 (Telecomunicações / Anatel):
 # distingue objeto/prestadora do contrato de saudação ("oi, ...") e canal digital ("pela internet").
 MARCAS_TELECOM = {"vivo", "claro", "tim", "sky", "anatel"}
+MARCAS_NO_CANAL = MARCAS_TELECOM | {"oi"}
 PREPOSICOES_MARCA_OI = {
     "da", "de", "na", "no", "pela", "pelo", "operadora", "linha", "plano", "chip",
     "internet", "tv", "fibra",
@@ -45,8 +46,10 @@ PREPOSICOES_MARCA_OI = {
 SERVICOS_TELECOM = {"internet", "celular", "telefone", "tv", "operadora", "telefonia",
                     "chip", "fibra", "banda", "wifi"}
 CANAIS_DIGITAIS = {"online", "ecommerce", "marketplace"}
+CANAIS_CONTATO = {"whatsapp", "site", "aplicativo", "portal", "chat"}
 INTRODUZEM_CANAL = {"pela", "pelo", "na", "no", "via", "por", "usando"}
 INTENCAO_CANCELAR = {"cancel", "encerr", "desist", "rescin"}
+TERMOS_GENERICOS_CONTRATO = {"plano", "contra", "assina", "servic"}
 OUTROS_SERVICOS = {"academ", "escola", "curso", "faculd", "clube", "saude", "conven",
                   "ginasi", "pilate", "crossf"}
 
@@ -60,6 +63,7 @@ class Resultado:
     tempo_ms: float = 0.0
     termos_consulta: list = field(default_factory=list)
     confirmar: str | None = None     # registro que exige confirmação antes da orientação
+    esclarecer_servico: bool = False
 
 
 class Buscador:
@@ -122,26 +126,49 @@ class Buscador:
         doc = self.vetores[rid]
         return sum((v / norma) * doc.get(t, 0.0) for t, v in vet.items())
 
+    def sem_canal_de_contato(self, toks: list) -> list:
+        """Retira expressões como 'pelo meu celular da Vivo', preservando o objeto do contrato."""
+        restantes = []
+        fim_canal = 0
+        for i, t in enumerate(toks):
+            if i < fim_canal:
+                continue
+            nome = self.sin.get(t, t)
+            if nome not in CANAIS_CONTATO and nome not in SERVICOS_TELECOM:
+                continue
+            inicio = i
+            while inicio > fim_canal and toks[inicio - 1] in {"meu", "minha", "seu", "sua", "a", "o"}:
+                inicio -= 1
+            if inicio > fim_canal and toks[inicio - 1] in INTRODUZEM_CANAL:
+                inicio -= 1
+            elif nome not in CANAIS_CONTATO:
+                continue
+            restantes.extend(toks[fim_canal:inicio])
+            fim_canal = i + 1
+            if fim_canal < len(toks) and toks[fim_canal] == "oficial":
+                fim_canal += 1
+            marca = fim_canal
+            if marca < len(toks) and toks[marca] in {"da", "do", "de"}:
+                marca += 1
+            if marca < len(toks) and toks[marca] == "operadora":
+                marca += 1
+                fim_canal = marca
+            if marca < len(toks) and toks[marca] in MARCAS_NO_CANAL:
+                fim_canal = marca + 1
+        return restantes + toks[fim_canal:]
+
     def tem_servico_telecom(self, toks: list) -> bool:
-        """Usa as preposições originais para distinguir o serviço do canal de contato."""
-        canal_ate = -1
+        """Procura o serviço ou a prestadora nos termos que descrevem o contrato."""
+        return self._telecom_no_contrato(self.sem_canal_de_contato(toks))
+
+    def _telecom_no_contrato(self, toks: list) -> bool:
         for i, t in enumerate(toks):
             anterior = toks[i - 1] if i else ""
-            if i <= canal_ate:
-                continue
             if t in MARCAS_TELECOM or (t == "oi" and anterior in PREPOSICOES_MARCA_OI):
                 return True
             if t in CANAIS_DIGITAIS:
                 continue
             if t in SERVICOS_TELECOM or self.sin.get(t) in SERVICOS_TELECOM:
-                inicio = i
-                while inicio and toks[inicio - 1] in {"meu", "minha", "seu", "sua", "a", "o"}:
-                    inicio -= 1
-                # "pelo meu celular da Vivo" descreve o canal, inclusive a sua marca.
-                if inicio and toks[inicio - 1] in INTRODUZEM_CANAL:
-                    if i + 1 < len(toks) and toks[i + 1] in {"da", "de", "do"}:
-                        canal_ate = i + 2
-                    continue
                 # Em "curso de internet", o objeto do contrato é o curso.
                 if i >= 2 and anterior == "de" and radical(toks[i - 2]) in OUTROS_SERVICOS:
                     continue
@@ -183,10 +210,16 @@ class Buscador:
         if not conhecidos:
             return Resultado("FORA_DO_TEMA", termos_consulta=q_lista)
 
-        ranking = self.notas(consulta, estrategia)
-        telecom = self.tem_servico_telecom(palavras)
+        objeto = self.sem_canal_de_contato(palavras)
+        telecom = self._telecom_no_contrato(objeto)
         unicos = set(q_lista)
         cancelar = bool(INTENCAO_CANCELAR & unicos)
+        if cancelar and objeto != palavras:
+            consulta = " ".join(objeto)
+            especificos = set(termos(consulta, self.sin)) - INTENCAO_CANCELAR - TERMOS_GENERICOS_CONTRATO
+            if not telecom and not especificos.intersection(self.vocabulario | OUTROS_SERVICOS):
+                return Resultado("SEM_RESPOSTA", termos_consulta=q_lista, esclarecer_servico=True)
+        ranking = self.notas(consulta, estrategia)
         outro_servico = bool(OUTROS_SERVICOS & unicos) and not telecom
         if len(unicos) > 1 and not telecom:
             ranking = [(n, r) for n, r in ranking if r != "DB20"]
@@ -201,7 +234,7 @@ class Buscador:
 
         if self.fora_escopo.intersection(palavras) and n1 < limiar * 2:
             return Resultado("FORA_DO_TEMA", [id1], [n1], termos_consulta=q_lista)
-        canal_digital = bool({"intern", "site", "aplica"} & unicos)
+        canal_digital = bool({"intern", "site", "aplica", "whatsa", "portal", "chat"} & unicos)
         if cancelar and outro_servico and canal_digital and "DB07" in self.base.registros:
             return Resultado("SEM_RESPOSTA", termos_consulta=q_lista, confirmar="DB07")
         if n1 < limiar:

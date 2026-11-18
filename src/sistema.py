@@ -242,6 +242,9 @@ def responder(t: Tela, base: Base, buscador: Buscador, consulta: str, estrategia
         if exp:
             t.p(f"{t.i('info')} {exp}")
         return {}
+    if res.esclarecer_servico:
+        t.p("Qual serviço você quer cancelar? Escreva novamente a pergunta com o nome do serviço.")
+        return {}
     if res.confirmar:
         t.p("Para orientar sobre esse cancelamento, preciso saber como você contratou "
             "o serviço ou comprou o produto e há quanto tempo.")
