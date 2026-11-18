@@ -44,7 +44,7 @@ PREPOSICOES_MARCA_OI = {
     "internet", "tv", "fibra",
 }
 SERVICOS_TELECOM = {"internet", "celular", "telefone", "tv", "operadora", "telefonia",
-                    "chip", "fibra", "banda", "wifi"}
+                    "chip", "fibra", "wifi"}
 CANAIS_DIGITAIS = {"online", "ecommerce", "marketplace"}
 CANAIS_CONTATO = {"whatsapp", "site", "aplicativo", "portal", "chat"}
 INTRODUZEM_CANAL = {"pela", "pelo", "na", "no", "via", "por", "usando"}
@@ -206,7 +206,7 @@ class Buscador:
         if not q_lista:
             return Resultado("INVALIDA")
         conhecidos = [t for t in q_lista if t in self.vocabulario]
-        palavras = tokens(consulta)
+        palavras = tokens(consulta, self.sin)
         if not conhecidos:
             return Resultado("FORA_DO_TEMA", termos_consulta=q_lista)
 

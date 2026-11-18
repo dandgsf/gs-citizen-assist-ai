@@ -246,10 +246,11 @@ def main():
     md.append("- **Conjunto de teste e regressão** (`data/perguntas_teste.json`, "
               f"{len(casos)} perguntas): usado para calibrar sinônimos, palavras-chave, limiares e regressões de BUS-01.")
     if val:
-        n_reg_val = len(conjuntos["validacao"]) - len(val_inedita["hibrida"])
-        md.append("- **Conjunto de validação** (`data/perguntas_validacao.json`, "
-                  f"{len(val_inedita['hibrida'])} perguntas inéditas reservadas + {n_reg_val} regressão conhecida `V15`): "
-                  "casos inéditos não usados para ajustes são separados da regressão conhecida `V15`.\n")
+        conhecidas = [c["id"] for c in conjuntos["validacao"] if c["categoria"] == "regressao_conhecida"]
+        md.append(f"- **Conjunto de validação** (`data/perguntas_validacao.json`): "
+                  f"{len(val_inedita['hibrida'])} perguntas reservadas para a métrica de validação inédita.")
+        if conhecidas:
+            md.append("- **Regressões conhecidas no arquivo de validação**: " + ", ".join(conhecidas) + ".\n")
     md.append("## Comparação das estratégias de busca\n")
     md.append("| Estratégia | Acerto (teste + regressão) | Acerto (validação inédita) | Erros perigosos (corpus avaliado) | Tempo médio (ms) | Tempo máximo (ms) |")
     md.append("|---|---|---|---|---|---|")
@@ -327,4 +328,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    

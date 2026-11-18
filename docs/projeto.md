@@ -102,7 +102,7 @@ As respostas do programa são recuperadas da base, sem chamadas a modelos de lin
 
 ## Evidências e limitações
 
-O avaliador utiliza 60 perguntas de teste e regressão (`data/perguntas_teste.json`) e 19 perguntas no arquivo de validação (`data/perguntas_validacao.json`, sendo 18 inéditas reservadas e 1 regressão conhecida `V15`), além de 14 verificações de robustez e gravidade. Os [resultados detalhados](resultados_testes.md) incluem indicadores e erros por estratégia. Na híbrida, os acertos são 59/60 (98,3%) no teste/regressão e 14/18 (77,8%) na validação inédita (além de 1/1 na regressão `V15`), com 0 erros perigosos no corpus avaliado (o que não garante ausência de falhas fora dele).
+O avaliador utiliza 60 perguntas de teste e regressão (`data/perguntas_teste.json`) e 19 perguntas no arquivo de validação (`data/perguntas_validacao.json`, sendo 17 reservadas e 2 regressões conhecidas, `V15` e `V17`), além de 14 verificações de robustez e gravidade. Os [resultados detalhados](resultados_testes.md) incluem indicadores e erros por estratégia. Na híbrida, os acertos são 59/60 (98,3%) no teste/regressão e 14/17 (82,4%) na validação inédita (além de 2/2 nas regressões `V15` e `V17`), com 0 erros perigosos no corpus avaliado (o que não garante ausência de falhas fora dele).
 
 A cobertura se restringe à base. Vocabulário novo, radicalização por prefixos e regras locais são limitações. Os 23 registros foram revisados em 16/11/2026 contra as normas citadas (`BAS-01`), mas a manutenção contínua exige revisão periódica guiada pelo aviso de 180 dias. A comparação experimental dos prompts e o teste com usuário ainda não possuem resultados registrados. O [relatório técnico](relatorio.md) reúne a análise e o formulário de usabilidade.
 

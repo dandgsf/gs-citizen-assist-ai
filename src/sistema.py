@@ -280,7 +280,7 @@ def responder(t: Tela, base: Base, buscador: Buscador, consulta: str, estrategia
     rid = res.ids[0]
     mostrar_registro(t, base, rid, exp)
     ocultar_telecom = bool(INTENCAO_CANCELAR.intersection(res.termos_consulta)
-                           and not buscador.tem_servico_telecom(tokens(consulta)))
+                           and not buscador.tem_servico_telecom(tokens(consulta, base.sinonimos)))
     return opcoes_pos_resposta(t, base, rid, interativo, ocultar_telecom)
 
 

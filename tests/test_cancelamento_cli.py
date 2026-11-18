@@ -23,6 +23,33 @@ def executar(estrategia, *argumentos, entradas=()):
 
 
 class CancelamentoCLI(unittest.TestCase):
+    def test_banda_larga_e_tamanho_de_roupa(self):
+        casos = (
+            ("Quero encerrar meu contrato de banda larga residencial", "DB20"),
+            ("Quero encerrar a banda larga", "DB20"),
+            ("Preciso encerrar meu plano de internet", "DB20"),
+            ("A camisa ficou larga e a loja não quer trocar o tamanho", "DB04"),
+        )
+        for pergunta, esperado in casos:
+            for estrategia in ESTRATEGIAS:
+                with self.subTest(pergunta=pergunta, estrategia=estrategia):
+                    saida = executar(estrategia, "--pergunta", pergunta)
+                    self.assertIn("== " + TITULOS[esperado], saida)
+
+    def test_banda_larga_como_canal(self):
+        for estrategia in ESTRATEGIAS:
+            with self.subTest(estrategia=estrategia):
+                saida = executar(estrategia, "--pergunta", "Quero encerrar o plano da academia pela banda larga da Vivo")
+                self.assertNotIn(TITULOS["DB20"], saida)
+                self.assertNotIn("mostre na tela ou fale", saida)
+
+    def test_contrato_de_banda_musical(self):
+        for estrategia in ESTRATEGIAS:
+            with self.subTest(estrategia=estrategia):
+                saida = executar(estrategia, "--pergunta", "Quero encerrar meu contrato com a banda que vai tocar")
+                self.assertNotIn(TITULOS["DB20"], saida)
+                self.assertNotIn("mostre na tela ou fale", saida)
+
     def test_resposta_e_atalhos(self):
         casos = json.loads((RAIZ / "data/perguntas_teste.json").read_text(encoding="utf-8"))
         for caso in casos["casos"]:

@@ -1,5 +1,5 @@
 {
-  "_comentario": "Conjunto de VALIDAÇÃO: escrito depois da calibração e NÃO usado para ajustar sinônimos, palavras-chave ou limiares. V15 está rotulado como regressao_conhecida para não contaminar a métrica de validação inédita. Rode: python src/avaliar.py",
+  "_comentario": "Avaliação com perguntas reservadas e regressões conhecidas. V15 e V17 orientaram correções e são contabilizados à parte. Rode: python src/avaliar.py",
   "casos": [
     {"id": "V01", "categoria": "reformulacao", "pergunta": "no supermercado a etiqueta dizia 8,99 e no caixa passou 12 reais", "esperado": "DB01"},
     {"id": "V02", "categoria": "reformulacao", "pergunta": "a farmácia dá desconto só no dinheiro, isso é permitido?", "esperado": "DB02"},
@@ -17,7 +17,7 @@
     {"id": "V14", "categoria": "fora_do_tema", "pergunta": "meu patrão não pagou minhas férias", "esperado": "SEM_RESPOSTA"},
     {"id": "V15", "categoria": "regressao_conhecida", "pergunta": "a academia não quer cancelar meu plano sem multa", "esperado": "SEM_RESPOSTA", "nao_deve_conter": ["DB20"]},
     {"id": "V16", "categoria": "limite_sem_resposta", "pergunta": "o clube social não deixa eu encerrar minha assinatura anual sem multa", "esperado": "SEM_RESPOSTA", "nao_deve_conter": ["DB20"]},
-    {"id": "V17", "categoria": "reformulacao", "pergunta": "quero encerrar meu contrato de banda larga residencial", "esperado": "DB20"},
+    {"id": "V17", "categoria": "regressao_conhecida", "pergunta": "quero encerrar meu contrato de banda larga residencial", "esperado": "DB20", "nao_deve_conter": ["DB04"]},
     {"id": "V18", "categoria": "limite_sem_resposta", "pergunta": "o estúdio de pilates quer cobrar 50% de multa rescisória no cancelamento", "esperado": "SEM_RESPOSTA", "nao_deve_conter": ["DB20"]},
     {"id": "V19", "categoria": "reformulacao", "pergunta": "a operadora claro cobrou multa de fidelidade no cancelamento do meu chip", "esperado": "DB20"}
   ]

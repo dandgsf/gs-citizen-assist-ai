@@ -1,17 +1,18 @@
 # Resultados dos testes — Citizen Assist AI
 
-Gerado automaticamente por `python src/avaliar.py` em 18/11/2026 15:43. 23 registros na base, 5 execuções por consulta (tempo = média).
+Gerado automaticamente por `python src/avaliar.py` em 18/11/2026 15:58. 23 registros na base, 5 execuções por consulta (tempo = média).
 
 - **Conjunto de teste e regressão** (`data/perguntas_teste.json`, 60 perguntas): usado para calibrar sinônimos, palavras-chave, limiares e regressões de BUS-01.
-- **Conjunto de validação** (`data/perguntas_validacao.json`, 18 perguntas inéditas reservadas + 1 regressão conhecida `V15`): casos inéditos não usados para ajustes são separados da regressão conhecida `V15`.
+- **Conjunto de validação** (`data/perguntas_validacao.json`): 17 perguntas reservadas para a métrica de validação inédita.
+- **Regressões conhecidas no arquivo de validação**: V15, V17.
 
 ## Comparação das estratégias de busca
 
 | Estratégia | Acerto (teste + regressão) | Acerto (validação inédita) | Erros perigosos (corpus avaliado) | Tempo médio (ms) | Tempo máximo (ms) |
 |---|---|---|---|---|---|
-| palavras | 59/60 (98.3%) | 14/18 (77.8%) | 0 | 0.045 | 0.098 |
-| tfidf | 58/60 (96.7%) | 12/18 (66.7%) | 1 | 0.085 | 0.147 |
-| hibrida **(padrão)** | 59/60 (98.3%) | 14/18 (77.8%) | 0 | 0.098 | 0.239 |
+| palavras | 59/60 (98.3%) | 14/17 (82.4%) | 0 | 0.053 | 0.102 |
+| tfidf | 58/60 (96.7%) | 12/17 (70.6%) | 0 | 0.093 | 0.170 |
+| hibrida **(padrão)** | 59/60 (98.3%) | 14/17 (82.4%) | 0 | 0.114 | 0.225 |
 
 *Erro seguro*: o sistema não respondeu ou pediu esclarecimento sem oferecer opção incompatível. *Erro perigoso*: deu orientação errada ou ofereceu candidato explicitamente proibido no corpus avaliado (não garante ausência de falhas fora dele).
 
@@ -31,96 +32,96 @@ Empate em acerto e erros perigosos entre: **palavras, hibrida**. A diferença de
 
 | ID | Categoria | Pergunta | Esperado | Obtido | Candidatos exibidos | Resultado | Tempo (ms) |
 |---|---|---|---|---|---|---|---|
-| T01 | direta | O preço da prateleira é diferente do preço no caixa | DB01 | DB01 | DB01 | Acerto | 0.099 |
-| T02 | direta | A loja pode cobrar mais caro no cartão de crédito? | DB02 | DB02 | DB02 | Acerto | 0.099 |
-| T03 | direta | Comprei uma geladeira e ela veio com defeito | DB03 | DB03 | DB03 | Acerto | 0.092 |
-| T04 | direta | Me arrependi de uma compra pela internet, posso devolver? | DB07 | DB07 | DB07 | Acerto | 0.093 |
-| T05 | direta | Sou obrigado a pagar a taxa de serviço de 10%? | DB10 | DB10 | DB10 | Acerto | 0.095 |
-| T06 | direta | O bar cobra consumação mínima, pode? | DB11 | DB11 | DB11 | Acerto | 0.091 |
-| T07 | direta | Caí em um golpe no Pix, como recupero o dinheiro? | DB15 | DB15 | DB15 | Acerto | 0.113 |
-| T08 | direta | Meu nome foi negativado no Serasa sem aviso | DB18 | DB18 | DB18 | Acerto | 0.106 |
-| T09 | direta | Como cancelar a internet da operadora? | DB20 | DB20 | DB20 | Acerto | 0.086 |
-| T10 | direta | Meu voo foi cancelado, tenho direito a hotel? | DB22 | DB22 | DB22 | Acerto | 0.087 |
-| T11 | direta | Quem tem direito a meia-entrada no cinema? | DB14 | DB14 | DB14 | Acerto | 0.087 |
-| T12 | direta | Idoso tem passagem de ônibus interestadual gratuita? | DB23 | DB23 | DB23 | Acerto | 0.100 |
-| T13 | reformulacao | passaram as compras e o arroz deu mais caro do que tava na gondola | DB01 | DB01 | DB01 | Acerto | 0.113 |
-| T14 | reformulacao | o tênis que eu comprei rasgou e a loja falou pra eu me virar com a fábrica | DB03 | DB03 | DB03 | Acerto | 0.122 |
-| T15 | reformulacao | ganhei uma blusa de presente mas ficou apertada, a loja tem que trocar? | DB04 | DB04 | DB04 | Acerto | 0.116 |
-| T16 | reformulacao | o vendedor disse que o celular só sai se eu levar a garantia estendida junto | DB05 | DB05 | DB05 | Acerto | 0.123 |
-| T17 | reformulacao | to gravida e o banco nao quis me atender na fila preferencial | DB06 | DB06 | DB06 | Acerto | 0.115 |
-| T18 | reformulacao | fiz um pedido no app faz 20 dias e até agora nada de chegar | DB08 | AMBIGUA | DB08, DB07 | Erro | 0.106 |
-| T19 | reformulacao | chegou um cartão de crédito em casa que eu nunca pedi | DB09 | DB09 | DB09 | Acerto | 0.105 |
-| T20 | reformulacao | o garçom botou os dez por cento sem me perguntar | DB10 | DB10 | DB10 | Acerto | 0.149 |
-| T21 | reformulacao | sumiu meu cartão de consumo na balada e querem me cobrar 300 reais | DB12 | DB12 | DB12 | Acerto | 0.163 |
-| T22 | reformulacao | trouxeram pãozinho e manteiga na mesa sem eu pedir e cobraram | DB13 | DB13 | DB13 | Acerto | 0.114 |
-| T23 | reformulacao | mandei dinheiro pro golpista que se passou pelo meu filho no zap | DB15 | DB15 | DB15 | Acerto | 0.110 |
-| T24 | reformulacao | a empresa me cobrou duas vezes a mesma fatura e eu paguei as duas | DB16 | DB16 | DB16 | Acerto | 0.120 |
-| T25 | reformulacao | a assessoria de cobrança liga pros meus colegas de trabalho falando da minha dívida | DB17 | DB17 | DB17 | Acerto | 0.123 |
-| T26 | reformulacao | a enel cortou a energia lá de casa num sábado | DB19 | DB19 | DB19 | Acerto | 0.108 |
-| T27 | reformulacao | não aguento mais o banco me ligando pra oferecer consignado | DB21 | DB21 | DB21 | Acerto | 0.108 |
-| T28 | reformulacao | meu pai tem 63 anos e quer visitar a irmã em outro estado de ônibus, ele paga? | DB23 | DB23 | DB23 | Acerto | 0.134 |
-| T29 | fora_do_tema | Fui demitido, quanto recebo de FGTS? | SEM_RESPOSTA | SEM_RESPOSTA | — | Acerto | 0.095 |
-| T30 | fora_do_tema | Como faço para pedir pensão alimentícia? | SEM_RESPOSTA | SEM_RESPOSTA | — | Acerto | 0.086 |
-| T31 | fora_do_tema | Qual a receita de bolo de cenoura? | SEM_RESPOSTA | SEM_RESPOSTA | — | Acerto | 0.007 |
-| T32 | fora_do_tema | Quem ganhou o jogo do Corinthians ontem? | SEM_RESPOSTA | SEM_RESPOSTA | — | Acerto | 0.085 |
-| T33 | fora_do_tema | O dono do apartamento não devolveu o caução do aluguel | SEM_RESPOSTA | SEM_RESPOSTA | — | Acerto | 0.129 |
-| T34 | limite_vazia | (vazia) | VAZIA | VAZIA | — | Acerto | 0.001 |
-| T35 | limite_vazia | (vazia) | VAZIA | VAZIA | — | Acerto | 0.001 |
+| T01 | direta | O preço da prateleira é diferente do preço no caixa | DB01 | DB01 | DB01 | Acerto | 0.107 |
+| T02 | direta | A loja pode cobrar mais caro no cartão de crédito? | DB02 | DB02 | DB02 | Acerto | 0.105 |
+| T03 | direta | Comprei uma geladeira e ela veio com defeito | DB03 | DB03 | DB03 | Acerto | 0.097 |
+| T04 | direta | Me arrependi de uma compra pela internet, posso devolver? | DB07 | DB07 | DB07 | Acerto | 0.101 |
+| T05 | direta | Sou obrigado a pagar a taxa de serviço de 10%? | DB10 | DB10 | DB10 | Acerto | 0.101 |
+| T06 | direta | O bar cobra consumação mínima, pode? | DB11 | DB11 | DB11 | Acerto | 0.098 |
+| T07 | direta | Caí em um golpe no Pix, como recupero o dinheiro? | DB15 | DB15 | DB15 | Acerto | 0.108 |
+| T08 | direta | Meu nome foi negativado no Serasa sem aviso | DB18 | DB18 | DB18 | Acerto | 0.099 |
+| T09 | direta | Como cancelar a internet da operadora? | DB20 | DB20 | DB20 | Acerto | 0.090 |
+| T10 | direta | Meu voo foi cancelado, tenho direito a hotel? | DB22 | DB22 | DB22 | Acerto | 0.094 |
+| T11 | direta | Quem tem direito a meia-entrada no cinema? | DB14 | DB14 | DB14 | Acerto | 0.093 |
+| T12 | direta | Idoso tem passagem de ônibus interestadual gratuita? | DB23 | DB23 | DB23 | Acerto | 0.105 |
+| T13 | reformulacao | passaram as compras e o arroz deu mais caro do que tava na gondola | DB01 | DB01 | DB01 | Acerto | 0.121 |
+| T14 | reformulacao | o tênis que eu comprei rasgou e a loja falou pra eu me virar com a fábrica | DB03 | DB03 | DB03 | Acerto | 0.132 |
+| T15 | reformulacao | ganhei uma blusa de presente mas ficou apertada, a loja tem que trocar? | DB04 | DB04 | DB04 | Acerto | 0.125 |
+| T16 | reformulacao | o vendedor disse que o celular só sai se eu levar a garantia estendida junto | DB05 | DB05 | DB05 | Acerto | 0.133 |
+| T17 | reformulacao | to gravida e o banco nao quis me atender na fila preferencial | DB06 | DB06 | DB06 | Acerto | 0.123 |
+| T18 | reformulacao | fiz um pedido no app faz 20 dias e até agora nada de chegar | DB08 | AMBIGUA | DB08, DB07 | Erro | 0.115 |
+| T19 | reformulacao | chegou um cartão de crédito em casa que eu nunca pedi | DB09 | DB09 | DB09 | Acerto | 0.176 |
+| T20 | reformulacao | o garçom botou os dez por cento sem me perguntar | DB10 | DB10 | DB10 | Acerto | 0.130 |
+| T21 | reformulacao | sumiu meu cartão de consumo na balada e querem me cobrar 300 reais | DB12 | DB12 | DB12 | Acerto | 0.144 |
+| T22 | reformulacao | trouxeram pãozinho e manteiga na mesa sem eu pedir e cobraram | DB13 | DB13 | DB13 | Acerto | 0.124 |
+| T23 | reformulacao | mandei dinheiro pro golpista que se passou pelo meu filho no zap | DB15 | DB15 | DB15 | Acerto | 0.138 |
+| T24 | reformulacao | a empresa me cobrou duas vezes a mesma fatura e eu paguei as duas | DB16 | DB16 | DB16 | Acerto | 0.127 |
+| T25 | reformulacao | a assessoria de cobrança liga pros meus colegas de trabalho falando da minha dívida | DB17 | DB17 | DB17 | Acerto | 0.134 |
+| T26 | reformulacao | a enel cortou a energia lá de casa num sábado | DB19 | DB19 | DB19 | Acerto | 0.139 |
+| T27 | reformulacao | não aguento mais o banco me ligando pra oferecer consignado | DB21 | DB21 | DB21 | Acerto | 0.145 |
+| T28 | reformulacao | meu pai tem 63 anos e quer visitar a irmã em outro estado de ônibus, ele paga? | DB23 | DB23 | DB23 | Acerto | 0.149 |
+| T29 | fora_do_tema | Fui demitido, quanto recebo de FGTS? | SEM_RESPOSTA | SEM_RESPOSTA | — | Acerto | 0.101 |
+| T30 | fora_do_tema | Como faço para pedir pensão alimentícia? | SEM_RESPOSTA | SEM_RESPOSTA | — | Acerto | 0.090 |
+| T31 | fora_do_tema | Qual a receita de bolo de cenoura? | SEM_RESPOSTA | SEM_RESPOSTA | — | Acerto | 0.013 |
+| T32 | fora_do_tema | Quem ganhou o jogo do Corinthians ontem? | SEM_RESPOSTA | SEM_RESPOSTA | — | Acerto | 0.101 |
+| T33 | fora_do_tema | O dono do apartamento não devolveu o caução do aluguel | SEM_RESPOSTA | SEM_RESPOSTA | — | Acerto | 0.118 |
+| T34 | limite_vazia | (vazia) | VAZIA | VAZIA | — | Acerto | 0.000 |
+| T35 | limite_vazia | (vazia) | VAZIA | VAZIA | — | Acerto | 0.000 |
 | T36 | limite_invalida | ?!?! ... | INVALIDA | INVALIDA | — | Acerto | 0.002 |
-| T37 | limite_ambigua | cobrança | AMBIGUA | AMBIGUA | DB16, DB17, DB02 | Acerto | 0.071 |
-| T38 | limite_ambigua | quero cancelar | AMBIGUA | AMBIGUA | DB20, DB22, DB07 | Acerto | 0.069 |
-| T39 | limite_sem_resposta | a loja não quis me dar nota fiscal | SEM_RESPOSTA | SEM_RESPOSTA | — | Acerto | 0.107 |
-| T40 | limite_sem_resposta | o mercado não aceita cheque | SEM_RESPOSTA | SEM_RESPOSTA | — | Acerto | 0.090 |
-| T41 | regressao_setor | a academia quer cobrar multa para cancelar minha matrícula | SEM_RESPOSTA | SEM_RESPOSTA | — | Acerto | 0.113 |
-| T42 | regressao_setor | a academia quer cobrar multa indevida para cancelar o plano | DB16 | DB16 | DB16 | Acerto | 0.116 |
-| T43 | regressao_setor | quero cancelar minha linha da Oi | DB20 | DB20 | DB20 | Acerto | 0.077 |
-| T44 | regressao_setor | quero cancelar minha internet da Vivo que uso para estudar na faculdade | DB20 | DB20 | DB20 | Acerto | 0.110 |
-| T45 | regressao_setor | quero cancelar minha tv por assinatura da claro | DB20 | DB20 | DB20 | Acerto | 0.088 |
-| T46 | regressao_setor | como cancelar plano de fibra óptica da tim sem falar com atendente | DB20 | DB20 | DB20 | Acerto | 0.118 |
-| T47 | regressao_setor | a escola de idiomas quer cobrar multa abusiva para cancelar o curso | SEM_RESPOSTA | SEM_RESPOSTA | — | Acerto | 0.123 |
-| T48 | regressao_setor | oi, a academia nao quer cancelar meu plano sem multa | SEM_RESPOSTA | SEM_RESPOSTA | — | Acerto | 0.114 |
-| T49 | regressao_setor | quero cancelar meu plano da academia pela internet | SEM_RESPOSTA | SEM_RESPOSTA | — | Acerto | 0.112 |
-| T50 | regressao_setor | quero cancelar minha assinatura de curso online | SEM_RESPOSTA | SEM_RESPOSTA | — | Acerto | 0.094 |
-| T51 | regressao_setor | oi, quero cancelar minha linha da Oi | DB20 | DB20 | DB20 | Acerto | 0.078 |
-| T52 | regressao_setor | a academia quer cobrar multa para cancelar meu plano pelo celular | SEM_RESPOSTA | SEM_RESPOSTA | — | Acerto | 0.239 |
-| T53 | regressao_setor | quero cancelar minha net | DB20 | DB20 | DB20 | Acerto | 0.095 |
-| T54 | regressao_setor | fiz a compra de um curso pela internet ontem e me arrependi, posso devolver? | DB07 | DB07 | DB07 | Acerto | 0.113 |
-| T55 | regressao_setor | quero cancelar minha academia pelo meu celular da Vivo | SEM_RESPOSTA | SEM_RESPOSTA | — | Acerto | 0.090 |
-| T56 | regressao_setor | quero cancelar o curso | SEM_RESPOSTA | SEM_RESPOSTA | — | Acerto | 0.077 |
-| T57 | regressao_setor | Quero cancelar o plano da academia pelo WhatsApp da Vivo | SEM_RESPOSTA | SEM_RESPOSTA | — | Acerto | 0.096 |
-| T58 | regressao_setor | Quero cancelar o plano da academia pelo site da Vivo | SEM_RESPOSTA | SEM_RESPOSTA | — | Acerto | 0.095 |
-| T59 | regressao_setor | Quero cancelar meu plano de internet da Vivo pelo WhatsApp | DB20 | DB20 | DB20 | Acerto | 0.097 |
-| T60 | regressao_setor | Quero cancelar meu plano pelo WhatsApp da Vivo | SEM_RESPOSTA | SEM_RESPOSTA | — | Acerto | 0.014 |
+| T37 | limite_ambigua | cobrança | AMBIGUA | AMBIGUA | DB16, DB17, DB02 | Acerto | 0.074 |
+| T38 | limite_ambigua | quero cancelar | AMBIGUA | AMBIGUA | DB20, DB22, DB07 | Acerto | 0.112 |
+| T39 | limite_sem_resposta | a loja não quis me dar nota fiscal | SEM_RESPOSTA | SEM_RESPOSTA | — | Acerto | 0.190 |
+| T40 | limite_sem_resposta | o mercado não aceita cheque | SEM_RESPOSTA | SEM_RESPOSTA | — | Acerto | 0.185 |
+| T41 | regressao_setor | a academia quer cobrar multa para cancelar minha matrícula | SEM_RESPOSTA | SEM_RESPOSTA | — | Acerto | 0.220 |
+| T42 | regressao_setor | a academia quer cobrar multa indevida para cancelar o plano | DB16 | DB16 | DB16 | Acerto | 0.225 |
+| T43 | regressao_setor | quero cancelar minha linha da Oi | DB20 | DB20 | DB20 | Acerto | 0.155 |
+| T44 | regressao_setor | quero cancelar minha internet da Vivo que uso para estudar na faculdade | DB20 | DB20 | DB20 | Acerto | 0.216 |
+| T45 | regressao_setor | quero cancelar minha tv por assinatura da claro | DB20 | DB20 | DB20 | Acerto | 0.105 |
+| T46 | regressao_setor | como cancelar plano de fibra óptica da tim sem falar com atendente | DB20 | DB20 | DB20 | Acerto | 0.154 |
+| T47 | regressao_setor | a escola de idiomas quer cobrar multa abusiva para cancelar o curso | SEM_RESPOSTA | SEM_RESPOSTA | — | Acerto | 0.144 |
+| T48 | regressao_setor | oi, a academia nao quer cancelar meu plano sem multa | SEM_RESPOSTA | SEM_RESPOSTA | — | Acerto | 0.128 |
+| T49 | regressao_setor | quero cancelar meu plano da academia pela internet | SEM_RESPOSTA | SEM_RESPOSTA | — | Acerto | 0.131 |
+| T50 | regressao_setor | quero cancelar minha assinatura de curso online | SEM_RESPOSTA | SEM_RESPOSTA | — | Acerto | 0.107 |
+| T51 | regressao_setor | oi, quero cancelar minha linha da Oi | DB20 | DB20 | DB20 | Acerto | 0.087 |
+| T52 | regressao_setor | a academia quer cobrar multa para cancelar meu plano pelo celular | SEM_RESPOSTA | SEM_RESPOSTA | — | Acerto | 0.135 |
+| T53 | regressao_setor | quero cancelar minha net | DB20 | DB20 | DB20 | Acerto | 0.082 |
+| T54 | regressao_setor | fiz a compra de um curso pela internet ontem e me arrependi, posso devolver? | DB07 | DB07 | DB07 | Acerto | 0.116 |
+| T55 | regressao_setor | quero cancelar minha academia pelo meu celular da Vivo | SEM_RESPOSTA | SEM_RESPOSTA | — | Acerto | 0.097 |
+| T56 | regressao_setor | quero cancelar o curso | SEM_RESPOSTA | SEM_RESPOSTA | — | Acerto | 0.080 |
+| T57 | regressao_setor | Quero cancelar o plano da academia pelo WhatsApp da Vivo | SEM_RESPOSTA | SEM_RESPOSTA | — | Acerto | 0.105 |
+| T58 | regressao_setor | Quero cancelar o plano da academia pelo site da Vivo | SEM_RESPOSTA | SEM_RESPOSTA | — | Acerto | 0.104 |
+| T59 | regressao_setor | Quero cancelar meu plano de internet da Vivo pelo WhatsApp | DB20 | DB20 | DB20 | Acerto | 0.106 |
+| T60 | regressao_setor | Quero cancelar meu plano pelo WhatsApp da Vivo | SEM_RESPOSTA | SEM_RESPOSTA | — | Acerto | 0.017 |
 
 ## Detalhe por pergunta — conjunto de validação (estratégia híbrida)
 
 | ID | Categoria | Pergunta | Esperado | Obtido | Candidatos exibidos | Resultado | Tempo (ms) |
 |---|---|---|---|---|---|---|---|
-| V01 | reformulacao | no supermercado a etiqueta dizia 8,99 e no caixa passou 12 reais | DB01 | SEM_RESPOSTA | — | Erro | 0.129 |
-| V02 | reformulacao | a farmácia dá desconto só no dinheiro, isso é permitido? | DB02 | DB02 | DB02 | Acerto | 0.115 |
-| V03 | reformulacao | a televisão nova queimou na primeira semana | DB03 | SEM_RESPOSTA | — | Erro | 0.009 |
-| V04 | reformulacao | comprei um tênis no site e quero devolver porque não gostei | DB07 | DB07 | DB07 | Acerto | 0.115 |
-| V05 | reformulacao | o restaurante disse que a gorjeta é obrigatória | DB10 | DB10 | DB10 | Acerto | 0.092 |
-| V06 | reformulacao | na entrada da boate falaram que tem que consumir no mínimo 80 reais | DB11 | DB11 | DB11 | Acerto | 0.117 |
-| V07 | reformulacao | minha avó recebeu mensagem de um falso neto pedindo pix e mandou 500 reais | DB15 | SEM_RESPOSTA | — | Erro | 0.130 |
-| V08 | reformulacao | quitei a dívida faz duas semanas e o meu nome ainda está no spc | DB18 | DB18 | DB18 | Acerto | 0.112 |
-| V09 | reformulacao | a companhia de luz desligou a energia sem mandar nenhum aviso | DB19 | DB19 | DB19 | Acerto | 0.113 |
-| V10 | reformulacao | a vivo não deixa eu cancelar meu plano de celular | DB20 | DB20 | DB20 | Acerto | 0.107 |
-| V11 | reformulacao | fiquei 5 horas no aeroporto esperando e a companhia não deu nem lanche | DB22 | DB22 | DB22 | Acerto | 0.129 |
-| V12 | reformulacao | minha filha estuda na faculdade, ela paga meia no show? | DB14 | DB14 | DB14 | Acerto | 0.108 |
-| V13 | fora_do_tema | como tirar a segunda via do RG? | SEM_RESPOSTA | SEM_RESPOSTA | — | Acerto | 0.087 |
-| V14 | fora_do_tema | meu patrão não pagou minhas férias | SEM_RESPOSTA | SEM_RESPOSTA | — | Acerto | 0.090 |
-| V15 | regressao_conhecida | a academia não quer cancelar meu plano sem multa | SEM_RESPOSTA | SEM_RESPOSTA | — | Acerto | 0.138 |
-| V16 | limite_sem_resposta | o clube social não deixa eu encerrar minha assinatura anual sem multa | SEM_RESPOSTA | SEM_RESPOSTA | — | Acerto | 0.239 |
-| V17 | reformulacao | quero encerrar meu contrato de banda larga residencial | DB20 | SEM_RESPOSTA | — | Erro | 0.179 |
-| V18 | limite_sem_resposta | o estúdio de pilates quer cobrar 50% de multa rescisória no cancelamento | SEM_RESPOSTA | SEM_RESPOSTA | — | Acerto | 0.230 |
-| V19 | reformulacao | a operadora claro cobrou multa de fidelidade no cancelamento do meu chip | DB20 | DB20 | DB20 | Acerto | 0.193 |
+| V01 | reformulacao | no supermercado a etiqueta dizia 8,99 e no caixa passou 12 reais | DB01 | SEM_RESPOSTA | — | Erro | 0.136 |
+| V02 | reformulacao | a farmácia dá desconto só no dinheiro, isso é permitido? | DB02 | DB02 | DB02 | Acerto | 0.103 |
+| V03 | reformulacao | a televisão nova queimou na primeira semana | DB03 | SEM_RESPOSTA | — | Erro | 0.010 |
+| V04 | reformulacao | comprei um tênis no site e quero devolver porque não gostei | DB07 | DB07 | DB07 | Acerto | 0.117 |
+| V05 | reformulacao | o restaurante disse que a gorjeta é obrigatória | DB10 | DB10 | DB10 | Acerto | 0.096 |
+| V06 | reformulacao | na entrada da boate falaram que tem que consumir no mínimo 80 reais | DB11 | DB11 | DB11 | Acerto | 0.126 |
+| V07 | reformulacao | minha avó recebeu mensagem de um falso neto pedindo pix e mandou 500 reais | DB15 | SEM_RESPOSTA | — | Erro | 0.140 |
+| V08 | reformulacao | quitei a dívida faz duas semanas e o meu nome ainda está no spc | DB18 | DB18 | DB18 | Acerto | 0.119 |
+| V09 | reformulacao | a companhia de luz desligou a energia sem mandar nenhum aviso | DB19 | DB19 | DB19 | Acerto | 0.121 |
+| V10 | reformulacao | a vivo não deixa eu cancelar meu plano de celular | DB20 | DB20 | DB20 | Acerto | 0.111 |
+| V11 | reformulacao | fiquei 5 horas no aeroporto esperando e a companhia não deu nem lanche | DB22 | DB22 | DB22 | Acerto | 0.135 |
+| V12 | reformulacao | minha filha estuda na faculdade, ela paga meia no show? | DB14 | DB14 | DB14 | Acerto | 0.114 |
+| V13 | fora_do_tema | como tirar a segunda via do RG? | SEM_RESPOSTA | SEM_RESPOSTA | — | Acerto | 0.223 |
+| V14 | fora_do_tema | meu patrão não pagou minhas férias | SEM_RESPOSTA | SEM_RESPOSTA | — | Acerto | 0.144 |
+| V15 | regressao_conhecida | a academia não quer cancelar meu plano sem multa | SEM_RESPOSTA | SEM_RESPOSTA | — | Acerto | 0.189 |
+| V16 | limite_sem_resposta | o clube social não deixa eu encerrar minha assinatura anual sem multa | SEM_RESPOSTA | SEM_RESPOSTA | — | Acerto | 0.157 |
+| V17 | regressao_conhecida | quero encerrar meu contrato de banda larga residencial | DB20 | DB20 | DB20 | Acerto | 0.101 |
+| V18 | limite_sem_resposta | o estúdio de pilates quer cobrar 50% de multa rescisória no cancelamento | SEM_RESPOSTA | SEM_RESPOSTA | — | Acerto | 0.134 |
+| V19 | reformulacao | a operadora claro cobrou multa de fidelidade no cancelamento do meu chip | DB20 | DB20 | DB20 | Acerto | 0.120 |
 
 ## Erros por estratégia (teste + validação)
 
-- **palavras**: T18 (esperado DB08, obtido AMBIGUA, erro seguro), V01 (esperado DB01, obtido SEM_RESPOSTA, erro seguro), V03 (esperado DB03, obtido SEM_RESPOSTA, erro seguro), V07 (esperado DB15, obtido SEM_RESPOSTA, erro seguro), V17 (esperado DB20, obtido SEM_RESPOSTA, erro seguro)
-- **tfidf**: T19 (esperado DB09, obtido AMBIGUA, erro seguro), T21 (esperado DB12, obtido AMBIGUA, erro seguro), V01 (esperado DB01, obtido SEM_RESPOSTA, erro seguro), V02 (esperado DB02, obtido SEM_RESPOSTA, erro seguro), V03 (esperado DB03, obtido SEM_RESPOSTA, erro seguro), V04 (esperado DB07, obtido SEM_RESPOSTA, erro seguro), V07 (esperado DB15, obtido SEM_RESPOSTA, erro seguro), V17 (esperado DB20, obtido DB04, erro perigoso)
-- **hibrida**: T18 (esperado DB08, obtido AMBIGUA, erro seguro), V01 (esperado DB01, obtido SEM_RESPOSTA, erro seguro), V03 (esperado DB03, obtido SEM_RESPOSTA, erro seguro), V07 (esperado DB15, obtido SEM_RESPOSTA, erro seguro), V17 (esperado DB20, obtido SEM_RESPOSTA, erro seguro)
+- **palavras**: T18 (esperado DB08, obtido AMBIGUA, erro seguro), V01 (esperado DB01, obtido SEM_RESPOSTA, erro seguro), V03 (esperado DB03, obtido SEM_RESPOSTA, erro seguro), V07 (esperado DB15, obtido SEM_RESPOSTA, erro seguro)
+- **tfidf**: T19 (esperado DB09, obtido AMBIGUA, erro seguro), T21 (esperado DB12, obtido AMBIGUA, erro seguro), V01 (esperado DB01, obtido SEM_RESPOSTA, erro seguro), V02 (esperado DB02, obtido SEM_RESPOSTA, erro seguro), V03 (esperado DB03, obtido SEM_RESPOSTA, erro seguro), V04 (esperado DB07, obtido SEM_RESPOSTA, erro seguro), V07 (esperado DB15, obtido SEM_RESPOSTA, erro seguro)
+- **hibrida**: T18 (esperado DB08, obtido AMBIGUA, erro seguro), V01 (esperado DB01, obtido SEM_RESPOSTA, erro seguro), V03 (esperado DB03, obtido SEM_RESPOSTA, erro seguro), V07 (esperado DB15, obtido SEM_RESPOSTA, erro seguro)
 
 ## Testes de robustez (base, saída da IA e gravidade do avaliador)
 
