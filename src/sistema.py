@@ -14,9 +14,10 @@ AQUI = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, AQUI)
 
 from base_conhecimento import Base, ErroBase          # noqa: E402
-from busca import Buscador, ESTRATEGIAS, LIMIAR        # noqa: E402
+from busca import Buscador, ESTRATEGIAS, INTENCAO_CANCELAR, LIMIAR  # noqa: E402
 from condicoes import avaliar, interpretar_resposta    # noqa: E402
 from privacidade import mascarar                       # noqa: E402
+from texto import tokens                               # noqa: E402
 
 RAIZ = os.path.dirname(AQUI)
 BASE_PADRAO = os.path.join(RAIZ, "data", "base.json")
@@ -100,10 +101,13 @@ def mostrar_registro(t: Tela, base: Base, rid: str, explicacao: str = ""):
     t.linha()
 
 
-def opcoes_pos_resposta(t: Tela, base: Base, rid: str, interativo: bool = True) -> dict:
+def opcoes_pos_resposta(t: Tela, base: Base, rid: str, interativo: bool = True,
+                        ocultar_telecom: bool = False) -> dict:
     """Mostra os atalhos de navegação e devolve o mapa atalho -> ação."""
     mapa = {}
     rel = base.relacionados(rid)
+    if ocultar_telecom:
+        rel = [r for r in rel if r != "DB20"]
     if rel:
         t.p(f"{t.i('rel')} ASSUNTOS RELACIONADOS:")
         for n, r in enumerate(rel, 1):
@@ -149,6 +153,7 @@ def verificar_condicoes(t: Tela, base: Base, rid: str, entrada):
         for q in quais:
             t.p(f"• {perguntas[q]}", 3)
     t.p(f"{t.i('aviso')} Esta checagem é uma orientação, não uma decisão oficial.")
+    return resultado
 
 
 def explicar_decisao(res, base) -> str:
@@ -237,6 +242,15 @@ def responder(t: Tela, base: Base, buscador: Buscador, consulta: str, estrategia
         if exp:
             t.p(f"{t.i('info')} {exp}")
         return {}
+    if res.confirmar:
+        t.p("Para orientar sobre esse cancelamento, preciso saber como você contratou "
+            "o serviço ou comprou o produto e há quanto tempo.")
+        if (base.registros[res.confirmar].get("condicoes") or {}).get("itens"):
+            if interativo:
+                t.p("[v] Responder às perguntas sobre a contratação")
+                return {"v": ("confirmar", res.confirmar)}
+            t.p("No menu interativo, faça a consulta e digite [v] para responder.")
+        return {}
     if res.tipo == "SEM_RESPOSTA":
         t.p(f"{t.i('limite')} Não encontrei uma informação confiável para isso, então prefiro "
             "não chutar uma resposta.")
@@ -251,7 +265,9 @@ def responder(t: Tela, base: Base, buscador: Buscador, consulta: str, estrategia
         mapa = {}
         for letra, rid in zip("abc", res.ids):
             t.p(f"[{letra}] {base.registros[rid]['titulo']}", 3)
-            mapa[letra] = ("abrir", rid)
+            acao = ("confirmar" if rid == "DB07" and
+                    INTENCAO_CANCELAR.intersection(res.termos_consulta) else "abrir")
+            mapa[letra] = (acao, rid)
         t.p("[n] Nenhuma dessas")
         mapa["n"] = ("nenhuma", None)
         if exp:
@@ -260,7 +276,9 @@ def responder(t: Tela, base: Base, buscador: Buscador, consulta: str, estrategia
 
     rid = res.ids[0]
     mostrar_registro(t, base, rid, exp)
-    return opcoes_pos_resposta(t, base, rid, interativo)
+    ocultar_telecom = bool(INTENCAO_CANCELAR.intersection(res.termos_consulta)
+                           and not buscador.tem_servico_telecom(tokens(consulta)))
+    return opcoes_pos_resposta(t, base, rid, interativo, ocultar_telecom)
 
 
 # ---------------------------------------------------------------- programa
@@ -329,6 +347,13 @@ def main():
                 elif acao == "verificar":
                     verificar_condicoes(t, base, alvo, entrada)
                     atalhos = opcoes_pos_resposta(t, base, alvo)
+                elif acao == "confirmar":
+                    atalhos = {}
+                    if not (base.registros[alvo].get("condicoes") or {}).get("itens"):
+                        t.p("A base não tem as condições necessárias para orientar este caso.")
+                    elif verificar_condicoes(t, base, alvo, entrada) is True:
+                        mostrar_registro(t, base, alvo)
+                        atalhos = opcoes_pos_resposta(t, base, alvo)
                 elif acao == "nenhuma":
                     t.p("Tudo bem. Tente descrever de outro jeito ou digite [1] para ver a lista.")
                     atalhos = {}
