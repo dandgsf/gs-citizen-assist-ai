@@ -1,5 +1,5 @@
 {
-  "_comentario": "Palavra que a pessoa pode escrever -> palavra usada na base. Edite à vontade; o programa não precisa mudar. Escreva sem acento e em minúsculas.",
+  "_comentario": "Palavra ou expressão de duas palavras que a pessoa pode escrever -> palavra usada na base. Escreva sem acento e em minúsculas.",
   "gondola": "prateleira",
   "etiquetas": "etiqueta",
   "placa": "cartaz",
@@ -95,7 +95,7 @@
   "religam": "religacao",
   "net": "internet",
   "wifi": "internet",
-  "banda": "internet",
+  "banda larga": "internet",
   "fibra": "internet",
   "chip": "celular",
   "telefonia": "celular",

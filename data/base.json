@@ -84,7 +84,7 @@
         "norma": "Lei nº 10.962/2004, art. 5º",
         "url": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2004/lei/l10.962.htm"
       },
-      "data_de_verificacao": "2026-11-11",
+      "data_de_verificacao": "2026-11-16",
       "limitacoes": "Vale para o mesmo produto. Se a loja provar que a etiqueta era de outro item, a regra não se aplica.",
       "relacionados": [
         "DB02",
@@ -126,7 +126,7 @@
         "norma": "Lei nº 13.455/2017 e Lei nº 10.962/2004, art. 5º-A",
         "url": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2017/lei/l13455.htm"
       },
-      "data_de_verificacao": "2026-11-11",
+      "data_de_verificacao": "2026-11-16",
       "limitacoes": "A diferenciação em si é permitida; o problema é a falta de informação clara e prévia.",
       "relacionados": [
         "DB01",
@@ -170,7 +170,7 @@
         "norma": "Código de Defesa do Consumidor (Lei nº 8.078/1990), arts. 18 e 26",
         "url": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm"
       },
-      "data_de_verificacao": "2026-11-11",
+      "data_de_verificacao": "2026-11-16",
       "limitacoes": "Para produto essencial ou quando o conserto puder comprometer o produto, a lei permite pedir a troca ou o dinheiro de volta sem esperar os 30 dias (art. 18, §3º). Mau uso comprovado afasta a responsabilidade.",
       "relacionados": [
         "DB04",
@@ -213,7 +213,7 @@
         "norma": "Código de Defesa do Consumidor, arts. 30 e 49",
         "url": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm"
       },
-      "data_de_verificacao": "2026-11-11",
+      "data_de_verificacao": "2026-11-16",
       "limitacoes": "Se o produto tiver defeito, a situação é outra (veja 'Produto com defeito').",
       "relacionados": [
         "DB03",
@@ -254,7 +254,7 @@
         "norma": "Código de Defesa do Consumidor, art. 39, inciso I",
         "url": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm"
       },
-      "data_de_verificacao": "2026-11-11",
+      "data_de_verificacao": "2026-11-16",
       "limitacoes": "Promoções do tipo 'leve 3, pague 2' são permitidas desde que você também possa comprar a unidade avulsa.",
       "relacionados": [
         "DB11",
@@ -299,7 +299,7 @@
         "norma": "Lei nº 10.048/2000, arts. 1º e 2º (redação da Lei nº 14.626/2023)",
         "url": "https://www.planalto.gov.br/ccivil_03/leis/l10048.htm"
       },
-      "data_de_verificacao": "2026-11-11",
+      "data_de_verificacao": "2026-11-16",
       "limitacoes": "Em comércio comum (supermercado, farmácia), a obrigação de fila preferencial depende de lei estadual ou municipal. Tempo máximo de espera em fila de banco também é definido por lei municipal.",
       "relacionados": [
         "DB23",
@@ -346,7 +346,7 @@
         "norma": "Código de Defesa do Consumidor, art. 49; Decreto nº 7.962/2013, art. 5º",
         "url": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm"
       },
-      "data_de_verificacao": "2026-11-11",
+      "data_de_verificacao": "2026-11-16",
       "limitacoes": "Passagem aérea tem regra própria da ANAC (desistência sem custo em até 24 horas, se comprada com 7 dias ou mais de antecedência do voo). Compra dentro da loja física não tem direito de arrependimento.",
       "condicoes": {
         "regra": "todas",
@@ -406,7 +406,7 @@
         "norma": "Código de Defesa do Consumidor, art. 35",
         "url": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm"
       },
-      "data_de_verificacao": "2026-11-11",
+      "data_de_verificacao": "2026-11-16",
       "limitacoes": "Em marketplaces, a plataforma e o vendedor costumam responder juntos; reclame nos dois.",
       "relacionados": [
         "DB07",
@@ -447,7 +447,7 @@
         "norma": "Código de Defesa do Consumidor, art. 39, III e parágrafo único; Súmula 532 do STJ",
         "url": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm"
       },
-      "data_de_verificacao": "2026-11-11",
+      "data_de_verificacao": "2026-11-16",
       "limitacoes": "Se você pediu e esqueceu (assinatura renovada automaticamente, por exemplo), a regra não se aplica; confira seus e-mails e contratos.",
       "relacionados": [
         "DB16",
@@ -487,7 +487,7 @@
         "norma": "Lei nº 13.419/2017 (gorjeta); Código de Defesa do Consumidor, art. 6º, III (informação clara); orientação do Idec e dos Procons",
         "url": "https://idec.org.br/em-acao/em-foco/taxa-de-consumacao-minima-em-bares-e-abusiva"
       },
-      "data_de_verificacao": "2026-11-11",
+      "data_de_verificacao": "2026-11-16",
       "limitacoes": "A gorjeta é um reconhecimento ao trabalho da equipe; não pagá-la é um direito, mas a decisão é sua.",
       "relacionados": [
         "DB11",
@@ -529,7 +529,7 @@
         "norma": "Código de Defesa do Consumidor, art. 39, inciso I; orientação do Idec",
         "url": "https://idec.org.br/em-acao/em-foco/taxa-de-consumacao-minima-em-bares-e-abusiva"
       },
-      "data_de_verificacao": "2026-11-11",
+      "data_de_verificacao": "2026-11-16",
       "limitacoes": "Algumas leis estaduais permitem consumação como alternativa ao ingresso, se o cliente puder escolher pagar a entrada.",
       "relacionados": [
         "DB10",
@@ -568,7 +568,7 @@
         "norma": "Código de Defesa do Consumidor, art. 39, V; orientação do Procon-SP e do Idec",
         "url": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm"
       },
-      "data_de_verificacao": "2026-11-11",
+      "data_de_verificacao": "2026-11-16",
       "limitacoes": "Há entendimento de que uma taxa pequena, informada com antecedência, poderia ser cobrada se ficar provado descuido do cliente; valores altos ou arbitrários são abusivos.",
       "relacionados": [
         "DB10",
@@ -608,7 +608,7 @@
         "norma": "Código de Defesa do Consumidor, art. 39, III e parágrafo único; art. 6º, III",
         "url": "https://idec.org.br/consultas/dicas-e-direitos/cuidado-com-as-cobrancas-indevidas-e-pegadinhas-em-restaurantes"
       },
-      "data_de_verificacao": "2026-11-11",
+      "data_de_verificacao": "2026-11-16",
       "limitacoes": "Se você aceitou e consumiu depois de ser informado do preço, o couvert pode ser cobrado.",
       "relacionados": [
         "DB10",
@@ -652,7 +652,7 @@
         "norma": "Lei nº 12.933/2013; Estatuto da Pessoa Idosa (Lei nº 10.741/2003), art. 23",
         "url": "https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2013/lei/l12933.htm"
       },
-      "data_de_verificacao": "2026-11-11",
+      "data_de_verificacao": "2026-11-16",
       "limitacoes": "Estudantes de cursos livres (idiomas, informática, preparatórios) não têm direito. Eventos exclusivamente gastronômicos não são obrigados.",
       "condicoes": {
         "regra": "alguma",
@@ -720,7 +720,7 @@
         "norma": "Regulamento do Pix – Mecanismo Especial de Devolução (MED), Banco Central do Brasil",
         "url": "https://www.bcb.gov.br/estabilidadefinanceira/pix"
       },
-      "data_de_verificacao": "2026-11-11",
+      "data_de_verificacao": "2026-11-16",
       "limitacoes": "Pix enviado por engano para a pessoa errada (erro seu, sem golpe) não entra no MED: nesse caso, peça a devolução ao recebedor e, se necessário, procure o Juizado Especial.",
       "relacionados": [
         "DB16",
@@ -762,7 +762,7 @@
         "norma": "Código de Defesa do Consumidor, art. 42, parágrafo único",
         "url": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm"
       },
-      "data_de_verificacao": "2026-11-11",
+      "data_de_verificacao": "2026-11-16",
       "limitacoes": "A devolução em dobro trata de valor já pago. Se ainda não pagou, conteste antes. O que é 'engano justificável' é decidido caso a caso.",
       "relacionados": [
         "DB17",
@@ -805,7 +805,7 @@
         "norma": "Código de Defesa do Consumidor, arts. 42 (caput) e 71",
         "url": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm"
       },
-      "data_de_verificacao": "2026-11-11",
+      "data_de_verificacao": "2026-11-16",
       "limitacoes": "A dívida continua existindo: a regra protege a forma da cobrança, não cancela o débito.",
       "relacionados": [
         "DB16",
@@ -846,7 +846,7 @@
         "norma": "Código de Defesa do Consumidor, art. 43, §2º; Súmulas 359 e 548 do STJ",
         "url": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm"
       },
-      "data_de_verificacao": "2026-11-11",
+      "data_de_verificacao": "2026-11-16",
       "limitacoes": "Se a dívida existe e não foi paga, a negativação com aviso prévio é permitida.",
       "relacionados": [
         "DB16",
@@ -888,7 +888,7 @@
         "norma": "Resolução Normativa ANEEL nº 1.000/2021",
         "url": "https://www2.aneel.gov.br/cedoc/ren20211000.html"
       },
-      "data_de_verificacao": "2026-11-11",
+      "data_de_verificacao": "2026-11-16",
       "limitacoes": "Em situações de risco técnico ou de segurança, a distribuidora pode desligar sem seguir esses prazos. Água e gás seguem regras de outras agências e da sua cidade.",
       "relacionados": [
         "DB20",
@@ -909,6 +909,7 @@
         "palavras_chave": [
           "cancelar",
           "cancelamento",
+          "encerrar internet",
           "operadora",
           "internet",
           "plano",
@@ -919,21 +920,21 @@
           "anatel"
         ]
       },
-      "orientacao_resumida": "Você pode cancelar telefone, internet ou TV por assinatura SEM precisar falar com atendente, por canal automático (site, aplicativo ou opção no menu telefônico). A operadora não pode dificultar o cancelamento. Se você aceitou fidelidade em troca de benefício, pode haver multa proporcional ao tempo que falta — confira o contrato.",
-      "frase_pronta": "Quero cancelar o serviço agora. O Regulamento Geral de Direitos do Consumidor de Telecomunicações (Resolução Anatel 765/2023) garante o cancelamento, inclusive sem intervenção de atendente. Peço o número de protocolo.",
+      "orientacao_resumida": "Você pode cancelar telefone, internet ou TV por assinatura SEM precisar falar com atendente, por canal automático (site, aplicativo ou opção no menu telefônico), ou COM intervenção de atendente. No pedido com atendente, o cancelamento tem efeito imediato; no canal automático (sem atendente), o efeito ocorre em até 2 dias úteis após o pedido, e você paga pelos serviços usufruídos durante esse processamento. Se você aceitou fidelidade em troca de benefício, pode haver multa proporcional ao tempo que falta.",
+      "frase_pronta": "Quero cancelar o serviço agora. O Regulamento Geral de Direitos do Consumidor de Telecomunicações (Resolução Anatel 765/2023, arts. 83 e 84) garante o cancelamento, inclusive sem intervenção de atendente. Peço o número de protocolo.",
       "passos": [
-        "Use a opção de cancelamento no app, no site ou no menu do telefone.",
-        "Anote o protocolo e a data do pedido.",
-        "Se continuar sendo cobrado, conteste e peça a devolução."
+        "Use a opção de cancelamento no app, no site ou no menu do telefone (ou solicite ao atendente).",
+        "Anote o protocolo, a data e a hora do pedido (no canal automático, o cancelamento efetiva-se em até 2 dias úteis).",
+        "Se houver cobrança referente a período posterior ao prazo legal de efetivação, conteste e peça a devolução."
       ],
-      "prazo": null,
+      "prazo": "Com atendente: efeito imediato (art. 83). Sem atendente (canal automático): até 2 dias úteis (art. 84).",
       "onde_reclamar": "Operadora (com protocolo) → Anatel (telefone 1331 ou site) → Procon.",
       "referencia": {
-        "norma": "Resolução Anatel nº 765/2023 (Regulamento Geral de Direitos do Consumidor de Serviços de Telecomunicações)",
+        "norma": "Resolução Anatel nº 765/2023 (Regulamento Geral de Direitos do Consumidor de Serviços de Telecomunicações), arts. 83 e 84",
         "url": "https://informacoes.anatel.gov.br/legislacao/resolucoes/2023/1900-resolucao-765"
       },
-      "data_de_verificacao": "2026-11-11",
-      "limitacoes": "A multa de fidelidade é permitida quando você recebeu benefício em troca e ela deve ser proporcional ao tempo restante.",
+      "data_de_verificacao": "2026-11-16",
+      "limitacoes": "No cancelamento sem atendente, você responde pelos serviços usufruídos durante o prazo de processamento de até 2 dias úteis (art. 84, §1º). A multa de fidelidade é permitida quando você recebeu benefício em troca e deve ser proporcional ao tempo restante.",
       "relacionados": [
         "DB21",
         "DB09",
@@ -975,7 +976,7 @@
         "norma": "Plataforma Não Me Perturbe (adesão obrigatória determinada pela Anatel)",
         "url": "https://www.naomeperturbe.com.br"
       },
-      "data_de_verificacao": "2026-11-11",
+      "data_de_verificacao": "2026-11-16",
       "limitacoes": "Não bloqueia ligações de cobrança, de prevenção a fraude, de pesquisa nem de golpistas.",
       "relacionados": [
         "DB20",
@@ -1019,7 +1020,7 @@
         "norma": "Resolução ANAC nº 400/2016, com alterações da Resolução nº 813/2026",
         "url": "https://www.anac.gov.br/assuntos/legislacao/legislacao-1/resolucoes/2016/resolucao-no-400-13-12-2016"
       },
-      "data_de_verificacao": "2026-11-11",
+      "data_de_verificacao": "2026-11-16",
       "limitacoes": "A assistência material da ANAC é garantida em território nacional. Indenização por danos é outro assunto, decidido caso a caso. Regras de informação do art. 20 mudam a partir de 25/11/2026 (Resolução 819/2026).",
       "relacionados": [
         "DB23",
@@ -1063,7 +1064,7 @@
         "norma": "Estatuto da Pessoa Idosa (Lei nº 10.741/2003), art. 40",
         "url": "https://www.planalto.gov.br/ccivil_03/leis/2003/l10.741.htm"
       },
-      "data_de_verificacao": "2026-11-11",
+      "data_de_verificacao": "2026-11-16",
       "limitacoes": "Não vale para os serviços executivo, semileito e leito. Ônibus municipal e intermunicipal seguem regras locais (em regra, gratuidade a partir de 65 anos no transporte urbano).",
       "condicoes": {
         "regra": "todas",
