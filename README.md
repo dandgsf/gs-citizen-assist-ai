@@ -91,7 +91,7 @@ O avaliador compara as três estratégias com **60 perguntas de teste e regress�
 
 As três estratégias se abstêm para a academia em `V15` e recuperam a orientação de cancelamento de internet em `V17`. A contagem de `0` erros perigosos refere-se ao corpus avaliado na estratégia indicada e não garante ausência de falhas fora dele.
 
-Execute `python -m unittest discover -s tests -v` para conferir as respostas e os atalhos de cancelamento na CLI, incluindo a confirmação da contratação. O [relatório de testes](docs/resultados_testes.md) registra resposta esperada, obtida, candidatos exibidos, acerto ou erro, tempos de consulta e robustez. O teste com usuário e a comparação experimental de prompts ainda não têm resultados registrados.
+Execute `python -m unittest discover -s tests -v` para conferir as respostas e os atalhos de cancelamento na CLI, incluindo a confirmação da contratação. O [relatório de testes](docs/resultados_testes.md) registra resposta esperada, obtida, candidatos exibidos, acerto ou erro, tempos de consulta e robustez. O [teste de usabilidade](docs/ux01d_relatorio_usabilidade.md) registrou quatro tarefas concluídas sem ajuda por um participante. A comparação experimental de prompts ainda não tem resultados registrados.
 
 ## Limitações e cuidados
 
@@ -99,7 +99,7 @@ Execute `python -m unittest discover -s tests -v` para conferir as respostas e o
 - Os 23 registros foram revisados manualmente em 16/11/2026 contra as normas citadas, mas não há conferência automática das fontes; a revisão humana periódica permanece necessária, apoiada pelo aviso de registros com mais de 180 dias.
 - O assistente é informativo, não é canal oficial e não substitui Procon, Defensoria ou advogado.
 - As consultas não são persistidas. A detecção de CPF, telefone, e-mail e cartão cobre padrões específicos, sem garantir a remoção de todo dado sensível. Evite dados pessoais também nos argumentos do terminal.
-- A interface usa linguagem simples, texto sem emojis e navegação por códigos. A acessibilidade com leitores de tela ainda precisa ser avaliada.
+- A interface usa linguagem simples, texto sem emojis e navegação por códigos. A avaliação exploratória com VoiceOver registrou ressalvas. Os casos com observação insuficiente ainda precisam de revalidação.
 
 ## Documentação e vídeo
 

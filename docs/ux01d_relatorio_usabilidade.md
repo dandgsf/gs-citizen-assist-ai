@@ -41,6 +41,7 @@ para os indicadores consolidados.
 - Python: 3.13.5.
 - Modo de execução: `--simples`.
 - Identificador do participante: P01.
+- Experiência prévia com terminal: baixa (conforme ficha A).
 - Tarefas executadas: 4.
 - Soma dos tempos das tarefas: 09:02.
 - Tempo médio por tarefa: 02:15,5.
@@ -49,10 +50,10 @@ para os indicadores consolidados.
 ### UX-01.C — Segunda execução
 
 - Data: 17/11/2026.
-- Horário: 16:05.
+- Horário: não registrado na ficha UX-01.C.
 - Sistema operacional: macOS Tahoe 26.4.
 - Aplicativo: Terminal.
-- Comando documentado: `python3 src/sistema.py`.
+- Comando indicado no roteiro: `python3 src/sistema.py`; modo efetivo da sessão não comprovado.
 - Identificador do participante: P01.
 - Tarefas executadas: 4.
 - Soma dos tempos das tarefas: 08:20.
@@ -66,6 +67,8 @@ para os indicadores consolidados.
 - Horário registrado: 16h05.
 - Sistema operacional: macOS Tahoe 26.4.
 - Leitor de tela: VoiceOver.
+- Aplicativos citados: Terminal e VS Code; aplicativo e modo por caso não registrados.
+- Versão exata do VoiceOver e SHA original: não registrados.
 - Avaliação realizada separadamente pelo responsável.
 - Testes de teclado: 7.
 - Verificações com VoiceOver: 8.
@@ -99,7 +102,7 @@ com segurança.
 - Fonte identificada = `2 / 3 = 66,7%` das tarefas aplicáveis (T01–T03); T04 não exigia fonte.
 - Notas de P01: navegação **4/5**; clareza **4/5**; localização de fontes **3/5**; facilidade geral **4/5**. Média descritiva das quatro notas: **3,75/5**, sem significância populacional.
 
-**Interpretação:** todas as tarefas foram registradas como concluídas, mas houve uma dificuldade visual repetida. A localização das fontes aparece como fragilidade específica tanto na nota 3/5 quanto na não identificação da fonte em T02. A taxa de conclusão não mede qualidade da orientação, satisfação de uma população nem capacidade universal de utilização.
+**Interpretação:** todas as tarefas foram registradas como concluídas, mas houve uma dificuldade visual repetida. A localização das fontes aparece como fragilidade específica tanto na nota 3/5 quanto na não identificação da fonte em T02. A ficha C não registra a mensagem recebida nem como P01 continuou em T04. A taxa descreve a classificação das tarefas desta sessão.
 
 ### Evidência complementar da tarefa T04
 
@@ -203,9 +206,9 @@ As melhorias acima são **recomendações**, não correções já executadas. Re
 
 ## 7. Conclusão e estado da tarefa
 
-A avaliação disponível **atende ao núcleo de evidências previsto para UX-01**: tarefas reais registradas com participante anônimo, navegação por teclado, observações de uso com VoiceOver, dificuldades e mais de duas propostas de melhoria. Na versão examinada, P01 concluiu as quatro tarefas sem ajuda (100%), enquanto a leitura por VoiceOver apresentou ressalvas em seis de oito verificações. Recomenda-se priorizar **clareza textual e de navegação, leitura por tecnologias assistivas e apresentação das referências**.
+O registro da UX-01 reúne uma sessão com participante anônimo, verificações por teclado, classificações do VoiceOver e propostas de melhoria. As observações por caso do leitor de tela ainda precisam de confirmação. Na versão examinada, P01 concluiu as quatro tarefas sem ajuda (100%), enquanto a leitura por VoiceOver apresentou ressalvas em seis de oito verificações. Recomenda-se priorizar **clareza textual e de navegação, leitura por tecnologias assistivas e apresentação das referências**.
 
-**Estado recomendado no backlog até revisão:** **Em revisão / Aguardando integração**, não marcar como concluído por conta própria. O critério de aceite permanece sujeito à conferência do Danilo, identificação da versão avaliada e decisão da equipe sobre revalidar ajustes. As limitações identificadas devem constar do relatório final, mesmo que não sejam corrigidas nesta entrega.
+**Estado da evidência.** Síntese disponível para DOC-01. Revalidar os casos de acessibilidade sem observação recuperável e qualquer fluxo afetado por futuras mudanças de interface.
 
 ## 8. Checklist para o PR
 
@@ -218,4 +221,4 @@ A avaliação disponível **atende ao núcleo de evidências previsto para UX-01
 - [ ] Conferir se as alterações integradas pelo PR #3 afetam os fluxos avaliados na UX-01 e revalidar os casos impactados, quando necessário.
 - [ ] Revisão do Danilo e merge.
 
-**Nota de integração:** este PR adiciona apenas arquivos de `docs/ux01*`, evitando editar `docs/BACKLOG.md` ou `docs/relatorio.md` enquanto outros PRs podem modificá-los. O responsável pela documentação pode incorporar esta síntese ao relatório final.
+**Encaminhamento para DOC-01.** Renato Valle incorpora a síntese e os links desta evidência à seção 8 do relatório técnico e leva as limitações ao PDF. A classificação de cada caso e a ficha original ficam nos documentos de UX-01.

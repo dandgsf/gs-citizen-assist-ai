@@ -15,8 +15,9 @@ Verificar se um participante consegue utilizar a interface textual do Citizen As
 - **Data:** 17/11/2026
 - **Branch utilizada:** `test/ux-01-usabilidade`
 - **Commit SHA da sessão original:** não registrado
-- **Sistema operacional e terminal:** MacOS Tahoe 26.4 - Terminal
-- **Modo de execução:** `python3 src/sistema.py` (modo normal).
+- **Sistema operacional e terminal:** macOS Tahoe 26.4 — Terminal
+- **Comando indicado no roteiro:** `python3 src/sistema.py`
+- **Modo efetivo da sessão original:** não registrado de forma verificável
 - **Observador:** Renato Nascimento
 - **Uso de tecnologias assistivas?** Não
 - **Participante concordou em realizar o teste?** Sim
@@ -52,6 +53,8 @@ Utilize cronômetro para medir o intervalo entre a apresentação da tarefa e a 
 | T02 | Sem ajuda | 1:56 | Muita informação no menu | não |
 | T03 | Sem ajuda | 1:48 | Muita informação no menu | sim |
 | T04 (opcional) | Sem ajuda | 3:02 | Muita informação no menu | não aplicável |
+
+Em T02, a tarefa foi registrada como concluída e a fonte ficou sem identificação. Em T04, a ficha registra conclusão sem ajuda, mas não contém o texto da consulta digitada, a saída exibida nem a ação usada para continuar. Essas etapas ficam sem comprovação no registro da sessão.
 
 **Ajuda fornecida pelo observador (quando e qual):**  Nenhuma
 ____________________________________________________________________
@@ -185,6 +188,8 @@ foram utilizáveis pelo participante, mas não permitem
 generalizar a experiência para outros usuários.
 ____________________________________________________________________
 
+A fonte foi identificada em duas das três tarefas aplicáveis (T01–T03).
+
 ## 8. Registro de acessibilidade já sinalizado (UX-01.B)
 
 **Observação relatada anteriormente:** dificuldade ao utilizar VoiceOver; a apresentação textual precisa ser avaliada e possivelmente adaptada para leitura por tecnologia assistiva.
@@ -211,8 +216,8 @@ Após o teste, manter apenas melhorias sustentadas pelas evidências observadas 
 
 - Manter as evidências de usabilidade no repositório,
   sem dados pessoais do participante.
-- Complementar as evidências de acessibilidade
-  previstas na revisão UX-01.R03.
+- Registrar que a revisão UX-01.R03 organizou as ressalvas
+  existentes, sem comprovar o impacto individual de cada caso.
 - Encaminhar os resultados consolidados à DOC-01,
   conforme a revisão UX-01.R04.
 - Reexecutar as tarefas afetadas caso alterações

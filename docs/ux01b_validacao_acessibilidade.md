@@ -3,7 +3,7 @@
 **Projeto:** FIAP Global Solution 2026.2 — Citizen Assist AI  
 **Responsável:** Renato Nascimento  
 **Branch prevista:** `test/ux-01-usabilidade`  
-**Status:** **planejado; execução manual executada**  
+**Status:** execução manual registrada, com observações parciais.
 **Fonte do protocolo:** `docs/BACKLOG.md` (UX-01) e fluxos de `src/sistema.py`, examinados no ZIP-base da equipe. Revisar comandos se a versão do GitHub mudar.
 
 ## 1. Objetivo e critérios
@@ -26,7 +26,7 @@ Verificar se o usuário consegue iniciar o programa, consultar temas e orientaç
 | Branch utilizada | `test/ux-01-usabilidade` |
 | Commit SHA da execução original | Não registrado |
 | Leitor de tela/versão e idioma de voz | VoiceOver MacOS, inglês/português automático |
-| Modo do programa | Normal; repetir casos críticos com `--simples` |
+| Modo do programa | Protocolo em modo normal com comparação em `--simples` no SR-08. Modo efetivo por caso não registrado. |
 | Acessórios e ajustes relevantes | Concluído (teclado Mac, necessidade de Fn nas teclas F) |
 
 Executar na **raiz do repositório**:
@@ -84,6 +84,8 @@ Para cada caso, observe se a tecla **Enter** conclui a entrada e se a tela forne
 
 **Observação geral:** durante a avaliação, foram percebidas dificuldades de compreensão da apresentação textual por meio do VoiceOver. Os fluxos examinados receberam classificação de aprovação com ressalvas, sem registro de bloqueio total.
 
+**Rastreabilidade adicional:** o registro original cita Terminal e VS Code, mas não identifica qual aplicativo e modo foram utilizados em cada caso. O SR-08 foi classificado como aprovado, porém a diferença de leitura entre os modos normal e `--simples` não foi descrita. Também não foram anotados trechos anunciados nem a necessidade de releitura para cada ressalva.
+
 As anotações originais não individualizaram os trechos efetivamente anunciados, as intervenções de releitura ou a origem técnica de cada dificuldade. Por esse motivo, os possíveis impactos relacionados abaixo são hipóteses de usabilidade, e não falhas específicas comprovadas.
 
 | Caso | Resultado registrado | Possível impacto a investigar | Melhoria proposta |
@@ -118,6 +120,7 @@ A análise não equivale a uma certificação de acessibilidade nem comprova inc
 | Comparação objetiva entre modos | Evidência insuficiente |
 | Melhorias propostas | Organização textual, atalhos e fontes |
 | Reexecução nesta revisão | Não realizada |
+| Commit SHA da sessão original | Não registrado |
 
 As classificações são referentes à avaliação
 original de 17/11/2026.
