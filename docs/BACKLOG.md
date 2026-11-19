@@ -64,16 +64,16 @@ As responsabilidades abaixo são propostas e dependem de aceite dos integrantes.
 
 ### VAL-01 — Verificar fluxos, condições e privacidade
 
-**Responsável proposto:** Renato Nascimento · **Status:** A fazer
+**Responsável proposto:** Renato Nascimento · **Status:** Validação concluída
 
-- [ ] Testar menu, opção inexistente, entrada vazia, símbolos, ambiguidade, ausência de resposta e navegação por relacionados.
-- [ ] Verificar condições com sim, não e não sei nas três situações disponíveis, incluindo respostas inválidas.
-- [ ] Verificar mascaramento com CPF, telefone, e-mail e cartão fictícios, registrando os limites observados.
-- [ ] Conferir BUS-01 e os resultados da avaliação após as mudanças; registrar falhas e repetir os cenários corrigidos.
+- [x] Testar menu, opção inexistente, entrada vazia, símbolos, ambiguidade, ausência de resposta e navegação por relacionados.
+- [x] Verificar condições com sim, não e não sei nas três situações disponíveis, incluindo respostas inválidas.
+- [x] Verificar mascaramento com CPF, telefone, e-mail e cartão fictícios, registrando os limites observados.
+- [x] Conferir BUS-01 e os resultados da avaliação após as mudanças; registrar falhas e repetir os cenários corrigidos.
 
 **Critério de conclusão:** cenários têm esperado, obtido e resultado registrados; falhas remanescentes estão identificadas, sem confundir cobertura parcial com garantia integral.
 
-**Evidência:** a preencher — PR e registro dos cenários no relatório técnico.
+**Evidência:** [Matriz e resultados da VAL-01](val01_evidencias.md) · [PR #4](https://github.com/dandgsf/gs-citizen-assist-ai/pull/4).
 
 ### UX-01 — Avaliar usabilidade e acessibilidade
 
