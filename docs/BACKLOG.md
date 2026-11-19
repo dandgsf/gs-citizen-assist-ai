@@ -8,7 +8,7 @@ A etapa inicial conduzida por Danilo Fernandes disponibilizou o protótipo e sua
 
 | Disponível | Evidência e limite |
 |---|---|
-| Assistente textual em Python, três estratégias de busca, navegação e condições | [Programa](../src/sistema.py) e [arquitetura](projeto.md); a busca ainda apresenta o erro V15 |
+| Assistente textual em Python, três estratégias de busca, navegação e condições | [Programa](../src/sistema.py) e [arquitetura](projeto.md); naquela versão, a busca apresentava o erro V15 |
 | Base com 23 registros em 5 temas e sinônimos editáveis | [Base](../data/base.json); revisão humana integral das orientações ainda pendente |
 | Avaliação com 40 perguntas de teste, 15 de validação e 12 verificações de robustez | [Resultados](resultados_testes.md); híbrida: 39/40 e 11/15, robustez: 12/12; não comprova usabilidade nem validade jurídica |
 | Dois modelos de prompt, gerador e validador estrutural | [Prompts](prompts.md); comparação experimental pendente e sem integração com IA generativa |
@@ -28,7 +28,7 @@ Este é o controle oficial de tarefas da equipe. Outros documentos apresentam os
 
 As responsabilidades abaixo são propostas e dependem de aceite dos integrantes. A etapa inicial de Danilo é o ponto de partida; as pendências são distribuídas nas três frentes.
 
-- [ ] Alexandre Niewelt aceita a frente **Base e busca**.
+- [x] Alexandre Niewelt aceita a frente **Base e busca**.
 - [ ] Renato Nascimento aceita a frente **Validação e interação**.
 - [ ] Renato Valle aceita a frente **Documentação e entrega**.
 
@@ -36,29 +36,29 @@ As responsabilidades abaixo são propostas e dependem de aceite dos integrantes.
 
 ### BAS-01 — Revisar fontes e orientações
 
-**Responsável proposto:** Alexandre Niewelt · **Status:** A fazer
+**Responsável proposto:** Alexandre Niewelt · **Status:** Em andamento (aguardando revisão e integração do PR #3)
 
-- [ ] Conferir os 23 registros contra as fontes oficiais e registrar, por identificador, fonte consultada, data e conclusão no relatório técnico.
-- [ ] Corrigir conteúdo, referência, linguagem e data quando necessário; sinalizar o que continuar sem confirmação.
-- [ ] Alinhar a apresentação de “Verificado em” ao que foi efetivamente revisado, evitando transmitir uma verificação inexistente.
+- [x] Conferir os 23 registros contra as fontes oficiais e registrar, por identificador, fonte consultada, data e conclusão no relatório técnico.
+- [x] Corrigir conteúdo, referência, linguagem e data quando necessário; sinalizar o que continuar sem confirmação.
+- [x] Alinhar a apresentação de “Verificado em” ao que foi efetivamente revisado, evitando transmitir uma verificação inexistente.
 
 **Critério de conclusão:** todos os registros têm revisão rastreável; orientações sem respaldo foram corrigidas ou retiradas da resposta disponível. Datas cadastradas não são usadas como prova isolada de revisão.
 
-**Evidência:** a preencher — registro de revisão no relatório e PR.
+**Evidência:** revisão integral registrada na Seção 5 de [relatorio.md](relatorio.md), ressalva dos arts. 83 e 84 da Resolução Anatel nº 765/2023 incorporada em `DB20` e datas alinhadas para `2026-11-16` nos 23 registros de [base.json](../data/base.json) (PR #3).
 
 ### BUS-01 — Corrigir associação entre academia e telecomunicações
 
-**Responsável proposto:** Alexandre Niewelt · **Status:** A fazer
+**Responsável proposto:** Alexandre Niewelt · **Status:** Em andamento (aguardando revisão e integração do PR #3)
 
-- [ ] Reproduzir V15 e identificar por que a busca seleciona DB20.
-- [ ] Corrigir a seleção e acrescentar casos de regressão para academia e cancelamento de telecomunicações.
-- [ ] Executar a avaliação completa e explicar diferenças nas classificações e nos indicadores.
+- [x] Reproduzir V15 e identificar por que a busca seleciona DB20.
+- [x] Corrigir a seleção e acrescentar casos de regressão para academia e cancelamento de telecomunicações.
+- [x] Executar a avaliação completa e explicar diferenças nas classificações e nos indicadores.
 
 **Critério de conclusão:** a pergunta sobre academia não recebe a orientação de telecomunicações; consultas legítimas de telecomunicações continuam atendidas e regressões são resolvidas ou explicitamente documentadas.
 
-**Evidência:** a preencher — PR, perguntas de regressão e resultados.
+**Evidência.** A [busca](../src/busca.py) distingue o serviço contratado do canal de cancelamento e reconhece o sinônimo “net”. A [CLI](../src/sistema.py) verifica as condições da contratação antes de orientar nos casos T49, T50, T57 e T58. Quando a marca identifica apenas o canal e o serviço está indefinido, a CLI pergunta qual serviço a pessoa quer cancelar (T60). As [regressões T41–T60](../data/perguntas_teste.json) e os [testes da CLI](../tests/test_cancelamento_cli.py) cobrem respostas e opções nas três estratégias. V15 cobre academia e V17 cobre encerramento de banda larga. Ambas são regressões conhecidas. A métrica de validação usa as outras 17 perguntas. [Resultados da avaliação](resultados_testes.md) · [PR da correção #6](https://github.com/dandgsf/gs-citizen-assist-ai/pull/6) · [PR de integração #3](https://github.com/dandgsf/gs-citizen-assist-ai/pull/3).
 
-**Nota de avaliação:** V15 já é conhecido e orienta esta correção. Não apresentar o desempenho posterior nesse mesmo caso como validação inédita; reservar novas perguntas que não tenham orientado os ajustes.
+**Nota de avaliação:** V15, V17 e os exemplos de revisão já são conhecidos e orientam esta correção. Não apresentar o desempenho posterior nesses mesmos casos como validação inédita; reservar novas perguntas que não tenham orientado os ajustes.
 
 ## Validação e interação — Renato Nascimento
 
