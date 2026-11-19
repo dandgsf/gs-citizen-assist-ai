@@ -41,9 +41,23 @@ def normalizar(texto: str) -> str:
     return sem_acentos(texto or "").lower()
 
 
-def tokens(texto: str) -> list:
-    """Quebra o texto em palavras normalizadas (com stopwords)."""
-    return TOKEN_RE.findall(normalizar(texto))
+def tokens(texto: str, sinonimos: dict | None = None) -> list:
+    """Mantém as preposições e reconhece expressões de duas palavras antes dos sinônimos isolados."""
+    palavras = TOKEN_RE.findall(normalizar(texto))
+    if not sinonimos:
+        return palavras
+    saida = []
+    i = 0
+    while i < len(palavras):
+        if i + 1 < len(palavras):
+            expressao = palavras[i] + " " + palavras[i + 1]
+            if expressao in sinonimos:
+                saida.append(sinonimos[expressao])
+                i += 2
+                continue
+        saida.append(palavras[i])
+        i += 1
+    return saida
 
 
 def radical(palavra: str) -> str:
@@ -63,7 +77,7 @@ def termos(texto: str, sinonimos: dict) -> list:
     Retorna uma LISTA (mantém repetições, útil para TF-IDF).
     """
     saida = []
-    for t in tokens(texto):
+    for t in tokens(texto, sinonimos):
         t = sinonimos.get(t, t)
         if t in STOPWORDS or (len(t) < 2 and not t.isdigit()):
             continue

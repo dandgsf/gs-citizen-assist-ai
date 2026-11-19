@@ -36,7 +36,7 @@ A base contém **23 situações em 5 temas**:
 ## Como funciona
 
 1. A entrada passa pela detecção de padrões de dados pessoais e pela normalização do texto.
-2. A busca compara a pergunta com os registros por palavras-chave, TF-IDF ou pela média das duas estratégias, usada por padrão.
+2. A busca compara a pergunta com os registros por palavras-chave, TF-IDF ou pela média das duas estratégias, usada por padrão, filtrando candidatos incompatíveis com setores regulados antes de montar respostas ou opções de ambiguidade.
 3. O sistema apresenta uma resposta, pede esclarecimento em casos ambíguos ou informa que não encontrou informação suficiente.
 4. A resposta inclui a fonte, a data cadastrada de verificação e o aviso de limitação. É possível navegar por assuntos relacionados e verificar condições em situações específicas.
 
@@ -81,21 +81,22 @@ A [documentação de prompts](docs/prompts.md) contém a comparação conceitual
 
 ## Testes e resultados
 
-O avaliador compara as três estratégias com **40 perguntas de teste**, **15 de validação** e **12 verificações de robustez**, incluindo entradas vazias, ambiguidade, ausência de resposta, leitura de arquivos e validação de saída estruturada.
+O avaliador compara as três estratégias com **60 perguntas de teste e regressão** (`data/perguntas_teste.json`), **17 perguntas reservadas de validação** e **2 regressões conhecidas (`V15` e `V17`)** (`data/perguntas_validacao.json`), além de **14 verificações de robustez e gravidade**, incluindo entradas vazias, ambiguidade, ausência de resposta, leitura de arquivos, validação de saída estruturada e classificação de candidatos proibidos.
 
-| Estratégia | Acerto no teste | Acerto na validação |
-|---|---|---|
-| Palavras-chave | 39/40 (97,5%) | 11/15 (73,3%) |
-| TF-IDF | 38/40 (95,0%) | 9/15 (60,0%) |
-| Híbrida (padrão) | 39/40 (97,5%) | 11/15 (73,3%) |
+| Estratégia | Acerto (teste + regressão) | Acerto (validação inédita) | Erros perigosos (corpus avaliado) |
+|---|---|---|---|
+| Palavras-chave | 59/60 (98,3%) | 14/17 (82,4%) | 0 |
+| TF-IDF | 58/60 (96,7%) | 12/17 (70,6%) | 0 |
+| Híbrida (padrão) | 59/60 (98,3%) | 14/17 (82,4%) | 0 |
 
-O [relatório de testes](docs/resultados_testes.md) registra resposta esperada, obtida, acerto ou erro, tempos de consulta e robustez. O teste com usuário e a comparação experimental de prompts ainda não têm resultados registrados.
+As três estratégias se abstêm para a academia em `V15` e recuperam a orientação de cancelamento de internet em `V17`. A contagem de `0` erros perigosos refere-se ao corpus avaliado na estratégia indicada e não garante ausência de falhas fora dele.
+
+Execute `python -m unittest discover -s tests -v` para conferir as respostas e os atalhos de cancelamento na CLI, incluindo a confirmação da contratação. O [relatório de testes](docs/resultados_testes.md) registra resposta esperada, obtida, candidatos exibidos, acerto ou erro, tempos de consulta e robustez. O teste com usuário e a comparação experimental de prompts ainda não têm resultados registrados.
 
 ## Limitações e cuidados
 
-- A busca pode selecionar um assunto incorreto: o caso V15 associa cancelamento de academia a telecomunicações. A taxa de validação mede essa limitação em perguntas diferentes das usadas na calibração.
-- A cobertura se restringe às situações cadastradas; regras locais e outros campos do direito não são detalhados.
-- A data de verificação é um campo da base, sem conferência automática da fonte. A revisão humana das orientações permanece necessária.
+- A cobertura se restringe às situações cadastradas; vocabulário novo não mapeado em sinônimos, radicalização por prefixos e regras locais podem levar o sistema a abster-se (como ocorre nos erros seguros da validação inédita) ou falhar em formulações não previstas fora do corpus.
+- Os 23 registros foram revisados manualmente em 16/11/2026 contra as normas citadas, mas não há conferência automática das fontes; a revisão humana periódica permanece necessária, apoiada pelo aviso de registros com mais de 180 dias.
 - O assistente é informativo, não é canal oficial e não substitui Procon, Defensoria ou advogado.
 - As consultas não são persistidas. A detecção de CPF, telefone, e-mail e cartão cobre padrões específicos, sem garantir a remoção de todo dado sensível. Evite dados pessoais também nos argumentos do terminal.
 - A interface usa linguagem simples, texto sem emojis e navegação por códigos. A acessibilidade com leitores de tela ainda precisa ser avaliada.
@@ -112,4 +113,4 @@ O [relatório de testes](docs/resultados_testes.md) registra resposta esperada, 
 
 ## Conclusão
 
-O protótipo demonstra a organização e recuperação de orientações de consumo em uma base editável. A avaliação evidencia a diferença entre perguntas de calibração e perguntas inéditas; ampliar o vocabulário e reduzir associações entre setores distintos são melhorias prioritárias. A proposta se relaciona aos ODS 10 e 11, com conexão complementar ao ODS 16 pelo acesso à informação e aos canais de reclamação.
+O protótipo demonstra a organização e recuperação de orientações de consumo em uma base editável. A avaliação evidencia a diferença entre perguntas de calibração, regressões setoriais e perguntas inéditas; ampliar o vocabulário de sinônimos e a cobertura de setores continuam como melhorias prioritárias. A proposta se relaciona aos ODS 10 e 11, com conexão complementar ao ODS 16 pelo acesso à informação e aos canais de reclamação.

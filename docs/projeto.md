@@ -92,7 +92,7 @@ O texto passa por conversão para minúsculas, remoção de acentos, substituiç
 
 Três estratégias são comparadas: palavras-chave e frases, TF-IDF com similaridade do cosseno e a média das duas, denominada híbrida e usada por padrão.
 
-Entradas vazias, inválidas ou fora do tema recebem mensagens próprias. Notas abaixo do limiar geram aviso de informação insuficiente. Quando há múltiplas correspondências próximas ou palavras isoladas ambíguas, o sistema oferece até três opções. Nos demais casos, apresenta o registro com maior nota. Essa decisão pode selecionar um registro inadequado e não equivale a uma compreensão jurídica da pergunta.
+Entradas vazias, inválidas ou fora do tema recebem mensagens próprias. Notas abaixo do limiar geram aviso de informação insuficiente. Candidatos incompatíveis com o setor regulado (como academia ou cursos associados a telecomunicações, mesmo com saudação `"oi"` ou canal `"pela internet"`) são filtrados antes de montar opções de ambiguidade ou resposta, preservando consultas genéricas e menções incidentais a outros contextos quando a prestadora é explícita. Quando há múltiplas correspondências próximas ou palavras isoladas ambíguas, o sistema oferece até três opções. Nos demais casos, apresenta o registro com maior nota. Essa decisão não equivale a uma compreensão jurídica da pergunta.
 
 ### Condições e prompts
 
@@ -102,9 +102,9 @@ As respostas do programa são recuperadas da base, sem chamadas a modelos de lin
 
 ## Evidências e limitações
 
-O avaliador utiliza 40 perguntas de teste, 15 de validação e 12 verificações de robustez. Os [resultados detalhados](resultados_testes.md) incluem indicadores e erros por estratégia. Na híbrida, os acertos são 39/40 no teste e 11/15 na validação; o erro V15 associa academia a telecomunicações.
+O avaliador utiliza 60 perguntas de teste e regressão (`data/perguntas_teste.json`) e 19 perguntas no arquivo de validação (`data/perguntas_validacao.json`, sendo 17 reservadas e 2 regressões conhecidas, `V15` e `V17`), além de 14 verificações de robustez e gravidade. Os [resultados detalhados](resultados_testes.md) incluem indicadores e erros por estratégia. Na híbrida, os acertos são 59/60 (98,3%) no teste/regressão e 14/17 (82,4%) na validação inédita (além de 2/2 nas regressões `V15` e `V17`), com 0 erros perigosos no corpus avaliado (o que não garante ausência de falhas fora dele).
 
-A cobertura se restringe à base. Vocabulário novo, radicalização por prefixos e regras locais são limitações. A revisão humana das fontes é necessária; as datas cadastradas não comprovam essa revisão. A comparação experimental dos prompts e o teste com usuário ainda não possuem resultados registrados. O [relatório técnico](relatorio.md) reúne a análise e o formulário de usabilidade.
+A cobertura se restringe à base. Vocabulário novo, radicalização por prefixos e regras locais são limitações. Os 23 registros foram revisados em 16/11/2026 contra as normas citadas (`BAS-01`), mas a manutenção contínua exige revisão periódica guiada pelo aviso de 180 dias. A comparação experimental dos prompts e o teste com usuário ainda não possuem resultados registrados. O [relatório técnico](relatorio.md) reúne a análise e o formulário de usabilidade.
 
 O texto busca clareza e oferece navegação por códigos, sem emojis. O uso com leitores de tela ainda precisa ser avaliado. As consultas não são persistidas, e padrões reconhecidos de dados pessoais são mascarados, sem garantia de detectar todo dado sensível. O assistente é informativo e não substitui os canais oficiais.
 
