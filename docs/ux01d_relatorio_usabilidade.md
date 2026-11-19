@@ -16,16 +16,15 @@ Avaliar usabilidade e acessibilidade da interface textual, preservando observaç
 - `docs/ux01b_validacao_acessibilidade.md` (UX-01.B): sete casos KB e oito verificações SR;
 - `docs/ux01c_teste_participante.md` (UX-01.C): execução e avaliação de P01. **Única fonte oficial dos indicadores de tarefas humanas** nesta síntese.
 
-O roteiro A contém tempos diferentes e uma T04 sobre **nota fiscal**, enquanto o roteiro C usa T04 sobre **aluguel de carro na Islândia**. Pois foram feitos em tempos diferentes.
+A sessão A inclui uma tarefa sobre nota fiscal. A sessão C inclui uma tarefa sobre aluguel de carro na Islândia. Os indicadores desta síntese vêm da ficha C.
 
 ## 2. Ambiente e método
 
-- Data: 17/11/2026.
-- Plataforma registrada: macOS Tahoe 26.4; Terminal.app; Python 3.13.5 informado no roteiro A.
-- Participante P01, experiência prévia baixa com terminal segundo roteiro A, consentimento informado registrado em C, sem dados pessoais identificáveis.
-- Execução com P01: `python3 src/sistema.py`, conforme roteiro C; sem tecnologia assistiva e sem ajuda durante as tarefas.
-- Teclado e leitor de tela: avaliação feita separadamente pelo responsável; VoiceOver foi utilizado do MacOS, idioma de inglês/português automático e descrição da diferença entre modo normal e `--simples` não foram registrados.
-- **Branch identificada, mas SHA do commit não registrado.** Antes de publicar como evidência reprodutível, executar `git rev-parse --short HEAD` e preencher o hash do commit **efetivamente avaliado**, caso seja possível recuperá-lo. O HEAD atual não deve ser apresentado automaticamente como versão testada se houve commits posteriores.
+| Registro | Data e ambiente | Modo e versão |
+|---|---|---|
+| UX-01.A | 17/11/2026, 15h20. macOS Tahoe 26.4, Terminal e Python 3.13.5. A ficha A registra experiência baixa com o terminal. | `--simples`. SHA não registrado. |
+| UX-01.B | 17/11/2026, 16h05. macOS Tahoe 26.4, Python 3.13.5 e VoiceOver. O registro cita Terminal e VS Code. | Protocolo prevê normal e `--simples`. Modo e terminal por caso não registrados. SHA e versão exata do VoiceOver não registrados. |
+| UX-01.C | 17/11/2026. macOS Tahoe 26.4 e Terminal. P01 consentiu em participar e fez as tarefas sem tecnologia assistiva. Horário, experiência prévia e versão do Python não registrados na ficha C. | Modo efetivamente usado e SHA não registrados. |
 
 ## 3. Execução de tarefas com participante (UX-01.C)
 
@@ -46,7 +45,7 @@ O roteiro A contém tempos diferentes e uma T04 sobre **nota fiscal**, enquanto 
 - Fonte identificada = `2 / 3 = 66,7%` das tarefas aplicáveis (T01–T03); T04 não exigia fonte.
 - Notas de P01: navegação **4/5**; clareza **4/5**; localização de fontes **3/5**; facilidade geral **4/5**. Média descritiva das quatro notas: **3,75/5**, sem significância populacional.
 
-**Interpretação:** todas as tarefas foram registradas como concluídas, mas houve uma dificuldade visual repetida. A localização das fontes aparece como fragilidade específica tanto na nota 3/5 quanto na não identificação da fonte em T02. A taxa de conclusão não mede qualidade da orientação, satisfação de uma população nem capacidade universal de utilização.
+**Interpretação:** todas as tarefas foram registradas como concluídas, mas houve uma dificuldade visual repetida. A localização das fontes aparece como fragilidade específica tanto na nota 3/5 quanto na não identificação da fonte em T02. A ficha C não registra a mensagem recebida nem como P01 continuou em T04. A taxa descreve a classificação das tarefas desta sessão.
 
 ## 4. Navegação por teclado e leitor de tela (UX-01.B)
 
@@ -84,9 +83,9 @@ As melhorias acima são **recomendações**, não correções já executadas. Re
 
 ## 7. Conclusão e estado da tarefa
 
-A avaliação disponível **atende ao núcleo de evidências previsto para UX-01**: tarefas reais registradas com participante anônimo, navegação por teclado, observações de uso com VoiceOver, dificuldades e mais de duas propostas de melhoria. Na versão examinada, P01 concluiu as quatro tarefas sem ajuda (100%), enquanto a leitura por VoiceOver apresentou ressalvas em seis de oito verificações. Recomenda-se priorizar **clareza textual e de navegação, leitura por tecnologias assistivas e apresentação das referências**.
+O registro da UX-01 reúne uma sessão com participante anônimo, verificações por teclado, classificações do VoiceOver e propostas de melhoria. As observações por caso do leitor de tela ainda precisam de confirmação. Na versão examinada, P01 concluiu as quatro tarefas sem ajuda (100%), enquanto a leitura por VoiceOver apresentou ressalvas em seis de oito verificações. Recomenda-se priorizar **clareza textual e de navegação, leitura por tecnologias assistivas e apresentação das referências**.
 
-**Estado recomendado no backlog até revisão:** **Em revisão / Aguardando integração**, não marcar como concluído por conta própria. O critério de aceite permanece sujeito à conferência do Danilo, identificação da versão avaliada e decisão da equipe sobre revalidar ajustes. As limitações identificadas devem constar do relatório final, mesmo que não sejam corrigidas nesta entrega.
+**Estado da evidência.** Síntese disponível para DOC-01. Revalidar os casos de acessibilidade sem observação recuperável e qualquer fluxo afetado por futuras mudanças de interface.
 
 ## 8. Checklist para o PR
 
@@ -99,4 +98,4 @@ A avaliação disponível **atende ao núcleo de evidências previsto para UX-01
 - [ ] Confirmar se o PR BAS-01/BUS-01 altera fluxos relevantes; repetir apenas os testes afetados após integração.
 - [ ] Revisão do Danilo e merge.
 
-**Nota de integração:** este PR adiciona apenas arquivos de `docs/ux01*`, evitando editar `docs/BACKLOG.md` ou `docs/relatorio.md` enquanto outros PRs podem modificá-los. O responsável pela documentação pode incorporar esta síntese ao relatório final.
+**Encaminhamento para DOC-01.** Renato Valle incorpora a síntese e os links desta evidência à seção 8 do relatório técnico e leva as limitações ao PDF. A classificação de cada caso e a ficha original ficam nos documentos de UX-01.

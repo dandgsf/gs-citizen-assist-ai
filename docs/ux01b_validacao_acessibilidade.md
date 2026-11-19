@@ -3,7 +3,7 @@
 **Projeto:** FIAP Global Solution 2026.2 — Citizen Assist AI  
 **Responsável:** Renato Nascimento  
 **Branch prevista:** `test/ux-01-usabilidade`  
-**Status:** **planejado; execução manual executada**  
+**Status:** execução manual registrada, com observações parciais.
 **Fonte do protocolo:** `docs/BACKLOG.md` (UX-01) e fluxos de `src/sistema.py`, examinados no ZIP-base da equipe. Revisar comandos se a versão do GitHub mudar.
 
 ## 1. Objetivo e critérios
@@ -23,9 +23,9 @@ Verificar se o usuário consegue iniciar o programa, consultar temas e orientaç
 | Sistema operacional/versão | MacOS Tahoe (`26.4`) |
 | Aplicativo de terminal e versão | Terminal e VSCode |
 | Python | (`python 3.13.5`) |
-| Branch/commit do projeto | test/ux-01-usabilidade (`git branch --show-current`, `git rev-parse --short HEAD`) |
+| Branch/commit do projeto | Branch anotada como `test/ux-01-usabilidade`. SHA da sessão não registrado. |
 | Leitor de tela/versão e idioma de voz | VoiceOver MacOS, inglês/português automático |
-| Modo do programa | Normal; repetir casos críticos com `--simples` |
+| Modo do programa | Protocolo em modo normal com comparação em `--simples` no SR-08. Modo efetivo por caso não registrado. |
 | Acessórios e ajustes relevantes | Concluído (teclado Mac, necessidade de Fn nas teclas F) |
 
 Executar na **raiz do repositório**:
@@ -79,11 +79,12 @@ Para cada caso, observe se a tecla **Enter** conclui a entrada e se a tela forne
 
 ## 5. Registro de incidentes
 
-Repita a tabela para cada dificuldade observada. Não invente evidências.
+O registro traz uma observação geral de dificuldade na compreensão da leitura. O ambiente cita Terminal e VS Code, sem identificar qual foi usado em cada caso. Para as seis ressalvas, o trecho anunciado, a necessidade de releitura e o impacto individual não foram registrados.
 
-| ID do caso | Ambiente e modo | Entrada/ação | Esperado | Obtido (trecho mínimo) | Impacto: bloqueia / dificulta / cosmético | Hipótese: programa / terminal / VoiceOver / não determinado | Melhoria sugerida | Reexecutado? |
-|---|---|---|---|---|---|---|---|---|
-| SR-* | Terminal/VoiceOver | Leitura | Leitura compreensível | Pendente | Dificulta entendimento | VoiceOver | Escrita adaptada | Não |
+| Casos | Registro disponível | Para revalidar |
+|---|---|---|
+| SR-01, SR-03, SR-04, SR-05, SR-06 e SR-07 | Classificados com ressalva pelo avaliador. Causa indeterminada. | Identificar terminal e modo. Anotar trecho anunciado, releitura e efeito na tarefa nos casos em que as anotações não puderem ser recuperadas. |
+| SR-08 | Marcado como aprovado. A diferença entre normal e `--simples` não foi descrita. | Repetir a comparação se as observações não puderem ser recuperadas. |
 
 **Pontos de atenção para verificar (não são falhas confirmadas nesta execução):**
 
@@ -99,7 +100,7 @@ Repita a tabela para cada dificuldade observada. Não invente evidências.
 | Casos de teclado executados / aprovados | Executado |
 | Casos de leitor de tela executados / aprovados | Executado |
 | Casos com falha ou dificuldade | Executado |
-| Diferenças entre normal e `--simples` | Executado |
+| Diferenças entre normal e `--simples` | Comparação sem resultado descritivo no registro |
 | Melhorias/limitações identificadas (mínimo 2 para UX-01) | Executado |
 | Evidência do commit/PR | Pendente |
 

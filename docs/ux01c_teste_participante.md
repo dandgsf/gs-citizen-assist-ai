@@ -13,9 +13,9 @@ Verificar se um participante consegue utilizar a interface textual do Citizen As
 
 - **Participante:** P01 (não anotar nome nem dados pessoais).
 - **Data:** 17/11/2026
-- **Versão/commit testado:** test/ux-01-usabilidade
+- **Branch anotada:** `test/ux-01-usabilidade`. Commit efetivamente executado não registrado.
 - **Sistema operacional e terminal:** MacOS Tahoe 26.4 - Terminal
-- **Modo de execução:** `python3 src/sistema.py` (ou o comando que funcionar no ambiente).
+- **Modo efetivamente usado:** não registrado. O roteiro indica `python3 src/sistema.py` como comando sugerido.
 - **Observador:** Renato Nascimento
 - **Uso de tecnologias assistivas?** Não
 - **Participante concordou em realizar o teste?** Sim
@@ -51,6 +51,8 @@ Utilize cronômetro para medir o intervalo entre a apresentação da tarefa e a 
 | T02 | Sem ajuda | 1:56 | Muita informação no menu | não |
 | T03 | Sem ajuda | 1:48 | Muita informação no menu | sim |
 | T04 (opcional) | Sem ajuda | 3:02 | Muita informação no menu | não aplicável |
+
+Em T02, a tarefa foi registrada como concluída e a fonte ficou sem identificação. Em T04, a ficha registra conclusão sem ajuda, mas não contém o texto da consulta digitada, a saída exibida nem a ação usada para continuar. Essas etapas ficam sem comprovação no registro da sessão.
 
 **Ajuda fornecida pelo observador (quando e qual):**  Nenhuma
 ____________________________________________________________________
@@ -89,8 +91,7 @@ Taxa de conclusão sem ajuda: 100%
 Taxa de conclusão total: 100%  
 Tempo médio: 02:05s  
 
-**Interpretação baseada nas observações:**  
-____________________________________________________________________
+**Interpretação baseada nas observações.** P01 concluiu as quatro tarefas sem ajuda segundo a ficha. O excesso de informação no menu apareceu em todas as tarefas. A fonte foi identificada em duas das três tarefas aplicáveis.
 
 ## 8. Registro de acessibilidade já sinalizado (UX-01.B)
 
@@ -116,7 +117,7 @@ Após o teste, manter apenas melhorias sustentadas pelas evidências observadas 
 
 ## 11. Próximos passos
 
-- Executar com P01 e preencher resultados sem inventar dados.
+- Complementar T04 se houver anotações da sessão. Repetir a tarefa se a equipe precisar verificar o caminho percorrido.
 - Salvar evidências no repositório sem dados pessoais.
 - Consolidar UX-01.B + UX-01.C em UX-01.D e propor pelo menos duas melhorias fundamentadas.
 - Reexecutar tarefas afetadas por correções relevantes antes de concluir a etapa.

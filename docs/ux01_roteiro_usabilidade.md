@@ -22,7 +22,7 @@ O teste de usabilidade com pelo menos **uma pessoa real**, sem identificá-la, �
 - [X] Solicitar concordância para participar, sem necessidade de gravar áudio, vídeo ou tela.
 - [X] Não oferecer dicas de comandos durante a tentativa inicial; se for necessário ajudar, registrar a intervenção.
 
-**Ambiente da execução (preencher posteriormente):**
+**Ambiente registrado para UX-01.A**
 
 | Campo | Registro |
 |---|---|
@@ -30,7 +30,7 @@ O teste de usabilidade com pelo menos **uma pessoa real**, sem identificá-la, �
 | Sistema operacional | MacOS Tahoe 26.4 |
 | Terminal / versão | Terminal |
 | Python | Python 3.13.5 |
-| Versão do projeto (commit SHA) | Pendente |
+| Versão do projeto (commit SHA) | Não registrado. O roteiro menciona o ZIP inicial como referência. |
 | Interface (`normal` ou `--simples`) | `--simples` |
 | Participante | `P01` |
 | Perfil geral e experiência prévia com terminal, sem dados identificáveis | Experiêcia baixa |
