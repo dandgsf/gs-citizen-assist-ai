@@ -14,7 +14,7 @@ Verificar se o usuário consegue iniciar o programa, consultar temas e orientaç
 
 **Critérios:** (i) todas as ações essenciais executáveis somente por teclado; (ii) indicação compreensível do que digitar; (iii) saída importante e aviso não dependentes de sinais visuais; (iv) fonte e data acessíveis; (v) possibilidade de recuperar erro/entrada inválida; (vi) saída segura.
 
-## 2. Ambiente da execução (preencher antes)
+## 2. Ambiente da execução
 
 | Campo | Informação |
 |---|---|
@@ -23,7 +23,8 @@ Verificar se o usuário consegue iniciar o programa, consultar temas e orientaç
 | Sistema operacional/versão | MacOS Tahoe (`26.4`) |
 | Aplicativo de terminal e versão | Terminal e VSCode |
 | Python | (`python 3.13.5`) |
-| Branch/commit do projeto | test/ux-01-usabilidade (`git branch --show-current`, `git rev-parse --short HEAD`) |
+| Branch utilizada | `test/ux-01-usabilidade` |
+| Commit SHA da execução original | Não registrado |
 | Leitor de tela/versão e idioma de voz | VoiceOver MacOS, inglês/português automático |
 | Modo do programa | Normal; repetir casos críticos com `--simples` |
 | Acessórios e ajustes relevantes | Concluído (teclado Mac, necessidade de Fn nas teclas F) |
@@ -64,7 +65,7 @@ Para cada caso, observe se a tecla **Enter** conclui a entrada e se a tela forne
 4. `VO` é o modificador do VoiceOver, geralmente **Control + Option**. Execute os mesmos fluxos nos modos normal e `--simples` quando a pontuação/símbolos provocarem dificuldade.
 5. Para encerrar, digite `0` quando o foco estiver na entrada. Desative o VoiceOver se desejar usando o mesmo atalho ou os Ajustes do Sistema.
 
-| ID | Verificação de leitura | Critério esperado | Resultado real | Classificação |
+| ID | Verificação de leitura | Critério esperado | Resultado real | Nota informal |
 |---|---|---|---|---|
 | SR-01 | Início | Leitura do nome, aviso de não oficialidade, opções e prompt de entrada, automaticamente ou por navegação de leitura | Aprovado com ressalva | 4 |
 | SR-02 | Lista de temas (`1`) e situações (`t3`) | Os códigos `t1...` e `s1...` e rótulos são compreensíveis; sequência permite escolher | Aprovado | 5 |
@@ -77,40 +78,53 @@ Para cada caso, observe se a tecla **Enter** conclui a entrada e se a tela forne
 
 **Nota importante:** se o leitor de tela não anunciar uma nova resposta automaticamente, registre isso separadamente de “não é possível reler o texto”. O comportamento varia conforme o terminal, versão do macOS e configurações do VoiceOver.
 
-## 5. Registro de incidentes
+## 5. Registro de incidentes - UX-01.R03
 
-Repita a tabela para cada dificuldade observada. Não invente evidências.
+**Origem:** avaliação manual realizada em 17/11/2026, utilizando VoiceOver no macOS Tahoe 26.4, com configuração automática de inglês/português.
 
-| ID do caso | Ambiente e modo | Entrada/ação | Esperado | Obtido (trecho mínimo) | Impacto: bloqueia / dificulta / cosmético | Hipótese: programa / terminal / VoiceOver / não determinado | Melhoria sugerida | Reexecutado? |
-|---|---|---|---|---|---|---|---|---|
-| SR-* | Terminal/VoiceOver | Leitura | Leitura compreensível | Pendente | Dificulta entendimento | VoiceOver | Escrita adaptada | Não |
+**Observação geral:** durante a avaliação, foram percebidas dificuldades de compreensão da apresentação textual por meio do VoiceOver. Os fluxos examinados receberam classificação de aprovação com ressalvas, sem registro de bloqueio total.
 
-**Pontos de atenção para verificar (não são falhas confirmadas nesta execução):**
+As anotações originais não individualizaram os trechos efetivamente anunciados, as intervenções de releitura ou a origem técnica de cada dificuldade. Por esse motivo, os possíveis impactos relacionados abaixo são hipóteses de usabilidade, e não falhas específicas comprovadas.
 
-- Quebra automática de URLs longas em `Tela.p()` (`src/sistema.py`); pode atrapalhar leitura/cópia.
-- Símbolos `»`, `(!)`, aspas e separadores Unicode; comparar com `--simples`.
-- Mudança de contexto dos atalhos (`tN`, `sN`, `rN`, `v`), que pode não ficar evidente para quem ouve a interface.
-- Volume de texto em algumas respostas, especialmente para localizar fonte e aviso.
+| Caso | Resultado registrado | Possível impacto a investigar | Melhoria proposta |
+|---|---|---|---|
+| SR-01 — Menu inicial | Aprovado com ressalva; dificuldade específica não registrada | Dificuldade para distinguir avisos, opções e campo de entrada durante a leitura sequencial | Simplificar a apresentação e separar instruções por rótulos claros |
+| SR-03 — Orientação DB10 | Aprovado com ressalva; dificuldade específica não registrada | Maior esforço para localizar orientação, fonte, URL e avisos | Organizar essas informações em blocos textuais identificáveis |
+| SR-04 — Assuntos relacionados | Aprovado com ressalva; dificuldade específica não registrada | Possível dificuldade para relacionar o atalho `r1` ao assunto correspondente | Apresentar instruções por extenso junto aos atalhos |
+| SR-05 — Verificação de condições | Aprovado com ressalva; dificuldade específica não registrada | Possível dificuldade para acompanhar perguntas, respostas e conclusão | Utilizar instruções lineares e identificar claramente cada etapa |
+| SR-06 — Entradas inválidas | Aprovado com ressalva; dificuldade específica não registrada | Possível dificuldade para reconhecer o erro e identificar como continuar | Exibir mensagens de recuperação com comandos explícitos |
+| SR-07 — URLs e símbolos | Aprovado com ressalva; dificuldade específica não registrada | Possível dificuldade para compreender referências e elementos com pontuação especial | Reduzir símbolos dispensáveis e melhorar a apresentação de URLs |
 
-## 6. Resultado consolidado — preencher após executar
+**Impacto observado:** dificuldade geral de compreensão da leitura pelo VoiceOver, conforme anotação original. O impacto individual de cada caso não foi medido.
+
+**Causa técnica:** não determinada. Não há evidência suficiente para atribuir as dificuldades exclusivamente ao programa, ao Terminal, ao VoiceOver ou às configurações de idioma.
+
+**Reexecução:** não realizada nesta revisão documental. As classificações originais foram preservadas.
+
+**Limitação:** a ausência de transcrições ou de descrições individualizadas impede confirmar quais elementos específicos produziram cada ressalva. As melhorias propostas deverão ser verificadas em uma futura avaliação de acessibilidade.
+
+A análise não equivale a uma certificação de acessibilidade nem comprova incompatibilidade geral com leitores de tela.
+
+## 6. Resultado consolidado
 
 | Indicador | Resultado |
 |---|---|
-| Casos de teclado executados / aprovados | Executado |
-| Casos de leitor de tela executados / aprovados | Executado |
-| Casos com falha ou dificuldade | Executado |
-| Diferenças entre normal e `--simples` | Executado |
-| Melhorias/limitações identificadas (mínimo 2 para UX-01) | Executado |
-| Evidência do commit/PR | Pendente |
+| Navegação por teclado | 7/7 casos marcados como OK |
+| VoiceOver sem ressalvas | 2/8 casos |
+| VoiceOver com ressalvas | 6/8 casos |
+| Bloqueio total documentado | Nenhum |
+| Impacto individual dos casos | Não mensurado |
+| Causa técnica das ressalvas | Não determinada |
+| Comparação objetiva entre modos | Evidência insuficiente |
+| Melhorias propostas | Organização textual, atalhos e fontes |
+| Reexecução nesta revisão | Não realizada |
 
-### Como classificar
+As classificações são referentes à avaliação
+original de 17/11/2026.
 
-- **Aprovado:** resultado observado atende ao critério definido.
-- **Aprovado com ressalva:** foi possível concluir, mas houve dificuldade ou dependência de ajuda/releitura.
-- **Falha:** o critério não foi atendido.
-- **Não executado:** teste ainda não realizado.
-
-Uma classificação é evidência de **uma combinação de ambiente/versão/roteiro**, não uma certificação universal de acessibilidade.
+A revisão UX-01.R03 organizou as evidências
+existentes, sem executar novos testes e sem
+atribuir causas não comprovadas.
 
 ## 7. Encaminhamento
 

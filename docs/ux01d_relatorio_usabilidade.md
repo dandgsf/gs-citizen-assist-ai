@@ -10,22 +10,75 @@
 
 Avaliar usabilidade e acessibilidade da interface textual, preservando observações reais, resultados de navegação por teclado, leituras com VoiceOver e limitações. Atende à tarefa **UX-01** do `docs/BACKLOG.md` (teste com uma pessoa, teclado, leitor de tela, registro de dificuldades e pelo menos duas melhorias). **Não representa certificação de acessibilidade nem uma validação jurídica das orientações.**
 
+
 **Fontes internas desta síntese:**
 
-- `docs/ux01_roteiro_usabilidade.md` (UX-01.A): roteiro e anotações auxiliares;
-- `docs/ux01b_validacao_acessibilidade.md` (UX-01.B): sete casos KB e oito verificações SR;
-- `docs/ux01c_teste_participante.md` (UX-01.C): execução e avaliação de P01. **Única fonte oficial dos indicadores de tarefas humanas** nesta síntese.
+As execuções UX-01.A e UX-01.C foram realizadas com o mesmo participante, identificado anonimamente como P01, em duas sessões distintas. Os resultados foram documentados separadamente.
 
-O roteiro A contém tempos diferentes e uma T04 sobre **nota fiscal**, enquanto o roteiro C usa T04 sobre **aluguel de carro na Islândia**. Pois foram feitos em tempos diferentes.
+- `docs/ux01_roteiro_usabilidade.md` (UX-01.A):
+  primeira execução, utilizando o modo `--simples`,
+  com uma tarefa T04 sobre emissão de nota fiscal.
+- `docs/ux01b_validacao_acessibilidade.md` (UX-01.B):
+  sete testes de teclado e oito verificações com VoiceOver.
+- `docs/ux01c_teste_participante.md` (UX-01.C):
+  segunda execução, com uma tarefa T04 sobre
+  aluguel de carro na Islândia.
+
+Os resultados das duas execuções foram preservados
+separadamente, sem agregação das métricas.
+
+A UX-01.C foi utilizada como referência principal
+para os indicadores consolidados.
 
 ## 2. Ambiente e método
 
+### UX-01.A — Primeira execução
+
 - Data: 17/11/2026.
-- Plataforma registrada: macOS Tahoe 26.4; Terminal.app; Python 3.13.5 informado no roteiro A.
-- Participante P01, experiência prévia baixa com terminal segundo roteiro A, consentimento informado registrado em C, sem dados pessoais identificáveis.
-- Execução com P01: `python3 src/sistema.py`, conforme roteiro C; sem tecnologia assistiva e sem ajuda durante as tarefas.
-- Teclado e leitor de tela: avaliação feita separadamente pelo responsável; VoiceOver foi utilizado do MacOS, idioma de inglês/português automático e descrição da diferença entre modo normal e `--simples` não foram registrados.
-- **Branch identificada, mas SHA do commit não registrado.** Antes de publicar como evidência reprodutível, executar `git rev-parse --short HEAD` e preencher o hash do commit **efetivamente avaliado**, caso seja possível recuperá-lo. O HEAD atual não deve ser apresentado automaticamente como versão testada se houve commits posteriores.
+- Horário registrado: 15h20.
+- Sistema operacional: macOS Tahoe 26.4.
+- Aplicativo: Terminal.
+- Python: 3.13.5.
+- Modo de execução: `--simples`.
+- Identificador do participante: P01.
+- Tarefas executadas: 4.
+- Soma dos tempos das tarefas: 09:02.
+- Tempo médio por tarefa: 02:15,5.
+- Commit SHA avaliado: não registrado.
+
+### UX-01.C — Segunda execução
+
+- Data: 17/11/2026.
+- Horário: 16:05.
+- Sistema operacional: macOS Tahoe 26.4.
+- Aplicativo: Terminal.
+- Comando documentado: `python3 src/sistema.py`.
+- Identificador do participante: P01.
+- Tarefas executadas: 4.
+- Soma dos tempos das tarefas: 08:20.
+- Tempo médio por tarefa: 02:05.
+- Tecnologias assistivas utilizadas pelo participante: não.
+- Commit SHA avaliado: não registrado.
+
+### UX-01.B — Avaliação de acessibilidade
+
+- Data: 17/11/2026.
+- Horário registrado: 16h05.
+- Sistema operacional: macOS Tahoe 26.4.
+- Leitor de tela: VoiceOver.
+- Avaliação realizada separadamente pelo responsável.
+- Testes de teclado: 7.
+- Verificações com VoiceOver: 8.
+
+### Limitações de rastreabilidade
+
+As avaliações A e C correspondem a execuções distintas.
+Seus tempos e indicadores foram mantidos separadamente.
+
+O nome da branch não identifica uma versão imutável.
+Como os commits exatos das execuções não foram registrados,
+não é possível atribuir retrospectivamente um SHA
+com segurança.
 
 ## 3. Execução de tarefas com participante (UX-01.C)
 
@@ -48,6 +101,37 @@ O roteiro A contém tempos diferentes e uma T04 sobre **nota fiscal**, enquanto 
 
 **Interpretação:** todas as tarefas foram registradas como concluídas, mas houve uma dificuldade visual repetida. A localização das fontes aparece como fragilidade específica tanto na nota 3/5 quanto na não identificação da fonte em T02. A taxa de conclusão não mede qualidade da orientação, satisfação de uma população nem capacidade universal de utilização.
 
+### Evidência complementar da tarefa T04
+
+Em 19/11/2026, a tarefa T04 foi reproduzida
+tecnicamente no commit `593f7c2`, nos modos
+normal e `--simples`.
+
+Nos dois modos, o assistente reconheceu a pergunta
+fora do escopo, apresentou uma mensagem explicativa,
+permitiu listar cinco temas pelo comando `1`
+e encerrou normalmente pelo comando `0`.
+
+Identificou-se como oportunidade de melhoria
+a ausência de instrução explícita sobre como
+continuar a navegação após a mensagem de limitação.
+
+As reproduções foram realizadas pelo avaliador,
+não pelo participante P01.
+
+O formulário preenchido durante o teste original
+não registrou a sequência de comandos. Entretanto,
+o observador confirmou retrospectivamente que P01
+digitou espontaneamente `1` após receber a mensagem
+de limitação de escopo.
+
+Assim, a T04 atendeu aos dois critérios definidos:
+reconhecer a ausência de orientação confiável e
+encontrar uma alternativa para continuar navegando.
+
+A tarefa permanece classificada como
+"Concluída sem ajuda", com tempo de 03:02.
+
 ## 4. Navegação por teclado e leitor de tela (UX-01.B)
 
 | Dimensão | Resultado registrado | Interpretação |
@@ -58,7 +142,42 @@ O roteiro A contém tempos diferentes e uma T04 sobre **nota fiscal**, enquanto 
 
 As notas informais 4 e 5 da tabela de VoiceOver **não possuem escala definida** no roteiro e, portanto, não são usadas como indicador quantitativo de acessibilidade.
 
-A observação disponível indica **dificuldade na compreensão da leitura por VoiceOver**, mas **não traz transcrição do que foi falado**, versão exata do leitor, idioma de voz nem contraste descritivo entre modos. A causa raiz (programa, terminal, configurações ou leitor de tela) não foi comprovada. Apesar de o caso SR-08 ter sido classificado como aprovado, **não há evidência detalhada suficiente para afirmar que o modo `--simples` é superior**.
+A avaliação foi realizada com VoiceOver em configuração
+automática de inglês/português. A versão específica do
+leitor de tela, a configuração detalhada das vozes e os
+trechos exatos anunciados não foram registrados.
+
+As observações indicam dificuldades de compreensão
+durante a leitura por VoiceOver, mas não permitem
+determinar sua causa raiz (programa, terminal,
+configurações ou leitor de tela).
+
+Embora o caso SR-08 tenha sido classificado como
+aprovado, não há evidências comparativas suficientes
+para afirmar que o modo `--simples` apresenta
+acessibilidade superior ao modo normal.
+
+### Complementação documental — UX-01.R03
+
+Foram revisados os seis casos de VoiceOver
+classificados como "Aprovado com ressalva":
+SR-01, SR-03, SR-04, SR-05, SR-06 e SR-07.
+
+A observação geral registrada foi dificuldade
+de compreensão da apresentação textual por meio
+do leitor de tela.
+
+Como as anotações originais não detalham
+o comportamento individual de cada caso,
+foram documentados os possíveis impactos
+de usabilidade e as melhorias recomendadas.
+
+Não foram produzidas novas evidências de execução,
+transcrições de áudio ou diagnósticos de causa raiz.
+
+O detalhamento dos incidentes permanece como
+limitação metodológica para a aprovação final
+da acessibilidade.
 
 ## 5. Problemas e melhorias priorizadas
 
@@ -75,9 +194,9 @@ As melhorias acima são **recomendações**, não correções já executadas. Re
 
 1. Apenas **um participante (P01)**; não há representatividade estatística nem diversidade de habilidades comprovada.
 2. O participante P01 **não utilizou tecnologia assistiva**. Os testes de VoiceOver foram observados separadamente pelo avaliador.
-3. A avaliação de VoiceOver carece de trechos concretos de leitura, versão/idioma do leitor e comparação documentada entre modos.
+3. A avaliação do VoiceOver carece de trechos concretos de leitura, versão específica do leitor de tela, configuração detalhada das vozes e comparação documentada entre os modos normal e `--simples`.
 4. A identificação do **commit SHA testado** está ausente; o nome da branch não identifica uma versão imutável.
-5. Os registros de UX-01.A não são conciliáveis de maneira segura com UX-01.C; não foram agregados.
+5. As avaliações UX-01.A e UX-01.C foram realizadas em sessões distintas, com cenários e tempos diferentes. Por isso, seus indicadores não foram agregados nem utilizados para uma comparação direta de desempenho.
 6. Tempo de execução de tarefa humana **não é** tempo de processamento da consulta usado em métricas de algoritmo.
 7. Nenhuma melhoria de interface foi implementada ou revalidada neste relatório.
 8. A amostra não autoriza concluir que a interface atende integralmente a padrões de acessibilidade.
@@ -96,7 +215,7 @@ A avaliação disponível **atende ao núcleo de evidências previsto para UX-01
 - [x] Apontar limitações e pelo menos duas melhorias fundamentadas.
 - [ ] Acrescentar o SHA **da versão de fato testada**, caso recuperável.
 - [ ] Se possível, completar idioma/versão do VoiceOver e descrever um exemplo verificável de dificuldade.
-- [ ] Confirmar se o PR BAS-01/BUS-01 altera fluxos relevantes; repetir apenas os testes afetados após integração.
+- [ ] Conferir se as alterações integradas pelo PR #3 afetam os fluxos avaliados na UX-01 e revalidar os casos impactados, quando necessário.
 - [ ] Revisão do Danilo e merge.
 
 **Nota de integração:** este PR adiciona apenas arquivos de `docs/ux01*`, evitando editar `docs/BACKLOG.md` ou `docs/relatorio.md` enquanto outros PRs podem modificá-los. O responsável pela documentação pode incorporar esta síntese ao relatório final.

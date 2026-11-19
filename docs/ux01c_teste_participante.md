@@ -13,9 +13,10 @@ Verificar se um participante consegue utilizar a interface textual do Citizen As
 
 - **Participante:** P01 (não anotar nome nem dados pessoais).
 - **Data:** 17/11/2026
-- **Versão/commit testado:** test/ux-01-usabilidade
+- **Branch utilizada:** `test/ux-01-usabilidade`
+- **Commit SHA da sessão original:** não registrado
 - **Sistema operacional e terminal:** MacOS Tahoe 26.4 - Terminal
-- **Modo de execução:** `python3 src/sistema.py` (ou o comando que funcionar no ambiente).
+- **Modo de execução:** `python3 src/sistema.py` (modo normal).
 - **Observador:** Renato Nascimento
 - **Uso de tecnologias assistivas?** Não
 - **Participante concordou em realizar o teste?** Sim
@@ -45,7 +46,7 @@ Apresente uma tarefa por vez, utilizando apenas a coluna **Enunciado ao particip
 
 Utilize cronômetro para medir o intervalo entre a apresentação da tarefa e a tentativa de conclusão. Registre como “não concluída” quando a tarefa não terminar, mesmo que tenha consumido tempo.
 
-| ID | Conclusão (sem ajuda / com ajuda / não concluiu) | Tempo (s) | Dificuldades observadas | Identificou a fonte? (sim/não/n.a.) |
+| ID | Conclusão (sem ajuda / com ajuda / não concluiu) | Tempo (mm:ss) | Dificuldades observadas | Identificou a fonte? (sim/não/n.a.) |
 |---|---|---:|---|---|
 | T01 | Sem ajuda | 1:34 | Muita informação no menu | sim |
 | T02 | Sem ajuda | 1:56 | Muita informação no menu | não |
@@ -60,6 +61,80 @@ ____________________________________________________________________
 
 **Erros, travamentos ou comportamento inesperado:**  Nenhum
 ____________________________________________________________________
+
+### Evidência complementar — T04
+
+#### Teste original com participante P01
+
+- Data: 17/11/2026.
+- Pergunta: "Como alugar um carro na Islândia?"
+- Tempo registrado: 03:02.
+- Resultado registrado: concluído sem ajuda.
+- Dificuldade observada: excesso de informações no menu.
+- Ajuda fornecida: nenhuma.
+
+**Complementação retrospectiva do teste original — T04**
+
+No teste realizado em 17/11/2026, o participante P01
+recebeu a mensagem de limitação de escopo e, sem
+intervenção do avaliador, digitou o comando `1`
+para consultar os temas disponíveis.
+
+A tarefa foi concluída sem ajuda, em 03:02.
+
+Essa informação foi confirmada posteriormente pelo
+observador e complementa o registro original.
+Não corresponde a uma nova execução com P01.
+
+#### Reproduções técnicas posteriores
+
+- Data: 19/11/2026.
+- Commit: `593f7c2`.
+- Responsável: avaliador.
+- Modos: normal e `--simples`.
+
+Em ambos os modos:
+
+1. A pergunta sobre aluguel de carro na Islândia
+   recebeu uma mensagem de limitação de escopo.
+2. Nenhuma orientação específica ou fonte foi inventada.
+3. O comando `1` apresentou os cinco temas disponíveis.
+4. O comando `0` encerrou a aplicação normalmente.
+
+A mensagem de limitação não indicou explicitamente
+o comando `1` como alternativa de continuidade.
+
+As reproduções técnicas confirmam o comportamento
+do sistema no commit `593f7c2`, mas não constituem
+registro automático da sessão original.
+
+A utilização espontânea do comando `1` pelo
+participante P01 foi confirmada retrospectivamente
+pelo observador, conforme registrado acima.
+
+
+**Mensagem registrada nas reproduções técnicas:**
+
+> (i) Por enquanto eu só cubro situações de consumo
+> do dia a dia (compras, lojas, bares, bancos e Pix,
+> contas de luz e telefone, viagens). Para questões
+> de trabalho, família, previdência, saúde ou crimes,
+> procure a Defensoria Pública do seu estado ou um
+> advogado. Em emergência, ligue 190.
+
+Após essa mensagem, o comando `1` apresentou os
+cinco temas disponíveis:
+
+- t1 — Mercado e lojas
+- t2 — Compras pela internet
+- t3 — Bares, restaurantes e lazer
+- t4 — Bancos, contas e telefone
+- t5 — Viagens e transporte
+
+Essas saídas foram registradas na reprodução
+técnica de 19/11/2026, não na sessão original
+do participante P01.
+
 
 ## 6. Perguntas finais ao participante
 
@@ -87,9 +162,27 @@ Concluídas com ajuda: 0
 Não concluídas: 0  
 Taxa de conclusão sem ajuda: 100%  
 Taxa de conclusão total: 100%  
-Tempo médio: 02:05s  
+Tempo médio: 02:05 (125 segundos)
 
-**Interpretação baseada nas observações:**  
+**Interpretação baseada nas observações:**
+
+O participante P01 concluiu as quatro tarefas sem ajuda,
+com tempo médio de 02:05. Apesar do êxito, relatou
+dificuldade com o excesso de informações no menu,
+o espaçamento dos textos e alguns caracteres especiais.
+
+A localização das fontes mostrou-se uma oportunidade
+de melhoria, com avaliação de 3/5. Na T02, o participante
+não identificou a fonte, embora tenha concluído o
+objetivo principal da tarefa.
+
+Na T04, reconheceu a limitação de escopo e utilizou
+espontaneamente o comando `1` para continuar
+navegando, conforme confirmação posterior do observador.
+
+Esses resultados indicam que os fluxos avaliados
+foram utilizáveis pelo participante, mas não permitem
+generalizar a experiência para outros usuários.
 ____________________________________________________________________
 
 ## 8. Registro de acessibilidade já sinalizado (UX-01.B)
@@ -116,7 +209,13 @@ Após o teste, manter apenas melhorias sustentadas pelas evidências observadas 
 
 ## 11. Próximos passos
 
-- Executar com P01 e preencher resultados sem inventar dados.
-- Salvar evidências no repositório sem dados pessoais.
-- Consolidar UX-01.B + UX-01.C em UX-01.D e propor pelo menos duas melhorias fundamentadas.
-- Reexecutar tarefas afetadas por correções relevantes antes de concluir a etapa.
+- Manter as evidências de usabilidade no repositório,
+  sem dados pessoais do participante.
+- Complementar as evidências de acessibilidade
+  previstas na revisão UX-01.R03.
+- Encaminhar os resultados consolidados à DOC-01,
+  conforme a revisão UX-01.R04.
+- Reexecutar as tarefas afetadas caso alterações
+  relevantes sejam realizadas na interface.
+- Submeter a documentação à revisão do responsável
+  pela integração antes do merge.

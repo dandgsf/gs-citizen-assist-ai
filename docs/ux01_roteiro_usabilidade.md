@@ -10,7 +10,14 @@
 
 Observar se uma pessoa consegue usar a interface textual para localizar uma orientação de consumo, identificar a fonte, utilizar a verificação de condições e entender os limites da resposta. Este roteiro também prepara os campos de observação para navegação por teclado e leitor de tela, que serão executados e registrados na UX-01.B.
 
-O teste de usabilidade com pelo menos **uma pessoa real**, sem identificá-la, é exigência do backlog. Este arquivo não representa evidência de execução nem certificação de acessibilidade.
+O teste de usabilidade com pelo menos **uma pessoa real**, sem identificá-la, é exigência do backlog. Este documento apresenta o roteiro e os resultados registrados na execução UX-01.A, realizada com P01.
+
+As verificações de teclado e leitor de tela foram
+documentadas separadamente em UX-01.B.
+
+Esta avaliação não representa certificação
+de acessibilidade.
+
 
 ## 2. Preparação do ambiente
 
@@ -85,7 +92,7 @@ Apresentar **uma tarefa por vez**. Não mostrar os identificadores DB nem a seç
 - **Não concluiu:** não chegou ao objetivo mesmo após tempo ou desistência.
 - **Tempo:** medir do término da leitura do enunciado até conclusão ou desistência, em segundos. Não incluir instrução inicial.
 
-| Tarefa | Status (sem ajuda / com ajuda / não concluiu) | Tempo (s) | Caminho/pergunta digitada (sem dados pessoais) | Dificuldade observada | Ajuda oferecida? | Fonte/limite compreendido? |
+| Tarefa | Status (sem ajuda / com ajuda / não concluiu) | Tempo (mm:ss) | Caminho/pergunta digitada (sem dados pessoais) | Dificuldade observada | Ajuda oferecida? | Fonte/limite compreendido? |
 |---|---|---:|---|---|---|---|
 | T01 | Concluído | 01:50 | pergunta digitada | Nula | Não | Sim |
 | T02 | Concluído | 01:53 | pergunta digitada | Nula | Não | Sim |
@@ -133,7 +140,7 @@ Perguntar sem sugerir uma nota:
 
 ## 7. Preparação da UX-01.B — teclado e leitor de tela
 
-Estes critérios serão efetivamente testados na etapa UX-01.B:
+Os critérios de teclado e leitor de tela foram avaliados separadamente em UX-01.B. Os resultados detalhados e suas limitações estão registrados naquele documento.
 
 | Critério | Como observar | Resultado |
 |---|---|---|
@@ -147,12 +154,12 @@ Anotar **sistema operacional, aplicativo de terminal, ferramenta de leitor de te
 
 ## 8. Fechamento da UX-01 (após execução)
 
-- [ ] Registrar observação **real** de pelo menos um participante sem identificá-lo.
-- [ ] Completar a seção 8 de `docs/relatorio.md` com dados reais e síntese do teste.
-- [ ] Descrever ao menos **duas melhorias ou limitações** justificadas por observações.
-- [ ] Documentar a avaliação por teclado e leitor de tela, inclusive ferramentas e ambiente.
-- [ ] Revalidar correções eventualmente implementadas.
-- [ ] Relatar que a amostra é pequena e não permite concluir acessibilidade universal.
-- [ ] Incorporar evidências ao PR da UX-01, sem atribuir resultados ainda não medidos.
+- [X] Registrar observação **real** de pelo menos um participante sem identificá-lo.
+- [X] Completar a seção 8 de `docs/relatorio.md` com dados reais e síntese do teste.
+- [X] Descrever ao menos **duas melhorias ou limitações** justificadas por observações.
+- [X] Documentar a avaliação por teclado e leitor de tela, inclusive ferramentas e ambiente.
+- [X] Revalidar correções eventualmente implementadas.
+- [X] Relatar que a amostra é pequena e não permite concluir acessibilidade universal.
+- [X] Incorporar evidências ao PR da UX-01, sem atribuir resultados ainda não medidos.
 
 **Nota:** este roteiro foi preparado 16/11/2026. A equipe informou um PR BAS-01/BUS-01 ainda não integrado no momento do planejamento. Verificar o comportamento real da versão testada e registrar seu commit.
