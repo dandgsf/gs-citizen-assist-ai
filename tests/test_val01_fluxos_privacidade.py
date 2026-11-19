@@ -9,6 +9,7 @@ from pathlib import Path
 import subprocess
 import sys
 import unittest
+import re
 
 RAIZ = Path(__file__).resolve().parents[1]
 SRC = RAIZ / "src"
@@ -45,7 +46,11 @@ class BaseDeTeste(unittest.TestCase): #unittest para criar tests automatizados
         return subprocess.run(
             [sys.executable, str(SRC / "sistema.py"), "--simples"],
             input="\n".join(entradas) + "\n",
-            capture_output=True, text=True, cwd=str(RAIZ), timeout=10,
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+            cwd=str(RAIZ),
+            timeout=10
         )
     
 # Valida a inicialização, o aviso não oficial e o encerramento
@@ -74,7 +79,21 @@ class TesteFluxosVAL01A(BaseDeTeste): # cria uma classe de test que herda os rec
     def test_04_navegacao_relacioados(self):
         r = self.sessao(["1", "t1", "s1", "r1", "r2", "0"])
         self.assertEqual(r.returncode, 0, r.stderr)
-        # DB01 -> DB02 -> DB05: três orientações distintas por assuntos relacionados
+
+        # Captura os títulos das orientações efetivamente abertas
+        # Não considera os títulos mostrados como links relacionados
+        titulos = re.findall(
+            r"(?m)^== (.+?)\s+\(Mercado e lojas\)$",
+            r.stdout
+        )
+
+        esperados = [
+            "PREÇO DIFERENTE NA PRATELEIRA E NO CAIXA",
+            "PREÇO DIFERENTE NO CARTÃO, NO PIX OU NO DINHEIRO",
+            "VENDA CASADA E LIMITE DE QUANTIDADE"
+        ]
+        
+        self.assertEqual(titulos, esperados)
         self.assertGreaterEqual(r.stdout.count("FONTE:"), 3)
 
     def test_05_opcao_inexistente(self):
@@ -105,7 +124,14 @@ class TesteFluxosVAL01A(BaseDeTeste): # cria uma classe de test que herda os rec
 
     def test_10_pergunta_fora_do_tema(self):
         saida, atalhos = self.consulta("astronautas em plutão")
+
+        # O sistema deve informar os limites do escopo
+        self.assertIn("Por enquanto eu só cubro", saida)
+
+        # Não deve apresentar uma fonte de orientação não encontrada
         self.assertNotIn("FONTE:", saida)
+
+        # Não deve oferecer atalhos vinculados a uma resposta
         self.assertEqual(atalhos, {})
 
     def test_11_sem_resposta_confiavel(self):
@@ -275,6 +301,7 @@ class TestePrivacidadeVAL01C(BaseDeTeste):
             ],
             capture_output=True,
             text=True,
+            encoding="utf-8",
             cwd=str(RAIZ),
             timeout=10
         )
