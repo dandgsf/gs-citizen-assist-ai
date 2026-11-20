@@ -77,15 +77,16 @@ As responsabilidades abaixo são propostas e dependem de aceite dos integrantes.
 
 ### UX-01 — Avaliar usabilidade e acessibilidade
 
-**Responsável proposto:** Renato Nascimento · **Status:** A fazer
+**Responsável proposto:** Renato Nascimento · **Status:** Evidência incorporada ao relatório. Revalidação pontual pendente.
 
-- [ ] Realizar teste com pelo menos uma pessoa e preencher o formulário de usabilidade do relatório, sem identificar o participante.
-- [ ] Avaliar navegação por teclado e leitura da interface com leitor de tela, registrando ferramenta e ambiente.
-- [ ] Registrar dificuldades, pelo menos duas melhorias ou limitações e verificar novamente qualquer ajuste realizado.
+- [x] Realizar teste com pelo menos uma pessoa e preencher o formulário de usabilidade do relatório, sem identificar o participante.
+- [x] Avaliar navegação por teclado e leitura da interface com leitor de tela, registrando ferramenta e ambiente.
+- [x] Registrar dificuldades e propostas de melhoria.
+- [ ] Recuperar observações de T04 e dos casos do VoiceOver indicados. Repetir os casos necessários quando não houver registro suficiente.
 
 **Critério de conclusão:** há observação real das tarefas, evidências anonimizadas e limites de acessibilidade explícitos; um teste isolado não é apresentado como certificação.
 
-**Evidência:** a preencher — seção de usabilidade do relatório e PR.
+**Evidência:** [Relatório técnico, seção 8](relatorio.md#8-teste-de-usabilidade) · [Consolidado UX-01](ux01d_relatorio_usabilidade.md) · [PR #5](https://github.com/dandgsf/gs-citizen-assist-ai/pull/5).
 
 ### IA-01 — Comparar experimentalmente os prompts
 

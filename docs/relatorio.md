@@ -104,19 +104,18 @@ Plano: **60 perguntas de teste e regressão** (12 diretas, 16 reformulações in
 
 ## 8. Teste de usabilidade
 
-> **Preencher após o teste com pelo menos 1 pessoa real do público-alvo.**
+Em 17/11/2026, um participante anonimizado (P01) realizou quatro tarefas no Terminal do macOS. A ficha registra conclusão sem ajuda nas quatro tarefas, com tempo médio de 2 min 05 s. P01 identificou a fonte em duas das três tarefas em que isso se aplicava e avaliou a facilidade geral em 4/5.
 
-| Item | Registro |
+| Tarefa | Registro da sessão |
 |---|---|
-| Participante (sem nome; apenas perfil) | ex.: mulher, 58 anos, usa celular, nunca usou terminal |
-| Data e duração | |
-| Tarefas pedidas | 1) descobrir se é obrigada a pagar os 10%; 2) achar o que fazer num golpe de Pix; 3) usar a checagem "v" da meia-entrada |
-| Concluiu sem ajuda? | |
-| Perguntas que digitou (texto exato) | |
-| O sistema acertou? | |
-| O que achou confuso | |
-| Nota de 1 a 5 (facilidade / utilidade) | |
-| Melhoria feita a partir do teste | |
+| Taxa de serviço de 10% | Concluiu em 1 min 34 s e identificou a fonte. |
+| Golpe no Pix | Concluiu em 1 min 56 s. A fonte ficou sem identificação. |
+| Verificação de meia-entrada | Concluiu em 1 min 48 s e identificou a fonte. |
+| Consulta fora do escopo, sobre aluguel de carro na Islândia | Conclusão sem ajuda registrada em 3 min 02 s. A ficha original não documentou a mensagem nem o percurso de continuidade. Posteriormente, o observador confirmou que P01 digitou espontaneamente `1` para consultar os tópicos; uma reprodução técnica separada documentou a resposta do sistema. |
+
+A ficha registrou excesso de informação no menu. Na resposta aberta, P01 apontou a proximidade dos textos e os caracteres especiais. As propostas incluem espaçar as seções e dar mais destaque à fonte. Em uma sessão separada, o avaliador registrou sete verificações de teclado como funcionais. Oito verificações com VoiceOver foram classificadas pelo avaliador, seis com ressalvas. Os trechos anunciados, as releituras e a comparação entre os modos ainda precisam de registro por caso. O modo efetivo e o SHA da sessão com P01 não foram registrados. A amostra descreve essa sessão.
+
+[Registro do participante](ux01c_teste_participante.md) · [Validação de acessibilidade](ux01b_validacao_acessibilidade.md) · [Consolidado de usabilidade](ux01d_relatorio_usabilidade.md)
 
 ## 9. Limitações e melhorias
 
@@ -129,4 +128,4 @@ Plano: **60 perguntas de teste e regressão** (12 diretas, 16 reformulações in
 
 ## 10. Impacto social
 
-O Citizen Assist AI busca facilitar o acesso à informação de consumo (ODS 10), aos canais oficiais de reclamação (conexão complementar com ODS 16) e a orientações sobre serviços urbanos essenciais (ODS 11). A frase pronta pretende ajudar a pessoa a comunicar sua solicitação. Esse impacto ainda precisa ser avaliado com usuários; o formulário de usabilidade não contém resultados.
+O Citizen Assist AI busca facilitar o acesso à informação de consumo (ODS 10), aos canais oficiais de reclamação (conexão complementar com ODS 16) e a orientações sobre serviços urbanos essenciais (ODS 11). A frase pronta pretende ajudar a pessoa a comunicar sua solicitação. A sessão descrita na seção 8 oferece evidência inicial de usabilidade. O impacto social permanece como hipótese a avaliar com uma amostra maior.
