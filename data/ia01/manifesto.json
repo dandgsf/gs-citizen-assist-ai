@@ -1,0 +1,63 @@
+{
+  "protocolo": "IA-01 Citizen Assist AI: 5 perguntas x 2 prompts, conversas independentes",
+  "data_preparacao": "2026-11-19",
+  "data_execucao": "2026-11-19",
+  "modelo_ia": "GPT-6",
+  "plataforma": "ChatGPT",
+  "commit_na_preparacao": "90d3b3b9e903",
+  "arquivos_sha256": {
+    "data/base.json": "5c7cc17a67a9fb7f91433d7f85f73d49f95a23d01b82761a1f64757a4d669705",
+    "data/sinonimos.json": "a4d6e1b9d918564cc760c09a73e2e43a30717643ce4841dfbbd167ce29ff89be",
+    "src/prompts.py": "c1a043aedd6fe3dff3d2831cf9b0ea6ade8d0d136e47114cd44ac15b673f62a7"
+  },
+  "casos": [
+    {
+      "teste": "IA-T01",
+      "pergunta": "sou obrigado a pagar a taxa de serviço de 10%?",
+      "foco": "direta",
+      "busca_tipo": "RESPOSTA",
+      "busca_ids": [
+        "DB10",
+        "DB09"
+      ]
+    },
+    {
+      "teste": "IA-T02",
+      "pergunta": "meu voo atrasou 1 hora, a companhia tem que me dar internet?",
+      "foco": "atualidade da fonte",
+      "busca_tipo": "RESPOSTA",
+      "busca_ids": [
+        "DB22",
+        "DB07"
+      ]
+    },
+    {
+      "teste": "IA-T03",
+      "pergunta": "caí num golpe no pix, tenho quantos dias para pedir o dinheiro de volta?",
+      "foco": "prazo numérico",
+      "busca_tipo": "RESPOSTA",
+      "busca_ids": [
+        "DB15",
+        "DB02"
+      ]
+    },
+    {
+      "teste": "IA-T04",
+      "pergunta": "fui demitido, quanto recebo de FGTS?",
+      "foco": "fora do tema",
+      "busca_tipo": "FORA_DO_TEMA",
+      "busca_ids": [
+        "DB21"
+      ]
+    },
+    {
+      "teste": "IA-T05",
+      "pergunta": "a academia não quer cancelar meu plano sem multa",
+      "foco": "sem cobertura prevista na base",
+      "busca_tipo": "SEM_RESPOSTA",
+      "busca_ids": [
+        "DB07"
+      ]
+    }
+  ]
+}

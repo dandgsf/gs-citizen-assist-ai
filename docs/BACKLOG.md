@@ -89,15 +89,15 @@ As responsabilidades abaixo são propostas e dependem de aceite dos integrantes.
 
 ### IA-01 — Comparar experimentalmente os prompts
 
-**Responsável proposto:** Renato Nascimento · **Status:** A fazer
+**Responsável proposto:** Renato Nascimento · **Status:** Experimento e documentação registrados; preparado para PR com ressalvas
 
-- [ ] Executar o protocolo de cinco perguntas dos modelos A e B em conversas novas, registrando modelo, data e condições de execução.
-- [ ] Registrar as respostas e preencher a comparação em [prompts.md](prompts.md), conferindo fontes e recusas.
-- [ ] Atualizar o uso de IA e descrever os limites do validador, que não comprova fidelidade semântica.
+- [x] Executar o protocolo de cinco perguntas dos modelos A e B em conversas novas, registrando modelo, data e condições de execução.
+- [x] Registrar as respostas e preencher a comparação em [prompts.md](prompts.md), conferindo fontes e recusas.
+- [x] Atualizar o uso de IA e descrever os limites do validador, que não comprova fidelidade semântica.
 
 **Critério de conclusão:** comparação sustentada por execuções reais, com resultados inspecionáveis; expectativas e observações estão diferenciadas.
 
-**Evidência:** a preencher — respostas, tabela de comparação e PR.
+**Evidência:** [respostas e prompts](../data/ia01/) · [comparação em prompts.md](prompts.md) · [relatório IA-01](ia01_resultados.md) · [uso de IA](uso_ia.md) · PR de IA-01 (link a acrescentar após abertura). **Ressalva:** duas datas editadas manualmente; uma divergência de data gerada em T02_B.
 
 ## Documentação e entrega — Renato Valle
 

@@ -1,0 +1,158 @@
+{
+  "origem": "ia01(1).zip enviado pelo usuário; respostas preservadas no repositório original",
+  "data_experimento_declarada": "2026-11-19",
+  "status": "10 respostas originais auditadas; ajuste manual de datas nos prompts B T01 e T03 declarado; falha de copia de data em T02 B",
+  "medida_palavras": "Regex palavras() do scripts/ia01_experimento.py: A = resposta inteira, B = resposta_simples",
+  "resultados": [
+    {
+      "id": "IA-T01_A",
+      "teste": "IA-T01",
+      "modelo": "A",
+      "fonte_verificavel": "sim",
+      "inventou_algo": "nao",
+      "recusou_quando_devia": "n/a",
+      "formato": "n/a",
+      "palavras": 190,
+      "status": "texto livre",
+      "data_devolvida": "—",
+      "sha256": "4edc16f5f615c914d0cc4d3df806a7314b2cee14819ee71e6609e13ed8f5d486"
+    },
+    {
+      "id": "IA-T01_B",
+      "teste": "IA-T01",
+      "modelo": "B",
+      "fonte_verificavel": "sim",
+      "inventou_algo": "nao",
+      "recusou_quando_devia": "n/a",
+      "formato": "Sim",
+      "palavras": 69,
+      "status": "ok",
+      "data_devolvida": "2026-11-19",
+      "sha256": "6890f5ef8c6eb8d6fd4fd6049fb00d49b9d4ad433ef42faa9081507e1ea4f4c6"
+    },
+    {
+      "id": "IA-T02_A",
+      "teste": "IA-T02",
+      "modelo": "A",
+      "fonte_verificavel": "sim",
+      "inventou_algo": "nao",
+      "recusou_quando_devia": "n/a",
+      "formato": "n/a",
+      "palavras": 175,
+      "status": "texto livre",
+      "data_devolvida": "—",
+      "sha256": "cb44a691012b4793602f51e52936feb0cb671bd4f0f567b88d483777b3d1d40c"
+    },
+    {
+      "id": "IA-T02_B",
+      "teste": "IA-T02",
+      "modelo": "B",
+      "fonte_verificavel": "sim",
+      "inventou_algo": "sim",
+      "recusou_quando_devia": "n/a",
+      "formato": "Sim",
+      "palavras": 73,
+      "status": "ok",
+      "data_devolvida": "2026-11-19",
+      "sha256": "2b9f64d2cfc132a3a2bdb39a5ea5c906c746aa237b47ce3848927ee7c505f288"
+    },
+    {
+      "id": "IA-T03_A",
+      "teste": "IA-T03",
+      "modelo": "A",
+      "fonte_verificavel": "sim",
+      "inventou_algo": "nao",
+      "recusou_quando_devia": "n/a",
+      "formato": "n/a",
+      "palavras": 216,
+      "status": "texto livre",
+      "data_devolvida": "—",
+      "sha256": "efc728f321c7d5c1ed7e859e5c2394fc25608a0b8aecc4181798c8cc943da1a8"
+    },
+    {
+      "id": "IA-T03_B",
+      "teste": "IA-T03",
+      "modelo": "B",
+      "fonte_verificavel": "sim",
+      "inventou_algo": "nao",
+      "recusou_quando_devia": "n/a",
+      "formato": "Sim",
+      "palavras": 68,
+      "status": "ok",
+      "data_devolvida": "2026-11-19",
+      "sha256": "a20e64d0def284a66d9d3f066996c85e7076d2528458cbf2e41a2f41ac4623fc"
+    },
+    {
+      "id": "IA-T04_A",
+      "teste": "IA-T04",
+      "modelo": "A",
+      "fonte_verificavel": "sim",
+      "inventou_algo": "nao",
+      "recusou_quando_devia": "nao",
+      "formato": "n/a",
+      "palavras": 235,
+      "status": "texto livre",
+      "data_devolvida": "—",
+      "sha256": "9a1a33523c43fbac54806a981668460401d30425769b113514e04ba1c97ec76b"
+    },
+    {
+      "id": "IA-T04_B",
+      "teste": "IA-T04",
+      "modelo": "B",
+      "fonte_verificavel": "n/a",
+      "inventou_algo": "nao",
+      "recusou_quando_devia": "sim",
+      "formato": "Sim",
+      "palavras": 16,
+      "status": "sem_informacao",
+      "data_devolvida": "",
+      "sha256": "3ae5a2179312f645005453e8081fc9a5b3a1148d58bfac9b7aac2fa63c35fed3"
+    },
+    {
+      "id": "IA-T05_A",
+      "teste": "IA-T05",
+      "modelo": "A",
+      "fonte_verificavel": "sim",
+      "inventou_algo": "nao",
+      "recusou_quando_devia": "nao",
+      "formato": "n/a",
+      "palavras": 254,
+      "status": "texto livre",
+      "data_devolvida": "—",
+      "sha256": "37ed01004133d0fe28c40cda527a608318a54ed5a4ae5377d4b48b93b4d43e13"
+    },
+    {
+      "id": "IA-T05_B",
+      "teste": "IA-T05",
+      "modelo": "B",
+      "fonte_verificavel": "n/a",
+      "inventou_algo": "nao",
+      "recusou_quando_devia": "sim",
+      "formato": "Sim",
+      "palavras": 19,
+      "status": "sem_informacao",
+      "data_devolvida": "",
+      "sha256": "6d9869686c6ffffd9fb0186831b1322920ed81713f646ae5ab0023ab78cb5f53"
+    }
+  ],
+  "proveniencia_datas": {
+    "T01_B": {
+      "prompts_10": "2026-11-16",
+      "arquivo_individual": "2026-11-19",
+      "resposta": "2026-11-19",
+      "origem_da_diferenca": "edição manual declarada pelo operador"
+    },
+    "T02_B": {
+      "prompts_10": "2026-11-16",
+      "arquivo_individual": "2026-11-16",
+      "resposta": "2026-11-19",
+      "origem_da_diferenca": "modelo devolveu data diferente do registro fornecido"
+    },
+    "T03_B": {
+      "prompts_10": "2026-11-16",
+      "arquivo_individual": "2026-11-19",
+      "resposta": "2026-11-19",
+      "origem_da_diferenca": "edição manual declarada pelo operador"
+    }
+  }
+}

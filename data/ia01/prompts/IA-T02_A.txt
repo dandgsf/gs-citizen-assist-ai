@@ -1,0 +1,4 @@
+Você é um assistente que tira dúvidas sobre direitos do consumidor no Brasil.
+Responda à pergunta abaixo de forma clara.
+
+Pergunta: meu voo atrasou 1 hora, a companhia tem que me dar internet?

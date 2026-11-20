@@ -1,0 +1,8 @@
+{
+  "status": "sem_informacao",
+  "resposta_simples": "Não foi encontrado um registro confiável para informar se a academia pode cobrar multa pelo cancelamento do seu plano.",
+  "frase_pronta": "",
+  "fonte": "",
+  "data_verificacao": "",
+  "aviso": "Orientação informativa; não substitui Procon, Defensoria ou advogado."
+}
