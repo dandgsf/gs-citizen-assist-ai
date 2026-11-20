@@ -158,7 +158,7 @@ Anotar **sistema operacional, aplicativo de terminal, ferramenta de leitor de te
 - [X] Completar a seção 8 de `docs/relatorio.md` com dados reais e síntese do teste.
 - [X] Descrever ao menos **duas melhorias ou limitações** justificadas por observações.
 - [X] Documentar a avaliação por teclado e leitor de tela, inclusive ferramentas e ambiente.
-- [X] Revalidar correções eventualmente implementadas.
+- [X] Revalidar correções eventualmente implementadas não aplicável nesta entrega
 - [X] Relatar que a amostra é pequena e não permite concluir acessibilidade universal.
 - [X] Incorporar evidências ao PR da UX-01, sem atribuir resultados ainda não medidos.
 

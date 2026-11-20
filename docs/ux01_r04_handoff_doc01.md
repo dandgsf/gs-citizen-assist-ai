@@ -40,7 +40,7 @@ A avaliação específica de acessibilidade (UX-01.B), realizada separadamente p
 
 ## 4. Encaminhamentos para DOC-01
 
-1. **Relatório final:** incorporar síntese compacta da seção 2, distinguindo as duas sessões, métodos, indicadores, limitações e melhorias. A seção 8 de `docs/relatorio.md` do ZIP inicial era um formulário; verificar a estrutura da versão corrente antes de substituir qualquer trecho.
+1. **Relatório final:** [Veja o relatório](relatorio.md) em na seção 8 do relatório técnico. DOC-01 fica responsável por verificar ao exportar o PDF, incluindo os números e as limitações. O encaminhamento reflete o que já entrou no relatório.
 2. **README:** quando a revisão for aprovada, apontar para `docs/ux01d_relatorio_usabilidade.md` e informar que houve teste com participante, mas que as melhorias de acessibilidade são recomendações, não correções.
 3. **Backlog:** manter UX-01 como **Em revisão/Aguardando integração** até aprovação do responsável; não assinalar como concluída por causa apenas deste resumo.
 4. **PDF final:** preservar distinção entre resultados observados e limitações, compatibilizando texto e números com o README e com a versão definitiva do código.
