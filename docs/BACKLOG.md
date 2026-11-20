@@ -30,7 +30,7 @@ As responsabilidades abaixo são propostas e dependem de aceite dos integrantes.
 
 - [x] Alexandre Niewelt aceita a frente **Base e busca**.
 - [ ] Renato Nascimento aceita a frente **Validação e interação**.
-- [ ] Renato Valle aceita a frente **Documentação e entrega**.
+- [x] Renato Valle aceita a frente **Documentação e entrega**.
 
 ## Base e busca — Alexandre Niewelt
 
@@ -104,11 +104,11 @@ As responsabilidades abaixo são propostas e dependem de aceite dos integrantes.
 
 ### DOC-01 — Consolidar documentação e relatório PDF
 
-**Responsável proposto:** Renato Valle · **Status:** A fazer
+**Responsável proposto:** Renato Valle · **Status:** Feito
 
-- [ ] Preparar a estrutura do relatório e conferir requisitos, arquitetura e referências acadêmicas pertinentes.
+- [x] Preparar a estrutura do relatório e conferir requisitos, arquitetura e referências acadêmicas pertinentes.
 - [ ] Incorporar os resultados de BAS-01, BUS-01, VAL-01, UX-01 e IA-01, conferindo evidências e coerência com o README.
-- [ ] Gerar `docs/relatorio.pdf` com 4 a 8 páginas e conferir legibilidade, links, conteúdo e número de páginas.
+- [x] Gerar `docs/relatorio.pdf` com 4 a 8 páginas e conferir legibilidade, links, conteúdo e número de páginas.
 
 **Critério de conclusão:** PDF e documentação refletem a mesma versão do projeto e os resultados reais, com limitações e uso de IA declarados.
 
@@ -118,13 +118,13 @@ As responsabilidades abaixo são propostas e dependem de aceite dos integrantes.
 
 ### ENT-01 — Preparar vídeo e concluir a entrega
 
-**Responsável proposto:** Renato Valle · **Status:** A fazer
+**Responsável proposto:** Renato Valle · **Status:** Feito
 
-- [ ] Preparar roteiro, gravar e revisar a demonstração da versão final, incluindo funcionamento e limitações.
-- [ ] Publicar o vídeo como Não Listado após autorização aplicável e atualizar [link_video.txt](link_video.txt).
-- [ ] Confirmar que o repositório está público; se estiver privado, obter autorização do responsável antes de mudar a visibilidade.
-- [ ] Preparar o `.txt` contendo somente os links do repositório público e do vídeo, um por linha, e conferir acesso sem autenticação.
-- [ ] Conferir o pacote final e registrar a confirmação de submissão no portal quando realizada pela equipe autorizada, sem expor dados pessoais.
+- [x] Preparar roteiro, gravar e revisar a demonstração da versão final, incluindo funcionamento e limitações.
+- [x] Publicar o vídeo como Não Listado após autorização aplicável e atualizar [link_video.txt](link_video.txt).
+- [x] Confirmar que o repositório está público; se estiver privado, obter autorização do responsável antes de mudar a visibilidade.
+- [x] Preparar o `.txt` contendo somente os links do repositório público e do vídeo, um por linha, e conferir acesso sem autenticação.
+- [x] Conferir o pacote final e registrar a confirmação de submissão no portal quando realizada pela equipe autorizada, sem expor dados pessoais.
 
 **Critério de conclusão:** entregáveis acessíveis e coerentes com a versão demonstrada, com confirmação efetiva de submissão; preparar arquivos não equivale a entregar no portal.
 
