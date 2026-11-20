@@ -75,7 +75,7 @@ python src/prompts.py "sou obrigado a pagar 10% do garçom?"
 | Linguagem simples | Variável | Exigida (regra 4) |
 | Custo | Depende do serviço e modelo escolhidos | Depende do serviço, modelo e tamanho da entrada |
 
-Essas diferenças descrevem os prompts e hipóteses de projeto, sem resultados experimentais. Nenhum deles garante uma resposta correta: o Modelo B também depende da seleção do registro e da revisão humana da base.
+A tabela de expectativas anterior descreve hipóteses de projeto; os resultados experimentais reais estão registrados mais abaixo. Nenhum deles garante uma resposta correta: o Modelo B também depende da seleção do registro e da revisão humana da base.
 
 ## Experimento de comparação (protocolo)
 
@@ -93,15 +93,15 @@ Para cada resposta, marque: (a) citou fonte verificável? (b) inventou algo que 
 
 | # | Modelo | Fonte verificável | Inventou algo | Recusou quando devia | Formato OK | Palavras |
 |---|---|---|---|---|---|---|
-| 1 | A | | | n/a | n/a | |
-| 1 | B | | | n/a | | |
-| 2 | A | | | n/a | n/a | |
-| 2 | B | | | n/a | | |
-| 3 | A | | | n/a | n/a | |
-| 3 | B | | | n/a | | |
-| 4 | A | | | | n/a | |
-| 4 | B | | | | | |
-| 5 | A | | | | n/a | |
-| 5 | B | | | | | |
+| 1 | A | Sim | Não | n/a | n/a | 190 |
+| 1 | B | Sim | Não | n/a | Sim | 69 |
+| 2 | A | Sim | Não | n/a | n/a | 175 |
+| 2 | B | Sim | Sim | n/a | Sim | 73 |
+| 3 | A | Sim | Não | n/a | n/a | 216 |
+| 3 | B | Sim | Não | n/a | Sim | 68 |
+| 4 | A | Sim | Não | Não | n/a | 235 |
+| 4 | B | n/a | Não | Sim | Sim | 16 |
+| 5 | A | Sim | Não | Não | n/a | 254 |
+| 5 | B | n/a | Não | Sim | Sim | 19 |
 
-> **Pendente:** preencher esta tabela com a execução real (modelo usado, data). Registrar também em `docs/uso_ia.md`.
+> **Execução IA-01 (19/11/2026):** 10 respostas originais registradas, comparação preenchida. T01_B/T03_B tiveram `data_verificacao` ajustada manualmente nos prompts individuais; T02_B devolveu data diferente daquela fornecida. Consulte [resultado e auditoria](ia01_resultados.md) e [uso de IA](uso_ia.md). JSON válido não significa aceitação pelo validador nem fidelidade jurídica.

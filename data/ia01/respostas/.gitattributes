@@ -1,0 +1,2 @@
+# Preserve original model-output spacing in experimental evidence.
+*.txt whitespace=-blank-at-eol

@@ -1,0 +1,8 @@
+{
+  "status": "ok",
+  "resposta_simples": "Não. A taxa de serviço de 10% é uma gorjeta e não é obrigatória. O restaurante deve informar claramente que ela é opcional, seja no cardápio ou na conta. Você pode pedir para retirar os 10% sem problemas. Mas o valor da comida e das bebidas que você consumiu continua obrigatório. A gorjeta é uma forma de reconhecer o trabalho da equipe, mas a decisão de pagar é sua.",
+  "frase_pronta": "A taxa de serviço é opcional. Peço, por favor, que retirem os 10% da conta.",
+  "fonte": "Lei nº 13.419/2017 (gorjeta); Código de Defesa do Consumidor, art. 6º, III (informação clara); orientação do Idec e dos Procons",
+  "data_verificacao": "2026-11-19",
+  "aviso": "Orientação informativa; não substitui Procon, Defensoria ou advogado."
+}

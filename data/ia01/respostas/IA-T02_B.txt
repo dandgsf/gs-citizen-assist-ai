@@ -1,0 +1,8 @@
+{
+  "status": "ok",
+  "resposta_simples": "Não. Desde 26/10/2026, a companhia aérea não é mais obrigada a oferecer internet ou outras facilidades de comunicação após 1 hora de atraso. Porém, você tem direito à alimentação a partir de 2 horas de espera. A partir de 4 horas, pode ter direito à hospedagem com transporte, se precisar passar a noite. Se o atraso ultrapassar 4 horas, você pode escolher entre reacomodação, reembolso integral ou outro meio de transporte.",
+  "frase_pronta": "Com base na Resolução ANAC 400/2016, atualizada pela Resolução 813/2026, solicito a assistência material devida pelo tempo de espera e, se o atraso passar de 4 horas, a opção de reacomodação ou reembolso.",
+  "fonte": "Resolução ANAC nº 400/2016, com alterações da Resolução nº 813/2026",
+  "data_verificacao": "2026-11-19",
+  "aviso": "Orientação informativa; não substitui Procon, Defensoria ou advogado."
+}

@@ -1,0 +1,8 @@
+{
+  "status": "sem_informacao",
+  "resposta_simples": "Não foi encontrado um registro confiável para informar quanto você recebe de FGTS após a demissão.",
+  "frase_pronta": "",
+  "fonte": "",
+  "data_verificacao": "",
+  "aviso": "Orientação informativa; não substitui Procon, Defensoria ou advogado."
+}

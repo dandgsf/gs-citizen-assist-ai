@@ -1,0 +1,8 @@
+{
+  "status": "ok",
+  "resposta_simples": "Você tem até 80 dias após a transferência para pedir a devolução de um Pix feito por golpe. Faça a contestação pelo Mecanismo Especial de Devolução (MED), na área Pix do aplicativo do seu banco. Quanto antes você pedir, maior a chance de recuperar o dinheiro. Os bancos têm até 7 dias para analisar. A devolução não é garantida, pois depende de haver saldo na conta de destino.",
+  "frase_pronta": "Fui vítima de golpe e quero abrir uma contestação pelo Mecanismo Especial de Devolução (MED) do Pix, conforme o regulamento do Banco Central.",
+  "fonte": "Regulamento do Pix – Mecanismo Especial de Devolução (MED), Banco Central do Brasil",
+  "data_verificacao": "2026-11-19",
+  "aviso": "Orientação informativa; não substitui Procon, Defensoria ou advogado."
+}
